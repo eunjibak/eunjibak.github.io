@@ -529,6 +529,10 @@
             <p>하지만 결국 만들지 않았다. 에이전트 UX에 더 적합한 방식을 고민한 결과였다. 웹앱에 접속해서 확인하고 사용자가 데이터를 다시 해석하거나, 서비스 제공자가 정해둔 방식대로만 읽히는 대시보드. 그 구조 자체가 이 프로젝트 취지에 맞지 않았다.</p>
             <p>구현한 두 가지 구조.</p>
           </div>
+          <figure>
+              <img src="../../assets/images/agentcat/dashboard.png" alt="대시보드 시도" style="max-width:320px;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
+              <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">대시보드 실험</figcaption>
+          </figure>
 
           <h4 class="sub-subsection-title">patterns.md: 금동이의 관찰 노트</h4>
           <div class="prose">
@@ -599,8 +603,16 @@
             <p>에이전트를 처음 만들 때는 사용자가 #태그와 감정 점수를 직접 입력하도록 설계했다. 지금은 사용자가 자연어로 아무 말이나 던지면 LLM이 맥락을 읽고 자동 분류한다.</p>
             <p>입력 첫 버전:</p>
             <pre><code>#에이전트 오늘 기획작업을 마쳤다 🐱🐱🐱🐱</code></pre>
+            <figure>
+              <img src="../../assets/images/agentcat/telegram_hashtag.png" alt="해시태그로 입력" style="max-width:320px;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
+              <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">해시태그로 입력, 감정 레벨도 직접 입력</figcaption>
+            </figure>
             <p>현재 버전:</p>
             <pre><code>오늘 피그마 컴포넌트 정리 끝!</code></pre>
+            <figure>
+              <img src="../../assets/images/agentcat/raw_to_structured.png" alt="llm이 분석" style="max-width:320px;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
+              <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">llm이 분석</figcaption>
+            </figure>
             <p>→ 시스템이 알아서: <code>action=실행</code>, <code>emotion=기쁨</code>, <code>north_star=agentcat</code> 으로 분류.</p>
           </div>
 
@@ -756,6 +768,18 @@
                 </tbody>
               </table>
             </div>
+            <figure>
+              <img src="../../assets/images/agentcat/only_data.png" alt="데이터만 출력" style="max-width:320px;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
+              <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">데이터만 출력</figcaption>
+            </figure>
+            <figure>
+              <img src="../../assets/images/agentcat/before_llm.png" alt="금동이 말투로 분석 나열" style="max-width:320px;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
+              <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">금동이 말투로 분석 나열</figcaption>
+            </figure>
+             <figure>
+              <img src="../../assets/images/agentcat/after_llm.png" alt="금동이가 지켜본다는 편지 형식" style="max-width:320px;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
+              <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">금동이가 지켜본다는 편지 형식</figcaption>
+            </figure>
             <p>같은 데이터라도 누가, 어떤 자격으로 말하는가가 체감의 질을 결정한다는 걸 확인한 과정이었다.</p>
             <p>참고로 Openclaw도 Soul이라는 이름의 에이전트 정체성 레이어를 채택하고 있고, 에이전트 아이덴티티 설계는 업계에서 다양한 형태로 시도되고 있다. 이 프로젝트의 금동이는 그 논의에 개인 회고 에이전트의 한 사례로 얹는 것.</p>
           </div>
@@ -790,6 +814,10 @@
                 </tbody>
               </table>
             </div>
+            <figure>
+              <img src="../../assets/images/agentcat/cat_voice.png" alt="고양이 소리" style="max-width:320px;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
+              <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">고양이 소리</figcaption>
+            </figure>
             <p>이 소리들의 핵심은 범용 브랜딩이 아니라 나에게만 완벽히 작동하는 개인적 기호라는 점이다. 마지막 두 소리는 실제로 내가 키우는 고양이가 그 상황에서 내는 소리를 그대로 가져온 것. 다른 사용자가 봤을 때는 그저 재미있는 의성어지만, 나에게는 이미 감정적 맥락이 형성되어 있는 신호다.</p>
             <p>우르르르릉?을 들으면 실제 고양이의 물음표 섞인 표정이 떠오른다. 그래서 이 소리는 단순한 감정 표현이 아니라 판단이 아니라 관찰이라는 신호가 된다. 물음표로 끝나는 이유, 추궁처럼 읽히지 않는 이유도 여기에 있다. 이야아아아오오오옹!도 마찬가지다. 오래 참다가 터뜨리는 이 표현은, 미뤘던 일을 마침내 해낸 순간에 가장 적확한 감정 묘사가 된다.</p>
             <div class="callout"><strong>개인 에이전트일수록 범용화되지 않은 개인 기호가 강력하게 작동한다.</strong> 이게 설계하면서 알게 된 지점 중 하나다.</div>
