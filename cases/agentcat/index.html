@@ -14,6 +14,7 @@
     <div class="container-wide nav-inner">
       <a href="../../" class="nav-brand">eunji bak</a>
       <div class="nav-links">
+        <a href="../../#writing">Writing</a>
         <a href="../../#cases">Cases</a>
         <a href="https://www.linkedin.com/in/eunjibak" target="_blank" rel="noopener">LinkedIn</a>
       </div>
@@ -44,13 +45,14 @@
           <li>"마음을 읽는 것 같다"는 체감 확인</li>
         </ul>
 
-        <div class="tldr-result-title">디자이너 관점의 네 가지 인사이트 (섹션 5)</div>
+        <div class="tldr-result-title">디자이너 관점의 네 가지 인사이트</div>
         <ul class="tldr-list">
           <li>태그 입력에서 raw 입력으로: 인간이 분류해서 넣는 게 아니라, 인간이 raw로 던지고 시스템이 분류한다</li>
           <li>확정적 화면에서 가변적 정보로: 대시보드 대신 질문 시점에 구성되는 응답</li>
           <li>친밀감을 부여하는 작업: 개인 에이전트는 범용 브랜딩보다 사용자 맥락의 개인 기호일수록 강하게 작동한다</li>
           <li>과도한 개입 방지: 침묵의 설계가 발화의 설계보다 어려울 수 있다</li>
         </ul>
+        <p style="font-size:14px;color:var(--ink-muted);margin-top:8px;">→ <a href="/writing/" style="border-bottom:1px solid var(--ink-muted);">Writing에서 각 글로 읽기</a></p>
 
         <div class="prose" style="margin-top:24px;">
           <p>이 프로젝트의 5단계 틀(입력→상태→정책→실행→학습)은 개인 회고에 한정되지 않는다. 개인 퀀트 트레이딩 시스템과 거의 동일한 골격이며, 소비 가계부·성장 기록 등 다른 개인 영역으로도 확장 가능한 프레임이다.</p>
@@ -397,7 +399,7 @@
               </table>
             </div>
             <p>같은 데이터라도 누가, 어떤 자격으로 전달하는가가 몰입의 질을 결정한다. Openclaw도 Soul이라는 이름의 에이전트 정체성 레이어를 채택한다. 에이전트 아이덴티티 부여는 필수 설계에 가깝다.</p>
-            <p>*금동이의 구체적인 성격·말투·개입 철학은 섹션 5-3에서 상세히 다룬다.</p>
+            <p>*금동이의 구체적인 성격·말투·개입 철학은 <a href="/writing/agent-identity/" style="border-bottom:1px solid var(--ink-muted);">Writing — 친밀감을 부여하는 작업</a>에서 다룬다.</p>
           </div>
         </div>
 
@@ -558,7 +560,7 @@
           </figure>
 
           <div class="prose">
-            <p>이 설계 판단의 배경과 UX 원칙은 섹션 5-2에서 상세히 다룬다.</p>
+            <p>이 설계 판단의 배경과 UX 원칙은 <a href="/writing/fixed-to-dynamic/" style="border-bottom:1px solid var(--ink-muted);">Writing — 확정적 화면에서 가변적 정보로</a>에서 다룬다.</p>
           </div>
         </div>
 
@@ -576,8 +578,9 @@
       </div>
     </section>
 
+
     <!-- ====================================================
-         SECTION 5
+         SECTION 5 — Writing links
          ==================================================== -->
     <section class="section">
       <div class="container">
@@ -585,378 +588,54 @@
         <h2 class="section-title">프로덕트 디자이너로서 느낀<br>에이전트 UX 인사이트</h2>
 
         <div class="prose">
-          <p>이 섹션이 이 프로젝트에서 가장 기록해두고 싶었던 부분이다. 13년간 브랜드 디자이너, 그래픽 디자이너, 웹 에이전시 PM, B2B SaaS 프로덕트 디자이너, 프리랜서로 업의 성격이 바뀔 때마다 이전의 감각 위에 새로운 지능을 조합했다. 이번 전환도 같은 궤적의 연장선이다. 이 프로젝트로 얻은 네 가지 사고 전환을 기록한다.</p>
-          <ul>
-            <li>5-1. 태그 입력에서 raw 입력으로</li>
-            <li>5-2. 확정적 화면에서 가변적 정보로</li>
-            <li>5-3. 친밀감을 부여하는 작업: 아이덴티티와 톤앤매너</li>
-            <li>5-4. 과도한 개입 방지: 정책으로 푸는 문제</li>
-          </ul>
+          <p>이 프로젝트에서 가장 기록해두고 싶었던 부분. 13년간 업의 성격이 바뀔 때마다 이전의 감각 위에 새로운 지능을 조합해왔다. 에이전트 전환도 같은 궤적의 연장선이다. 네 가지 사고 전환을 별도의 글로 기록했다.</p>
         </div>
 
-        <!-- 5-1 -->
-        <div class="subsection">
-          <h3 class="subsection-title">5-1. 태그 입력 구조에서 raw 입력 구조로</h3>
-
-          <h4 class="sub-subsection-title">무엇이 바뀌었나</h4>
-          <div class="prose">
-            <p>에이전트를 처음 만들 때는 사용자가 #태그와 감정 점수를 직접 입력하도록 설계했다. 지금은 사용자가 자연어로 아무 말이나 던지면 LLM이 맥락을 읽고 자동 분류한다.</p>
-            <p>입력 첫 버전:</p>
-            <pre><code>#에이전트 오늘 기획작업을 마쳤다 🐱🐱🐱🐱</code></pre>
-            <figure>
-              <img src="../../assets/images/agentcat/telegram_hashtag.png" alt="해시태그로 입력" style="max-width:320px;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
-              <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">해시태그로 입력, 감정 레벨도 직접 입력</figcaption>
-            </figure>
-            <p>현재 버전:</p>
-            <pre><code>오늘 피그마 컴포넌트 정리 끝!</code></pre>
-            <figure>
-              <img src="../../assets/images/agentcat/raw_to_structured.png" alt="llm이 분석" style="max-width:320px;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
-              <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">llm이 분석</figcaption>
-            </figure>
-            <p>→ 시스템이 알아서: <code>action=실행</code>, <code>emotion=기쁨</code>, <code>north_star=agentcat</code> 으로 분류.</p>
-          </div>
-
-          <h4 class="sub-subsection-title">왜 이게 어려웠나: 디자이너에게 특히</h4>
-          <div class="prose">
-            <p>개발 경험 없이 LLM의 도움만으로 첫 버전을 만들었다. 기존의 워크플로우대로 기획서를 적고, 기존의 회고 입력을 기반으로 구현에 성공했지만 이상하게 불편했다. 한 문장으로 말하면 알아서 분류해주면 될 일을, 왜 내가 태그를 고르고 이모지 개수를 세고 있지? 그 지점에서 처음으로 내가 짜놓은 구조가 잘못됐다는 걸 의심하게 됐다.</p>
-            <p>왜 이 사고 전환이 특히 디자이너에게 어려운지, 만들고 나서야 보였다.</p>
-            <div class="table-wrap">
-              <table>
-                <thead><tr><th>기존 UX 사고</th><th>에이전트 UX 사고</th></tr></thead>
-                <tbody>
-                  <tr><td>사용자 → 인터페이스 → 결과</td><td>사용자 → 상태 → 판단 → 개입 → 패턴 변화</td></tr>
-                  <tr><td>어떤 버튼을 만들어야 하는가?</td><td>언제 말해야 하고 언제 침묵해야 하는가?</td></tr>
-                  <tr><td>어디서 이탈하는가?</td><td>사용자의 패턴은 무엇인가?</td></tr>
-                  <tr><td>정해진 필드에 사용자가 맞춰 입력</td><td>사용자가 던진 말을 시스템이 해석</td></tr>
-                </tbody>
-              </table>
+        <div style="margin-top: 32px;">
+          <a href="/writing/tag-to-raw/" class="case-card" style="border-top: 1px solid var(--line);">
+            <div class="case-card-grid">
+              <div class="case-num">01</div>
+              <div class="case-body">
+                <h3 class="case-title" style="font-size: 20px;">태그 입력에서 raw 입력으로</h3>
+                <p class="case-desc" style="margin-bottom:0;">인간이 분류해서 시스템에 넣는 방식에서, 인간이 raw로 던지고 시스템이 분류하는 방식으로.</p>
+              </div>
+              <div class="case-arrow" aria-hidden="true">→</div>
             </div>
-            <p>디자이너는 늘 완성된 화면에서 역으로 기초 구조를 짜는 습관이 있다. 사용자 눈에 마지막으로 닿는 장면을 먼저 그리고, 거기서 역으로 플로우와 데이터 구조를 설계한다. 이 관성이 에이전트를 만들 때도 그대로 작동했다.</p>
-            <p>텔레그램에서 태그 선택, 이모지로 감정 점수, 스프레드시트 특정 열에 값이 들어가는 흐름. 당시엔 이걸 사용자 입장에서 잘 설계된 흐름이라고 믿었다. 확정적인 UI 흐름에 사고가 갇혀 있었기 때문이다.</p>
-          </div>
-
-          <h4 class="sub-subsection-title">어떻게 전환했나</h4>
-          <div class="prose">
-            <ul>
-              <li>입력단: #태그와 이모지 수치에서 자연어 한 문장으로</li>
-              <li>해석단: 사용자가 기입한 드롭다운 값에서 LLM이 문맥에서 추출한 태그로 (action / direction / emotion / north_star)</li>
-              <li>출력단: 고정 컬럼 조회에서 필요할 때 필요한 데이터만 조합해서 답변으로</li>
-            </ul>
-            <p>중요한 변화는 단순한 입력 간소화가 아니다. 인간이 분류해서 시스템에 넣어주는 것에서 인간이 raw 상태로 던지고 시스템이 분류하는 것으로, 책임의 주체가 바뀐 것이다.</p>
-          </div>
-
-          <h4 class="sub-subsection-title">왜 이게 디자이너에게 중요한 인사이트인가</h4>
-          <div class="prose">
-            <p>이 전환을 받아들이면 디자이너의 일이 근본적으로 달라진다.</p>
-            <div class="table-wrap">
-              <table>
-                <thead><tr><th>과거 디자이너의 일</th><th>앞으로 디자이너의 일</th></tr></thead>
-                <tbody>
-                  <tr><td>입력 필드를 설계 (드롭다운, 라디오 버튼)</td><td>AI가 오해했을 때의 1-step 확인 UX 설계</td></tr>
-                  <tr><td>에러 메시지를 쓰는 일</td><td>시스템이 정중하게 되묻는 정책을 설계하는 일</td></tr>
-                  <tr><td>정해진 형식대로 입력하세요</td><td>무엇이든 던지세요, 제가 해석하겠습니다</td></tr>
-                </tbody>
-              </table>
+          </a>
+          <a href="/writing/fixed-to-dynamic/" class="case-card">
+            <div class="case-card-grid">
+              <div class="case-num">02</div>
+              <div class="case-body">
+                <h3 class="case-title" style="font-size: 20px;">확정적 화면에서 가변적 정보로</h3>
+                <p class="case-desc" style="margin-bottom:0;">대시보드 대신 질문 시점에 구성되는 응답으로.</p>
+              </div>
+              <div class="case-arrow" aria-hidden="true">→</div>
             </div>
-            <p>기존 UX가 Input Validation(입력 제한) 중심이었다면, 에이전트 UX는 Intent Interpretation(의도 해석) 중심이다. 입력을 제한해서 에러를 줄이는 대신, 의도를 해석해서 맥락을 맞춘다.</p>
-          </div>
-
-          <h4 class="sub-subsection-title">예시: 인식의 확장</h4>
-          <div class="prose">
-            <p>이 사고 전환은 에이전트에만 적용되지 않는다. 모든 필드를 필수로 채워야 답을 얻고, 1 선택, 2 선택, 다음, 확인으로 진행되는 기존 서비스의 워크플로우 전체가 사용자 관점에서 이미 무거워지고 있다.</p>
-            <p>사용자는 이미 맥락이 빠진 자연어로 말해도 숨겨진 의도까지 추론해서 제안받는 경험을 하고 있다. 확정적인 화면과는 다른 흐름이 이미 도래한 것이다.</p>
-            <blockquote>단순 개인화를 넘어, 원석과 재료로 현재의 나에게 맞게 늘 가공하는 것. 그게 raw 기반 UX의 본질이다.</blockquote>
-          </div>
-        </div>
-
-        <hr class="divider">
-
-        <!-- 5-2 -->
-        <div class="subsection">
-          <h3 class="subsection-title">5-2. 확정적 화면에서 가변적 정보로</h3>
-
-          <h4 class="sub-subsection-title">무엇이 바뀌었나</h4>
-          <div class="prose">
-            <p>머물러 있는 정보를 고정 화면으로 보여주는 방식에서, 사용자의 질문이 들어온 순간에 필요한 데이터를 조합해 응답하는 방식으로 전환했다. 대시보드를 설계하지 않고 patterns.md와 /ask로 대체한 선택이 그 결과다.</p>
-            <ul>
-              <li>기존: 이 화면을 열면 항상 같은 방식으로 정리된 정보가 보인다</li>
-              <li>현재: 필요한 순간에 필요한 질문을 던지면, 그 질문에 맞는 정보가 그때 구성된다</li>
-            </ul>
-          </div>
-
-          <h4 class="sub-subsection-title">왜 이게 디자이너에게 낯선가</h4>
-          <div class="prose">
-            <p>디자이너로 일할 때 강한 습관이 하나 있었다. 마지막으로 사용자 눈에 닿는 장면을 먼저 그리는 것. 플로우를 예상하고, 화면을 구성하고, 거기서 역으로 설계하는 방식. 그 관성이 에이전트를 만들 때도 그대로 발동했다. 자꾸 어떻게 보여줄까부터 생각하게 됐다.</p>
-            <p>하지만 사용자는 이미 다른 방식에 익숙해지고 있다.</p>
-            <blockquote>AI는 60년 만의 새로운 UI 패러다임이다. 사용자가 컴퓨터에게 '어떻게 하라'가 아니라 '무엇을 원한다'고 말하는 방식으로 제어의 무게중심이 이동하고 있다.<br>— Jakob Nielsen, Nielsen Norman Group</blockquote>
-            <p>이 변화의 구체적 형태는 이렇다.</p>
-            <div class="table-wrap">
-              <table>
-                <thead><tr><th>기존 패러다임</th><th>에이전트 패러다임</th></tr></thead>
-                <tbody>
-                  <tr><td>Input Validation (입력 제한)</td><td>Intent Interpretation (의도 해석)</td></tr>
-                  <tr><td>정해진 화면과 필터</td><td>질문 시점에 생성되는 응답</td></tr>
-                  <tr><td>사용자가 해석 기준을 학습</td><td>사용자 질문에 해석이 맞춰짐</td></tr>
-                  <tr><td>기능을 꺼내 쓰는 도구</td><td>말을 걸어오는 환경</td></tr>
-                </tbody>
-              </table>
+          </a>
+          <a href="/writing/agent-identity/" class="case-card">
+            <div class="case-card-grid">
+              <div class="case-num">03</div>
+              <div class="case-body">
+                <h3 class="case-title" style="font-size: 20px;">친밀감을 부여하는 작업</h3>
+                <p class="case-desc" style="margin-bottom:0;">같은 데이터라도 누가, 어떤 자격으로 전달하는가가 체감을 결정한다.</p>
+              </div>
+              <div class="case-arrow" aria-hidden="true">→</div>
             </div>
-            <p>엑셀 다운로드 버튼, 사용 매뉴얼 영상, 각종 미디어를 끌어안은 대시보드. 이런 무거운 구성은 이미 사용자 관점에서도, 운영하는 쪽 관점에서도 발걸음이 무거워지고 있다.</p>
-          </div>
-
-          <h4 class="sub-subsection-title">어떻게 구현했나</h4>
-          <div class="prose">
-            <p>대시보드를 만들지 않는 대신, 두 가지 장치를 두었다.</p>
-            <ul>
-              <li><strong>patterns.md</strong>: 시간 축으로 누적되는 관찰 노트. 숫자가 아니라 자연어 문장으로 몇 주째 지켜본 패턴을 기록</li>
-              <li><strong>/ask</strong>: 커맨드를 사용해 질문 시점에 필요한 기간을 시스템이 판단하고, 구조화 데이터와 회고를 조합해 즉석 보고서 생성</li>
-            </ul>
-            <p>공통점은 항상 같은 형태로 보여지는 정보를 만들지 않는다는 것. 질문이 있어야 응답이 있고, 질문에 따라 응답의 범위와 구성이 달라진다.</p>
-          </div>
-
-          <h4 class="sub-subsection-title">무엇이 디자이너의 일로 남는가</h4>
-          <div class="prose">
-            <p>자연어 인터페이스가 GUI를 대체한다고 해서 디자이너의 일이 없어지는 게 아니다. 오히려 더 어려운 일이 남는다.</p>
-            <div class="table-wrap">
-              <table>
-                <thead><tr><th>기존 디자이너의 일</th><th>에이전트 UX에서의 디자이너의 일</th></tr></thead>
-                <tbody>
-                  <tr><td>화면을 그리는 일</td><td>시스템이 의도를 어떻게 해석할지 정책을 설계하는 일</td></tr>
-                  <tr><td>에러 메시지를 쓰는 일</td><td>AI가 오해했을 때 어떻게 정중하게 되묻게 할지 설계하는 일</td></tr>
-                  <tr><td>필터와 차트를 배치하는 일</td><td>어떤 근거를 함께 제시할지, 어떤 판단은 감출지 결정하는 일</td></tr>
-                  <tr><td>마지막 장면을 먼저 그리는 일</td><td>질문 시점에 무엇이 조합되어야 하는지 설계하는 일</td></tr>
-                </tbody>
-              </table>
+          </a>
+          <a href="/writing/intervention-policy/" class="case-card" style="border-bottom: 1px solid var(--line);">
+            <div class="case-card-grid">
+              <div class="case-num">04</div>
+              <div class="case-body">
+                <h3 class="case-title" style="font-size: 20px;">과도한 개입 방지: 정책으로 푸는 문제</h3>
+                <p class="case-desc" style="margin-bottom:0;">침묵의 설계가 발화의 설계보다 어려울 수 있다.</p>
+              </div>
+              <div class="case-arrow" aria-hidden="true">→</div>
             </div>
-            <p>대시보드가 필요 없어진 게 아니다. 대시보드가 해오던 일, 지금 상태를 보여주기를 에이전트 UX에 더 적합한 방식으로 옮긴 것이다. 확정적 화면에서 가변적 정보로.</p>
-          </div>
-
-          <h4 class="sub-subsection-title">예시: 같은 질문, 다른 응답</h4>
-          <div class="prose">
-            <p>대시보드라면 이번 주 실행률 52%라는 숫자가 고정 위치에 항상 표시될 것이다. /ask는 다르게 작동한다.</p>
-            <ul>
-              <li><code>/ask 이번 주 어땠어?</code> → 감정 분포와 실행 비율, 주간 맥락 요약</li>
-              <li><code>/ask 지난주랑 이번 주 차이가 뭐야?</code> → 비교 중심으로 데이터 구성</li>
-              <li><code>/ask 요즘 미디어 쪽 진전은 어때?</code> → 해당 영역만 필터링한 응답</li>
-            </ul>
-            <p>같은 데이터 위에서도 질문의 맥락에 따라 응답의 형태가 달라진다. 이게 가변적 정보의 실제 모습이다.</p>
-          </div>
-        </div>
-
-        <hr class="divider">
-
-        <!-- 5-3 -->
-        <div class="subsection">
-          <h3 class="subsection-title">5-3. 친밀감을 부여하는 작업: 아이덴티티와 톤앤매너</h3>
-
-          <h4 class="sub-subsection-title">무엇을 했나</h4>
-          <div class="prose">
-            <p>에이전트에 내가 키우는 고양이, 금동이 정체성을 부여했다. 말투, 성격, 상태에 따른 소리 네 가지까지 구체적으로 설계했다. 단순한 이미지를 가져온 것이 아니라 금동이의 아이덴티티를 개입 UX의 일부로 설계했다.</p>
-          </div>
-
-          <h4 class="sub-subsection-title">왜 친밀감이 필요했나</h4>
-          <div class="prose">
-            <p>초기에는 고양이 이모지만 달렸을 뿐, 정체성 없이 데이터만 출력하는 형태였다. 분석은 정확했지만 사용자 입장에서 행동 변화로 이어지지 않았다. 무엇을 바꾸어도 정보를 받고 혼자 해석하는 단계에서 멈췄다.</p>
-            <p>아이덴티티를 부여한 뒤 체감이 바뀌었다. 섹션 4에서 언급한 3단계 검증이 여기서 더 중요해진다.</p>
-            <div class="table-wrap">
-              <table>
-                <thead><tr><th>단계</th><th>전달 방식</th><th>체감</th></tr></thead>
-                <tbody>
-                  <tr><td>1. 데이터만 출력</td><td>실행 52%, 회피 27%</td><td>받아들이지만 감흥은 없음</td></tr>
-                  <tr><td>2. 금동이 말투로 분석 나열</td><td>이번 주 실행이 많았네</td><td>읽는 재미는 생김</td></tr>
-                  <tr><td>3. 금동이가 지켜본다는 편지 형식</td><td>이번 주엔 피곤함이 많았지. 그래도 화요일엔 피그마를 오랜만에 열었더라</td><td>다음 시도를 고민하게 됨</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <figure>
-              <img src="../../assets/images/agentcat/only_data.png" alt="데이터만 출력" style="max-width:320px;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
-              <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">데이터만 출력</figcaption>
-            </figure>
-            <figure>
-              <img src="../../assets/images/agentcat/before_llm.png" alt="금동이 말투로 분석 나열" style="max-width:320px;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
-              <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">금동이 말투로 분석 나열</figcaption>
-            </figure>
-             <figure>
-              <img src="../../assets/images/agentcat/after_llm.png" alt="금동이가 지켜본다는 편지 형식" style="max-width:320px;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
-              <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">금동이가 지켜본다는 편지 형식</figcaption>
-            </figure>
-            <p>같은 데이터라도 누가, 어떤 자격으로 말하는가가 체감의 질을 결정한다는 걸 확인한 과정이었다.</p>
-            <p>참고로 Openclaw도 Soul이라는 이름의 에이전트 정체성 레이어를 채택하고 있고, 에이전트 아이덴티티 설계는 업계에서 다양한 형태로 시도되고 있다. 이 프로젝트의 금동이는 그 논의에 개인 회고 에이전트의 한 사례로 얹는 것.</p>
-          </div>
-
-          <h4 class="sub-subsection-title">왜 고양이였나</h4>
-          <div class="prose">
-            <p>아이덴티티를 부여하기로 했다면 다음 질문은 어떤 아이덴티티인가였다. 몇 가지 기준으로 설계했다.</p>
-            <div class="table-wrap">
-              <table>
-                <thead><tr><th>기준</th><th>선택</th><th>이유</th></tr></thead>
-                <tbody>
-                  <tr><td>거리감</td><td>가까운 존재</td><td>가까운 존재의 말을 더 신뢰하게 되고, 친밀감을 가지기 쉽다.</td></tr>
-                  <tr><td>권위</td><td>판단자 아닌 관찰자</td><td>'너 지금 당장 이걸 해야해'가 아니라, '이런 패턴이 보이네'의 포지션</td></tr>
-                  <tr><td>성격</td><td>담담하고 조용한 관찰자</td><td>자기조절 시스템에 감정 과잉은 방해가 된다</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <p>이 조합에서 고양이가 나왔다. 조르지 않고, 판단하지 않고, 일상적으로 곁에 있는 존재.</p>
-          </div>
-
-          <h4 class="sub-subsection-title">어떻게 구현했나: 상태 소리 네 가지</h4>
-          <div class="prose">
-            <p>금동이의 정체성을 가장 구체적으로 드러낸 장치는 메시지마다 앞에 붙는 상태 소리다. 사용자 메시지의 성격에 따라 네 가지 중 하나가 선택된다.</p>
-            <div class="table-wrap">
-              <table>
-                <thead><tr><th>소리</th><th>조건</th><th>어디서 왔나</th></tr></thead>
-                <tbody>
-                  <tr><td>니야옹 ~</td><td>단순 기록, 중립적 인풋</td><td>고양이의 일반적인 인사</td></tr>
-                  <tr><td>그릉그릉그릉</td><td>실행 (바로 해냄)</td><td>편안할 때의 만족스러운 소리</td></tr>
-                  <tr><td>이야아아아오오오옹!</td><td>실행 (오래 미루다가 결국 해냄)</td><td>내가 키우는 고양이가 오래 참았다가 표현할 때의 소리</td></tr>
-                  <tr><td>우르르르릉?</td><td>회피 감지</td><td>내가 키우는 고양이가 의문스러울 때 내는 소리</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <figure>
-              <img src="../../assets/images/agentcat/cat_voice.png" alt="고양이 소리" style="max-width:320px;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
-              <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">고양이 소리</figcaption>
-            </figure>
-            <p>이 소리들의 핵심은 범용 브랜딩이 아니라 나에게만 완벽히 작동하는 개인적 기호라는 점이다. 마지막 두 소리는 실제로 내가 키우는 고양이가 그 상황에서 내는 소리를 그대로 가져온 것. 다른 사용자가 봤을 때는 그저 재미있는 의성어지만, 나에게는 이미 감정적 맥락이 형성되어 있는 신호다.</p>
-            <p>우르르르릉?을 들으면 실제 고양이의 물음표 섞인 표정이 떠오른다. 그래서 이 소리는 단순한 감정 표현이 아니라 판단이 아니라 관찰이라는 신호가 된다. 물음표로 끝나는 이유, 추궁처럼 읽히지 않는 이유도 여기에 있다. 이야아아아오오오옹!도 마찬가지다. 오래 참다가 터뜨리는 이 표현은, 미뤘던 일을 마침내 해낸 순간에 가장 적확한 감정 묘사가 된다.</p>
-            <div class="callout"><strong>개인 에이전트일수록 범용화되지 않은 개인 기호가 강력하게 작동한다.</strong> 이게 설계하면서 알게 된 지점 중 하나다.</div>
-          </div>
-
-          <h4 class="sub-subsection-title">무엇이 UX 원칙으로 남는가</h4>
-          <div class="prose">
-            <p>친밀감 설계는 브랜딩이 아니라 개입 UX의 일부라고 생각한다. 정리하면 이렇다.</p>
-            <div class="table-wrap">
-              <table>
-                <thead><tr><th>원칙</th><th>이유</th></tr></thead>
-                <tbody>
-                  <tr><td>가까운 존재의 언어로</td><td>전문가 톤은 정보는 전달하지만 행동은 바꾸기 어렵다</td></tr>
-                  <tr><td>판단자 아닌 관찰자로</td><td>판단받는다고 느끼는 순간 사용자는 방어 모드로 들어간다</td></tr>
-                  <tr><td>지켜봐 온 관계의 서사로</td><td>축적된 맥락이 실리면 같은 말도 다르게 들린다</td></tr>
-                  <tr><td>일관된 성격 유지</td><td>성격이 흔들리면 관계가 깨지고, 관계가 깨지면 지속이 끊긴다</td></tr>
-                  <tr><td>개인 기호의 활용</td><td>범용 브랜딩보다 사용자의 맥락에서 온 기호가 더 강하게 작동한다</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <p>이게 전부 정답이라고 말하긴 이르다. 어떤 제품에는 건조한 톤이 더 맞고, 어떤 사용자에게는 정체성 부여가 오히려 방해가 될 수 있다. 다만 개인 회고처럼 감정이 작동하는 영역에서는 친밀감 설계가 유효한 장치라는 감각은 이 프로젝트를 통해 확인했다.</p>
-          </div>
-
-          <h4 class="sub-subsection-title">예시: 같은 상황, 다른 전달</h4>
-          <div class="prose">
-            <p>저녁 회고에서 회피가 감지된 날, 두 가지 전달 방식의 차이.</p>
-            <p><strong>정체성 없는 버전</strong></p>
-            <blockquote>오늘 회피 메시지가 4건 감지되었습니다. 회피 영역: 건강, 커리어.</blockquote>
-            <p><strong>금동이 버전</strong></p>
-            <blockquote>🐾 우르르르릉? 오늘 좀 흔들렸네. 아쉬운 건 뭐야?</blockquote>
-            <p>같은 데이터, 다른 관계. 후자는 사용자에게 답하고 싶은 질문이 된다.</p>
-          </div>
-        </div>
-
-        <hr class="divider">
-
-        <!-- 5-4 -->
-        <div class="subsection">
-          <h3 class="subsection-title">5-4. 과도한 개입 방지: 정책으로 푸는 문제</h3>
-
-          <h4 class="sub-subsection-title">무엇을 했나</h4>
-          <div class="prose">
-            <p>에이전트가 언제 말하고 언제 침묵할지를 정책 레벨로 미리 정의했다. 판단이 필요한 지점에서는 근거를 함께 출력하도록 설계했다. 개입을 언제든 할 수 있는 시스템이 아니라, 개입을 해야 할 때만 하도록 룰을 만든 것.</p>
-          </div>
-
-          <h4 class="sub-subsection-title">왜 이게 중요한가: 두 가지 리스크</h4>
-          <div class="prose">
-            <p><strong>리스크 1. 개입 피로도 </strong><br>시스템이 모든 순간에 반응할 수 있다면, 대부분의 제품은 반응하는 쪽으로 기울어진다. 도움이 되는 것처럼 보이기 위해서다. 그런데 사용자 입장에서는 똑똑한 동료가 아니라 잔소리꾼이 된다. 개입이 잦을수록 개입 하나하나의 무게가 가벼워지고, 결국 다 무시하게 된다.</p>
-            <p><strong>리스크 2. 블랙박스의 공포</strong><br>시스템이 알아서 판단하고 개입할 때, 사용자는 왜 얘가 나한테 이런 말을 하지? 라는 의구심을 갖는다. 판단 근거를 감춘 채 결과만 던지는 방식은 단기적으로는 깔끔해 보이지만, 신뢰를 쌓지 못한다. 맞아도 의심받고, 틀리면 즉시 버림받는다.</p>
-            <p>두 리스크 모두 에이전트가 할 수 있는 것과 에이전트가 해야 하는 것을 구분하지 않을 때 생긴다.</p>
-          </div>
-
-          <h4 class="sub-subsection-title">그리고: 알림의 의미 자체가 바뀌었다</h4>
-          <div class="prose">
-            <p>이 프로젝트를 하면서 예상하지 못했던 관찰이 하나 있다. 알림의 지위가 완전히 달라졌다는 점이다.</p>
-            <div class="table-wrap">
-              <table>
-                <thead><tr><th>기존 앱 환경의 알림</th><th>에이전트 환경의 알림</th></tr></thead>
-                <tbody>
-                  <tr><td>귀찮고 피곤한 존재</td><td>반가운 존재</td></tr>
-                  <tr><td>읽지 않은 숫자 배지, 광고, 재참여 유도</td><td>오늘 하루 어땠는지 물어봐주는 편지</td></tr>
-                  <tr><td>끄고 싶은 대상</td><td>무슨 대답이 나올지 기대되는 대상</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <p>같은 푸시 알림이라는 기술 형식이지만, 그 뒤에 무엇이 있는가에 따라 완전히 다른 감정적 의미를 갖는다.</p>
-            <p>다만 이 기대감은 조심스럽게 다뤄야 한다.</p>
-            <ul>
-              <li>전혀 관련 없는 내용이 오면: 몰입이 깨진다</li>
-              <li>너무 깊은 질문이 자주 오면: 답하기 피곤해진다</li>
-              <li>침묵이 너무 길어지면: 관계가 흐려진다</li>
-            </ul>
-            <p>그래서 개입은 할지 말지의 이분법이 아니라, 어느 단계로 할지의 조율 문제가 된다. 기존 앱의 알림 설계가 켠다/끈다였다면, 에이전트의 개입 설계는 단계별 스케일링이다. 이 프로젝트의 L0~L4 구조도 그 조율을 위한 설계다.</p>
-            <p>알림이 반가워지는 순간부터, 디자이너의 일은 그 반가움을 오래 유지하는 설계로 바뀐다. 침묵할 때와 말할 때의 분배, 가벼운 반응과 깊은 대화의 리듬, 사용자의 상태와 시스템의 발화 강도를 맞추는 감각. 이게 에이전트 UX에서 새로 등장하는 층위다.</p>
-          </div>
-
-          <h4 class="sub-subsection-title">어떻게 접근했나: 정책으로 푸는 문제</h4>
-          <div class="prose">
-            <p>감으로 처리하지 않고 룰로 명문화했다. 이 프로젝트에서 정한 주요 정책.</p>
-            <div class="table-wrap">
-              <table>
-                <thead><tr><th>정책</th><th>내용</th></tr></thead>
-                <tbody>
-                  <tr><td>L2 발동 조건 제한</td><td>회피와 실행이 동시에 있을 때만 질문한다. 둘 중 하나만이면 질문하지 않는다</td></tr>
-                  <tr><td>L3 이상 하루 1회 제한</td><td>제안은 하루 한 번을 넘기지 않는다</td></tr>
-                  <tr><td>실행만 있는 메시지엔 질문 금지</td><td>성취의 순간에는 칭찬만 한다. 다음 액션을 묻지 않는다</td></tr>
-                  <tr><td>질문 톤 규정</td><td>추궁처럼 들리는 질문은 쓰지 않는다</td></tr>
-                  <tr><td>실행 기록 0개인 날</td><td>분석 대신 격려. 데이터가 없으면 판단하지 않는다</td></tr>
-                  <tr><td>n&lt;3 소표본 가드레일</td><td>3건 미만이면 패턴이라고 단정하지 않는다</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <p>이 룰들의 공통점은 시스템이 개입할 수 있는 경우가 아니라 개입하지 않아야 하는 경우를 먼저 정의했다는 것이다. 에이전트의 기본값은 침묵이고, 개입은 예외적 상황으로 둔다.</p>
-          </div>
-
-          <h4 class="sub-subsection-title">어떻게 접근했나: 근거로 푸는 문제</h4>
-          <div class="prose">
-            <p>블랙박스 공포는 판단을 감출 때 생긴다. 그래서 판단과 근거를 분리하지 않기로 했다.</p>
-            <p>기존 시스템의 출력</p>
-            <blockquote>방향 점수: 93점</blockquote>
-            <p>이 프로젝트의 출력</p>
-            <blockquote>좋은 흐름이야. 실행 10건 / 회피 0건 / 총 14건.</blockquote>
-            <p>둘 다 같은 데이터지만 체감은 완전히 다르다. 후자는 사용자가 판단의 재료를 직접 확인할 수 있다. 시스템의 판단에 동의할 수도, 동의하지 않을 수도 있다. 중요한 건 사용자가 판단의 주체로 남는다는 것.</p>
-            <p>이 원칙을 코드 차원의 룰로도 명시해 뒀다.</p>
-            <ul>
-              <li>거짓 정보 절대 금지: 확실하지 않으면 모른다고 한다</li>
-              <li>판단에는 반드시 근거 병기</li>
-              <li>개발 용어 금지: 사용자 언어로 번역된 출력만 내보낸다</li>
-            </ul>
-          </div>
-
-          <h4 class="sub-subsection-title">무엇이 UX 원칙으로 남는가</h4>
-          <div class="prose">
-            <div class="table-wrap">
-              <table>
-                <thead><tr><th>원칙</th><th>이유</th></tr></thead>
-                <tbody>
-                  <tr><td>기본값은 침묵</td><td>개입은 예외다. 자주 개입할수록 개입의 무게가 사라진다</td></tr>
-                  <tr><td>개입 조건을 정책으로 명문화</td><td>감으로 판단하면 시스템이 일관성을 잃는다</td></tr>
-                  <tr><td>판단과 근거를 분리하지 않기</td><td>사용자가 판단의 주체로 남아야 신뢰가 쌓인다</td></tr>
-                  <tr><td>모를 때는 모른다고 하기</td><td>거짓 확신이 한 번이라도 드러나면 관계가 깨진다</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <p>이게 이 프로젝트에서 가장 오래 고민한 부분이다. 디자이너의 일이 에러 메시지를 쓰는 데서 언제 시스템이 침묵할지를 설계하는 데로 옮겨간다는 게 이 섹션의 요지다. 침묵의 설계가 발화의 설계보다 어려울 수 있다는 것도, 만들고 나서 알게 됐다.</p>
-          </div>
-
-          <h4 class="sub-subsection-title">예시: 실행 메시지 앞에서의 두 가지 반응</h4>
-          <div class="prose">
-            <p>사용자가 실행만 있는 메시지를 보냈을 때. 오늘 피그마 컴포넌트 정리 끝!</p>
-            <p><strong>정책 없는 버전</strong></p>
-            <blockquote>좋네요! 다음엔 뭘 해볼까요? 이번 주 목표 진행 상황은 어떤가요?</blockquote>
-            <p><strong>이 프로젝트의 정책</strong></p>
-            <blockquote>🐾 그릉그릉그릉. 피그마 오늘 열었구나.</blockquote>
-            <p>다음 액션을 묻지 않는다. 성취의 순간을 방해하지 않는다. 이 작은 차이가 사용자의 지속 의지를 결정한다.</p>
-          </div>
+          </a>
         </div>
       </div>
     </section>
+
 
     <!-- ====================================================
          SECTION 6
