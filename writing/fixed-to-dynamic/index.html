@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>확정적 화면에서 가변적 정보로 — 박은지</title>
+  <meta name="description" content="대시보드를 만들지 않기로 했다. 질문이 있어야 응답이 있고, 질문에 따라 응답이 달라지는 구조에 대하여.">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐾%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container-wide nav-inner">
+      <a href="/" class="nav-brand">eunji bak</a>
+      <div class="nav-links">
+        <a href="/#writing">Writing</a>
+        <a href="/#cases">Cases</a>
+        <a href="https://www.linkedin.com/in/eunjibak" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <header class="case-header">
+      <div class="container">
+        <div class="case-eyebrow">Writing 02 — agentcat</div>
+        <h1 class="case-page-title">확정적 화면에서<br>가변적 정보로</h1>
+        <p class="hero-lede" style="max-width:640px;">
+          머물러 있는 정보를 고정 화면으로 보여주는 방식에서,
+          사용자의 질문이 들어온 순간에 필요한 데이터를 조합해 응답하는 방식으로 전환했다.
+          대시보드를 설계하지 않고 patterns.md와 /ask로 대체한 선택이 그 결과다.
+        </p>
+      </div>
+    </header>
+
+    <section class="section" style="border-top:none;">
+      <div class="container">
+
+        <div class="subsection">
+          <h3 class="subsection-title">무엇이 바뀌었나</h3>
+          <div class="prose">
+            <ul>
+              <li>기존: 이 화면을 열면 항상 같은 방식으로 정리된 정보가 보인다</li>
+              <li>현재: 필요한 순간에 필요한 질문을 던지면, 그 질문에 맞는 정보가 그때 구성된다</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-title">왜 이게 디자이너에게 낯선가</h3>
+          <div class="prose">
+            <p>디자이너로 일할 때 강한 습관이 하나 있었다. 마지막으로 사용자 눈에 닿는 장면을 먼저 그리는 것. 플로우를 예상하고, 화면을 구성하고, 거기서 역으로 설계하는 방식. 그 관성이 에이전트를 만들 때도 그대로 발동했다. 자꾸 어떻게 보여줄까부터 생각하게 됐다.</p>
+            <p>하지만 사용자는 이미 다른 방식에 익숙해지고 있다.</p>
+            <blockquote>AI는 60년 만의 새로운 UI 패러다임이다. 사용자가 컴퓨터에게 '어떻게 하라'가 아니라 '무엇을 원한다'고 말하는 방식으로 제어의 무게중심이 이동하고 있다.<br>— Jakob Nielsen, Nielsen Norman Group</blockquote>
+            <p>이 변화의 구체적 형태는 이렇다.</p>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>기존 패러다임</th><th>에이전트 패러다임</th></tr></thead>
+                <tbody>
+                  <tr><td>Input Validation (입력 제한)</td><td>Intent Interpretation (의도 해석)</td></tr>
+                  <tr><td>정해진 화면과 필터</td><td>질문 시점에 생성되는 응답</td></tr>
+                  <tr><td>사용자가 해석 기준을 학습</td><td>사용자 질문에 해석이 맞춰짐</td></tr>
+                  <tr><td>기능을 꺼내 쓰는 도구</td><td>말을 걸어오는 환경</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>엑셀 다운로드 버튼, 사용 매뉴얼 영상, 각종 미디어를 끌어안은 대시보드. 이런 무거운 구성은 이미 사용자 관점에서도, 운영하는 쪽 관점에서도 발걸음이 무거워지고 있다.</p>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-title">어떻게 구현했나</h3>
+          <div class="prose">
+            <p>대시보드를 만들지 않는 대신, 두 가지 장치를 두었다.</p>
+            <ul>
+              <li><strong>patterns.md</strong>: 시간 축으로 누적되는 관찰 노트. 숫자가 아니라 자연어 문장으로 몇 주째 지켜본 패턴을 기록</li>
+              <li><strong>/ask</strong>: 커맨드를 사용해 질문 시점에 필요한 기간을 시스템이 판단하고, 구조화 데이터와 회고를 조합해 즉석 보고서 생성</li>
+            </ul>
+            <p>공통점은 항상 같은 형태로 보여지는 정보를 만들지 않는다는 것. 질문이 있어야 응답이 있고, 질문에 따라 응답의 범위와 구성이 달라진다.</p>
+          </div>
+
+          <figure>
+            <img src="../../assets/images/agentcat/dashboard.png" alt="대시보드 시도" style="width:100%;max-width:600px;height:auto;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
+            <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">대시보드 실험</figcaption>
+          </figure>
+
+          <figure>
+            <img src="../../assets/images/agentcat/ask.jpg" alt="ask 대화 캡처" style="width:100%;max-width:320px;height:auto;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
+            <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">ask 대화 캡처</figcaption>
+          </figure>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-title">무엇이 디자이너의 일로 남는가</h3>
+          <div class="prose">
+            <p>자연어 인터페이스가 GUI를 대체한다고 해서 디자이너의 일이 없어지는 게 아니다. 오히려 더 어려운 일이 남는다.</p>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>기존 디자이너의 일</th><th>에이전트 UX에서의 디자이너의 일</th></tr></thead>
+                <tbody>
+                  <tr><td>화면을 그리는 일</td><td>시스템이 의도를 어떻게 해석할지 정책을 설계하는 일</td></tr>
+                  <tr><td>에러 메시지를 쓰는 일</td><td>AI가 오해했을 때 어떻게 정중하게 되묻게 할지 설계하는 일</td></tr>
+                  <tr><td>필터와 차트를 배치하는 일</td><td>어떤 근거를 함께 제시할지, 어떤 판단은 감출지 결정하는 일</td></tr>
+                  <tr><td>마지막 장면을 먼저 그리는 일</td><td>질문 시점에 무엇이 조합되어야 하는지 설계하는 일</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>대시보드가 필요 없어진 게 아니다. 대시보드가 해오던 일, 지금 상태를 보여주기를 에이전트 UX에 더 적합한 방식으로 옮긴 것이다. 확정적 화면에서 가변적 정보로.</p>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-title">예시: 같은 질문, 다른 응답</h3>
+          <div class="prose">
+            <p>대시보드라면 이번 주 실행률 52%라는 숫자가 고정 위치에 항상 표시될 것이다. /ask는 다르게 작동한다.</p>
+            <ul>
+              <li><code>/ask 이번 주 어땠어?</code> → 감정 분포와 실행 비율, 주간 맥락 요약</li>
+              <li><code>/ask 지난주랑 이번 주 차이가 뭐야?</code> → 비교 중심으로 데이터 구성</li>
+              <li><code>/ask 요즘 미디어 쪽 진전은 어때?</code> → 해당 영역만 필터링한 응답</li>
+            </ul>
+            <p>같은 데이터 위에서도 질문의 맥락에 따라 응답의 형태가 달라진다. 이게 가변적 정보의 실제 모습이다.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="container">
+      <nav class="case-nav">
+        <a href="../tag-to-raw/">← 이전 글: 태그 입력에서 raw 입력으로</a>
+        <a href="../agent-identity/">다음 글: 친밀감을 부여하는 작업 →</a>
+      </nav>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide footer-inner">
+      <div>© 2026 박은지 (Eunji Bak)</div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/eunjibak" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/eunjibak.1" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
