@@ -315,6 +315,20 @@ em { font-style: normal; }
 .work-secondary .case-num { font-size: 13px; }
 .work-secondary .case-desc { font-size: 14px; }
 
+/* Section intro paragraph (used as teaser block on home Agent Lab) */
+.section-intro {
+  border-top: 1px solid var(--line);
+  padding: 40px 0 8px;
+  max-width: 640px;
+}
+.section-intro p {
+  font-size: clamp(17px, 1.8vw, 19px);
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin-bottom: 12px;
+}
+.section-intro p:last-child { margin-bottom: 0; }
+
 /* Section "view all" link */
 .section-more {
   padding-top: 32px;
