@@ -296,6 +296,42 @@ em { font-style: normal; }
   }
 }
 
+/* Draft / placeholder cards (Selected Work) */
+.case-card.is-draft { cursor: default; }
+.case-card.is-draft:hover { opacity: 1; }
+.case-status {
+  font-size: 11px;
+  color: var(--ink-muted);
+  text-align: right;
+  line-height: 1.5;
+  align-self: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Marketing & Acquisition — secondary visual weight */
+.work-secondary .case-title { font-size: clamp(18px, 2vw, 22px); }
+.work-secondary .case-num { font-size: 13px; }
+.work-secondary .case-desc { font-size: 14px; }
+
+/* Section "view all" link */
+.section-more {
+  padding-top: 32px;
+  text-align: right;
+}
+.section-more a {
+  font-size: 14px;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 2px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.section-more a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
 /* ==========================================================================
    Case page
    ========================================================================== */
