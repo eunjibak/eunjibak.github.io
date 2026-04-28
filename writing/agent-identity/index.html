@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>친밀감을 부여하는 작업 — 박은지</title>
-  <meta name="description" content="에이전트에 금동이라는 고양이 정체성을 부여했다. 같은 데이터라도 누가, 어떤 자격으로 전달하는가가 체감을 결정한다.">
+  <title>친밀감을 부여하는 작업: 아이덴티티와 거리감 — 박은지</title>
+  <meta name="description" content="에이전트에 금동이라는 고양이 정체성을 부여했다. 거리감, 포지션, 성격 세 원칙으로 설계한 개인 회고 에이전트의 아이덴티티 노트.">
   <link rel="stylesheet" href="../../assets/css/styles.css">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐾%3C/text%3E%3C/svg%3E">
 </head>
@@ -26,10 +26,11 @@
     <header class="case-header">
       <div class="container">
         <div class="case-eyebrow">Writing 03 — agentcat</div>
-        <h1 class="case-page-title">친밀감을 부여하는 작업:<br>아이덴티티와 톤앤매너</h1>
+        <h1 class="case-page-title">친밀감을 부여하는 작업:<br>아이덴티티와 거리감</h1>
         <p class="hero-lede" style="max-width:640px;">
-          에이전트에 내가 키우는 고양이, 금동이 정체성을 부여했다. 말투, 성격, 상태에 따른 소리 네 가지까지 구체적으로 설계했다.
-          단순한 이미지를 가져온 것이 아니라 금동이의 아이덴티티를 개입 UX의 일부로 설계했다.
+          에이전트에게 반려동물 금동이의 정체성을 부여했습니다.
+          귀여운 고양이 이미지를 빌려온 것이 아니라, 말투와 성격, 행동 패턴에 반응하는 소리까지 UX의 핵심 장치로 설계했어요.
+          제가 직접 만든 시스템인데도 진짜 금동이의 존재감을 느끼게 된 경험을 기록합니다.
         </p>
       </div>
     </header>
@@ -44,73 +45,57 @@
       <div class="container">
 
         <div class="subsection">
-          <h3 class="subsection-title">왜 친밀감이 필요했나</h3>
+          <h3 class="subsection-title">AI에게 존재를 느끼는 순간</h3>
           <div class="prose">
-            <p>초기에는 고양이 이모지만 달렸을 뿐, 정체성 없이 데이터만 출력하는 형태였다. 분석은 정확했지만 사용자 입장에서 행동 변화로 이어지지 않았다. 무엇을 바꾸어도 정보를 받고 혼자 해석하는 단계에서 멈췄다.</p>
-            <p>아이덴티티를 부여한 뒤 체감이 바뀌었다.</p>
-            <div class="table-wrap">
-              <table>
-                <thead><tr><th>단계</th><th>전달 방식</th><th>체감</th></tr></thead>
-                <tbody>
-                  <tr><td>1. 데이터만 출력</td><td>실행 52%, 회피 27%</td><td>받아들이지만 감흥은 없음</td></tr>
-                  <tr><td>2. 금동이 말투로 분석 나열</td><td>이번 주 실행이 많았네</td><td>읽는 재미는 생김</td></tr>
-                  <tr><td>3. 금동이가 지켜본다는 편지 형식</td><td>이번 주엔 피곤함이 많았지. 그래도 화요일엔 피그마를 오랜만에 열었더라</td><td>다음 시도를 고민하게 됨</td></tr>
-                </tbody>
-              </table>
-            </div>
+            <p>사람은 돌멩이에 눈알만 붙여도 정감을 느끼는 존재입니다. 하물며 나에게 말을 거는 AI라면 어떨까요? 범용적인 이름 대신, 나에게 가장 소중한 존재의 페르소나를 입히는 순간 AI는 단순한 도구를 넘어 관계를 맺는 대상으로 변화합니다.</p>
+            <p>내가 잘 아는 존재가 나를 지켜보고 건네는 말은 방어기제를 없애고, 받아들이게 합니다. 같은 데이터라도 누가, 어떤 자격으로 전달하는가가 체감을 결정한다는 걸 만들면서 확인했어요.</p>
           </div>
 
           <figure>
             <img src="../../assets/images/agentcat/only_data.png" alt="데이터만 출력" style="width:100%;max-width:320px;height:auto;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
-            <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">데이터만 출력</figcaption>
-          </figure>
-
-          <figure>
-            <img src="../../assets/images/agentcat/before_llm.png" alt="금동이 말투로 분석 나열" style="width:100%;max-width:320px;height:auto;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
-            <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">금동이 말투로 분석 나열</figcaption>
+            <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">데이터만 출력 — 정확하지만 와닿지 않음</figcaption>
           </figure>
 
           <figure>
             <img src="../../assets/images/agentcat/after_llm.png" alt="금동이가 지켜본다는 편지 형식" style="width:100%;max-width:320px;height:auto;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
-            <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">금동이가 지켜본다는 편지 형식</figcaption>
+            <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">금동이가 지켜본다는 편지 — 다음 시도를 고민하게 됨</figcaption>
           </figure>
-
-          <div class="prose">
-            <p>같은 데이터라도 누가, 어떤 자격으로 말하는가가 체감의 질을 결정한다는 걸 확인한 과정이었다.</p>
-            <p>참고로 Openclaw도 Soul이라는 이름의 에이전트 정체성 레이어를 채택하고 있고, 에이전트 아이덴티티 설계는 업계에서 다양한 형태로 시도되고 있다. 이 프로젝트의 금동이는 그 논의에 개인 회고 에이전트의 한 사례로 얹는 것.</p>
-          </div>
         </div>
 
         <div class="subsection">
-          <h3 class="subsection-title">왜 고양이였나</h3>
+          <h3 class="subsection-title">에이전트 아이덴티티를 위한 3가지 설계 원칙</h3>
           <div class="prose">
-            <p>아이덴티티를 부여하기로 했다면 다음 질문은 어떤 아이덴티티인가였다. 몇 가지 기준으로 설계했다.</p>
+            <p>에이전트가 피드백을 줄 때, 사용자가 방어기제를 세우지 않고 받아들이게 하기 위해 다음 세 가지 원칙을 중심으로 시스템을 설계했습니다.</p>
             <div class="table-wrap">
               <table>
-                <thead><tr><th>기준</th><th>선택</th><th>이유</th></tr></thead>
+                <thead><tr><th>원칙</th><th>상세 내용</th></tr></thead>
                 <tbody>
-                  <tr><td>거리감</td><td>가까운 존재</td><td>가까운 존재의 말을 더 신뢰하게 되고, 친밀감을 가지기 쉽다.</td></tr>
-                  <tr><td>권위</td><td>판단자 아닌 관찰자</td><td>'너 지금 당장 이걸 해야해'가 아니라, '이런 패턴이 보이네'의 포지션</td></tr>
-                  <tr><td>성격</td><td>담담하고 조용한 관찰자</td><td>자기조절 시스템에 감정 과잉은 방해가 된다</td></tr>
+                  <tr><td>1. 거리감: 가장 가까운 존재</td><td>에이전트를 나에게 가장 소중하고 가까운 존재로 설정합니다. 심리적 거리감이 가까울수록 그 존재가 건네는 피드백을 더 자연스럽게 받아들이게 됩니다.</td></tr>
+                  <tr><td>2. 포지션: 판단하지 않는 관찰자</td><td>"왜 안 했어?"라고 추궁하는 관리자가 아니라, 멀리서 지켜보다가 "이런 패턴이 보이네"라고 읽어주는 관찰자의 시선을 택했습니다. 판단 없이 담담하게 사실을 거울처럼 비춰주는 역할입니다.</td></tr>
+                  <tr><td>3. 성격: 감정 과잉 없는 담백함</td><td>너무 과한 응원이나 슬픔은 객관화를 방해합니다. 해석이 과잉되면 사용자는 에이전트의 논리에 휘둘릴 수 있어요. 따라서 감정의 파고가 크지 않은 담백하고 객관적인 선을 유지합니다.</td></tr>
                 </tbody>
               </table>
             </div>
-            <p>이 조합에서 고양이가 나왔다. 조르지 않고, 판단하지 않고, 일상적으로 곁에 있는 존재.</p>
           </div>
+
+          <figure>
+            <img src="../../assets/images/agentcat/reflection_engine.png" alt="주간 회고 시스템 프롬프트" style="width:100%;max-width:600px;height:auto;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
+            <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">세 원칙을 코드 위에 풀어둔 주간 회고 시스템 프롬프트</figcaption>
+          </figure>
         </div>
 
         <div class="subsection">
-          <h3 class="subsection-title">어떻게 구현했나: 상태 소리 네 가지</h3>
+          <h3 class="subsection-title">재미 포인트: 상태를 정의하는 소리</h3>
           <div class="prose">
-            <p>금동이의 정체성을 가장 구체적으로 드러낸 장치는 메시지마다 앞에 붙는 상태 소리다. 사용자 메시지의 성격에 따라 네 가지 중 하나가 선택된다.</p>
+            <p>금동이 봇의 정체성을 가장 직관적으로 드러내는 장치는 상황에 따라 출력되는 소리입니다. 단순한 효과음이 아니라, 사용자의 행동 맥락에 따라 에이전트의 반응을 기대하게 만드는 장치예요.</p>
             <div class="table-wrap">
               <table>
                 <thead><tr><th>소리</th><th>조건</th><th>어디서 왔나</th></tr></thead>
                 <tbody>
-                  <tr><td>니야옹 ~</td><td>단순 기록, 중립적 인풋</td><td>고양이의 일반적인 인사</td></tr>
+                  <tr><td>니야옹~</td><td>단순 기록, 중립적 인풋</td><td>고양이의 일반적인 인사</td></tr>
                   <tr><td>그릉그릉그릉</td><td>실행 (바로 해냄)</td><td>편안할 때의 만족스러운 소리</td></tr>
-                  <tr><td>이야아아아오오오옹!</td><td>실행 (오래 미루다가 결국 해냄)</td><td>내가 키우는 고양이가 오래 참았다가 표현할 때의 소리</td></tr>
-                  <tr><td>우르르르릉?</td><td>회피 감지</td><td>내가 키우는 고양이가 의문스러울 때 내는 소리</td></tr>
+                  <tr><td>이야아아아오오오옹!</td><td>실행 (오래 미루다가 결국 해냄)</td><td>실제 고양이가 오래 참았다가 표현할 때의 소리</td></tr>
+                  <tr><td>우르르르릉?</td><td>회피 감지</td><td>실제 고양이가 의문스러울 때 내는 소리</td></tr>
                 </tbody>
               </table>
             </div>
@@ -118,45 +103,40 @@
 
           <figure>
             <img src="../../assets/images/agentcat/cat_voice.png" alt="고양이 소리" style="width:100%;max-width:600px;height:auto;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
-            <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">고양이 소리</figcaption>
+            <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">상태에 따라 달라지는 금동이 소리</figcaption>
           </figure>
 
-          <div class="prose">
-            <p>이 소리들의 핵심은 범용 브랜딩이 아니라 나에게만 완벽히 작동하는 개인적 기호라는 점이다. 마지막 두 소리는 실제로 내가 키우는 고양이가 그 상황에서 내는 소리를 그대로 가져온 것. 다른 사용자가 봤을 때는 그저 재미있는 의성어지만, 나에게는 이미 감정적 맥락이 형성되어 있는 신호다.</p>
-            <p>우르르르릉?을 들으면 실제 고양이의 물음표 섞인 표정이 떠오른다. 그래서 이 소리는 단순한 감정 표현이 아니라 판단이 아니라 관찰이라는 신호가 된다. 물음표로 끝나는 이유, 추궁처럼 읽히지 않는 이유도 여기에 있다. 이야아아아오오오옹!도 마찬가지다. 오래 참다가 터뜨리는 이 표현은, 미뤘던 일을 마침내 해낸 순간에 가장 적확한 감정 묘사가 된다.</p>
-            <div class="callout"><strong>개인 에이전트일수록 범용화되지 않은 개인 기호가 강력하게 작동한다.</strong> 이게 설계하면서 알게 된 지점 중 하나다.</div>
+          <div class="prose" style="margin-top:32px;">
+            <p>이 소리들은 범용 브랜딩이 아니라 저만이 알고 있는 금동이의 실제 습성을 반영한 개인적 기호입니다. 개인 에이전트일수록 이런 사적인 디테일이 사용자에게 더 자연스럽게 가닿습니다.</p>
+            <p>"우르르르릉?"을 들으면 실제 금동이의 물음표 섞인 표정이 떠올라요. 그래서 이 소리는 단순한 감정 표현이 아니라 "판단이 아니라 관찰"이라는 신호가 됩니다. 물음표로 끝나는 이유, 추궁처럼 읽히지 않는 이유도 여기에 있어요.</p>
           </div>
         </div>
 
         <div class="subsection">
-          <h3 class="subsection-title">무엇이 UX 원칙으로 남는가</h3>
+          <h3 class="subsection-title">무엇이 디자이너의 일로 남는가</h3>
           <div class="prose">
-            <p>친밀감 설계는 브랜딩이 아니라 개입 UX의 일부라고 생각한다. 정리하면 이렇다.</p>
-            <div class="table-wrap">
-              <table>
-                <thead><tr><th>원칙</th><th>이유</th></tr></thead>
-                <tbody>
-                  <tr><td>가까운 존재의 언어로</td><td>전문가 톤은 정보는 전달하지만 행동은 바꾸기 어렵다</td></tr>
-                  <tr><td>판단자 아닌 관찰자로</td><td>판단받는다고 느끼는 순간 사용자는 방어 모드로 들어간다</td></tr>
-                  <tr><td>지켜봐 온 관계의 서사로</td><td>축적된 맥락이 실리면 같은 말도 다르게 들린다</td></tr>
-                  <tr><td>일관된 성격 유지</td><td>성격이 흔들리면 관계가 깨지고, 관계가 깨지면 지속이 끊긴다</td></tr>
-                  <tr><td>개인 기호의 활용</td><td>범용 브랜딩보다 사용자의 맥락에서 온 기호가 더 강하게 작동한다</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <p>이게 전부 정답이라고 말하긴 이르다. 어떤 제품에는 건조한 톤이 더 맞고, 어떤 사용자에게는 정체성 부여가 오히려 방해가 될 수 있다. 다만 개인 회고처럼 감정이 작동하는 영역에서는 친밀감 설계가 유효한 장치라는 감각은 이 프로젝트를 통해 확인했다.</p>
+            <p>개인 에이전트의 시대에는 개인의 기호가 그 어느 때보다 강력하게 작용합니다. 어떤 상황에서 건조한 톤이 필요한지, 혹은 어디에서 정체성 부여가 시너지를 낼지 결정하는 것은 결국 디자이너의 몫입니다.</p>
+            <p>화면의 요소를 배치하는 단계를 넘어, 에이전트의 친밀감과 아이덴티티를 설정함으로써 사용자가 정보를 어떻게 받아들일지 그 태도까지 설계하는 것. 금동이를 만들면서 제가 가장 흥미롭게 느낀 부분이 바로 이 지점이었습니다.</p>
           </div>
         </div>
 
         <div class="subsection">
-          <h3 class="subsection-title">예시: 같은 상황, 다른 전달</h3>
+          <h3 class="subsection-title">추가로 찾아본 자료</h3>
           <div class="prose">
-            <p>저녁 회고에서 회피가 감지된 날, 두 가지 전달 방식의 차이.</p>
-            <p><strong>정체성 없는 버전</strong></p>
-            <blockquote>오늘 회피 메시지가 4건 감지되었습니다. 회피 영역: 건강, 커리어.</blockquote>
-            <p><strong>금동이 버전</strong></p>
-            <blockquote>🐾 우르르르릉? 오늘 좀 흔들렸네. 아쉬운 건 뭐야?</blockquote>
-            <p>같은 데이터, 다른 관계. 후자는 사용자에게 답하고 싶은 질문이 된다.</p>
+            <p>이 글을 쓰고 나서 관련 연구를 찾아봤습니다. 개인 회고 봇이라는 특성과 아이덴티티 설정에 맞는 연구 자료를 첨부합니다.</p>
+            <ul>
+              <li><strong>의인화(Anthropomorphism)와 신뢰</strong> — AI에 인간적 특성을 부여하면 사용자의 신뢰가 높아진다는 건 HCI 분야에서 꾸준히 연구된 주제입니다. 2023년 홍콩이공대 연구팀이 의료 챗봇 대상으로 한 실험에서, 의인화 수준이 높을수록 사용자가 느끼는 사회적 실재감과 신뢰, 수용도가 모두 유의미하게 증가했다고 보고했어요.<sup><a href="#fn1" id="fnref1">1</a></sup> 다만 흥미로운 건, 의인화가 신뢰를 직접 만드는 게 아니라 사회적 매력과 정서적 친밀감을 통해 간접적으로 신뢰로 이어진다는 후속 연구도 있다는 점입니다.<sup><a href="#fn2" id="fnref2">2</a></sup></li>
+              <li><strong>비판단적 톤과 자기 개방</strong> — 챗봇이 판단 없이 들어주는 존재로 인식될 때 사용자가 더 깊은 자기 개방을 한다는 건 정신건강 영역에서 반복적으로 관찰된 현상이에요. Wysa 같은 정신건강 챗봇 연구에서 사용자들은 "인간과의 상호작용에 따라오는 판단과 불필요한 반응 없이 들어주는 점"을 가장 큰 장점으로 꼽았다고 보고됐어요.<sup><a href="#fn3" id="fnref3">3</a></sup> 2024년 Nature의 npj Mental Health Research에 실린 생성형 AI 챗봇 연구에서도, 사용자들이 챗봇을 "이해해주고, 인내심 있고, 친절하며, 판단하지 않는 존재"로 경험했다고 보고됐고요.<sup><a href="#fn4" id="fnref4">4</a></sup> 글에서 말한 "판단하지 않는 관찰자" 포지션이 학계에서 말하는 non-judgmental listening과 같은 결입니다.</li>
+              <li><strong>개인화된 디테일과 정서적 유대</strong> — 에이전트가 사용자 개인에게 맞춰질수록 의인화 인식이 강해지고 사용 의도가 높아진다는 연구도 있습니다. 2025년 발표된 한 연구에서는 개인화된 챗봇이 비개인화된 챗봇보다 더 능력 있고 호의적이며 인간적이라고 평가받았고, 이것이 사용 의도 증가로 이어진다고 보고했어요.<sup><a href="#fn5" id="fnref5">5</a></sup> 글에서 언급한 "저만이 알고 있는 금동이의 습성" 같은 사적 디테일이 단순한 귀여움이 아니라 정서적 유대를 만드는 장치로 작동한다는 가설을 뒷받침합니다.</li>
+            </ul>
+          </div>
+
+          <div class="footnotes" style="margin-top:48px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-muted);line-height:1.7;">
+            <p id="fn1" style="margin:0 0 8px 0;"><sup>1</sup> Qingchuan Li, Yan Luximon, Jiaxin Zhang, "The Influence of Anthropomorphic Cues on Patients' Perceived Anthropomorphism, Social Presence, Trust Building, and Acceptance of Health Care Conversational Agents," 2023. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10450539/" target="_blank" rel="noopener">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10450539/</a></p>
+            <p id="fn2" style="margin:0 0 8px 0;"><sup>2</sup> "How anthropomorphism affects trust in intelligent personal assistants," 2021. <a href="https://www.researchgate.net/publication/354250717" target="_blank" rel="noopener">https://www.researchgate.net/publication/354250717</a></p>
+            <p id="fn3" style="margin:0 0 8px 0;"><sup>3</sup> "User perceptions and experiences of an AI-driven conversational agent for mental health support," PMC, 2024. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11304096/" target="_blank" rel="noopener">https://pmc.ncbi.nlm.nih.gov/articles/PMC11304096/</a></p>
+            <p id="fn4" style="margin:0 0 8px 0;"><sup>4</sup> "It happened to be the perfect thing: experiences of generative AI chatbots for mental health," npj Mental Health Research, 2024. <a href="https://www.nature.com/articles/s44184-024-00097-4" target="_blank" rel="noopener">https://www.nature.com/articles/s44184-024-00097-4</a></p>
+            <p id="fn5" style="margin:0;"><sup>5</sup> "The Influence of anthropomorphism on trust in artificial intelligence: Take virtual agent as an example," 2025. <a href="https://www.sciencedirect.com/science/article/abs/pii/S1071581925002010" target="_blank" rel="noopener">https://www.sciencedirect.com/science/article/abs/pii/S1071581925002010</a></p>
           </div>
         </div>
 
