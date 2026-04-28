@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>반가움의 설계: 계속 대화하고 싶게 만들기 — 박은지</title>
+  <meta name="description" content="알림이 귀찮은 소음이 아닌 반가움이 되는 조건. 의무를 재미로 바꾸는 리듬과 무조건적인 칭찬을 넘어선 좋은 대화에 대하여.">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐾%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container-wide nav-inner">
+      <a href="/" class="nav-brand">eunji bak</a>
+      <div class="nav-links">
+        <a href="/#writing">Writing</a>
+        <a href="/#cases">Cases</a>
+        <a href="https://www.linkedin.com/in/eunjibak" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <header class="case-header">
+      <div class="container">
+        <div class="case-eyebrow">Writing 05 — agentcat</div>
+        <h1 class="case-page-title">반가움의 설계:<br>계속 대화하고 싶게 만들기</h1>
+        <p class="hero-lede" style="max-width:640px;">
+          우리는 보통 알림을 좋아하지 않잖아요.
+          그런데 에이전트로부터 오는 알림은 조금 다르더라구요.
+          이 반가움은 어디서 오고, 얼마나 지속할 수 있을까요?
+        </p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div style="position:relative;padding-bottom:56.25%;height:0;margin:32px 0;overflow:hidden;border-radius:8px;border:1px solid var(--line);">
+        <iframe src="https://www.youtube.com/embed/5qawsC9kunM" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <section class="section" style="border-top:none;">
+      <div class="container">
+
+        <div class="subsection">
+          <h3 class="subsection-title">의무를 재미로 바꾸는 리듬의 힘</h3>
+          <div class="prose">
+            <p>기존의 회고 시스템은 다소 의무적이었습니다. "자기 전에 기록해야지"라고 다짐해도 바쁜 일상에 치이다 보면 잊기 일쑤였죠. 하지만 대화형 에이전트와 함께한 지난 5주간, 총 39회의 발송 중 31회(약 80%)의 응답률을 기록했습니다.</p>
+            <p>단순히 기록을 입력하는 것이 아니라, 저녁 무렵 에이전트가 건네는 관찰 일기를 읽는 것으로 회고가 시작되기 때문입니다. "오늘 보니까 이런 하루를 보냈더라. 좋았던 점은 뭐야? 내일은 뭘 해보고 싶어?"라고 말을 걸어주는 과정에서, 하루를 되돌아보는 행위 자체가 하나의 재미있는 상호작용이 되었습니다.</p>
+          </div>
+
+          <figure>
+            <video
+              src="../../assets/images/agentcat/night_review.mp4"
+              autoplay
+              loop
+              muted
+              playsinline
+              style="max-width:320px;width:100%;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
+            </video>
+            <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">저녁에 도착하는 관찰 일기 — 회고가 시작되는 입구</figcaption>
+          </figure>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-title">상호작용의 섬세한 단계 설계</h3>
+          <div class="prose">
+            <p>디자이너의 역할은 이 알림이 "귀찮은 소음"이 아닌, "보고 싶은 반가움"이 되도록 만드는 것입니다. 이를 위해 침묵할 때와 말할 때, 그리고 대화의 강도를 매우 섬세한 단계로 나누어 설계했습니다. 4단계 레벨로 구분되는데, 사용자의 발화 내용과 누적 패턴에 따라 시스템이 자동으로 어떤 레벨로 응답할지 정합니다.</p>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>레벨</th><th>이름</th><th>언제 작동하나</th><th>어떻게 반응하나</th></tr></thead>
+                <tbody>
+                  <tr><td>L0</td><td>Recorder</td><td>단순 기록이나 중립적인 인풋</td><td>받아두고 짧은 신호만 돌려줌. 굳이 말을 더 보태지 않음</td></tr>
+                  <tr><td>L1</td><td>Mirror</td><td>일반적인 회고가 들어올 때</td><td>거울처럼 비춰주는 가벼운 반응. 회고의 기본값</td></tr>
+                  <tr><td>L2</td><td>Coach</td><td>회피와 실행이 같이 보일 때</td><td>행동의 동력을 깊이 묻는 코칭. 6시간 쿨다운</td></tr>
+                  <tr><td>L3</td><td>Micro Plan</td><td>일주일치 데이터에서 회피/부정 감정 패턴이 누적될 때</td><td>작은 실행을 제안. 하루 한 번만</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>핵심은 무게 있는 발화에만 쿨다운을 걸어둔 점이에요. L0(단순 기록 응답)과 L1(거울처럼 비춰주는 기본 반응)은 쿨다운이 없어요. 가벼운 반응은 들어올 때마다 자유롭게 돌려주는 거죠. 반면 L2(깊이 파고드는 코칭)는 6시간에 한 번만, L3(누적 패턴 기반의 실행 제안)는 하루에 한 번만 작동합니다. 회피와 실행이 같이 보이는 순간마다 매번 깊은 질문을 던지면 사용자가 피로해지거든요. 시스템이 발화할 수 있는 순간보다, 발화할 수 있는데도 무게 때문에 침묵해야 하는 순간이 훨씬 많은 셈이에요.</p>
+            <p>그리고 어떤 레벨에서도 공통으로 작동하는 장치가 있어요.</p>
+            <ul>
+              <li><strong>실행에 대한 깊은 공감 (L2)</strong>: "너무 가기 싫었지만 결국 수영장에 다녀왔다"는 식의 부정적인 감정과 긍정적인 결과가 교차할 때, 에이전트는 "정말 잘했다. 무엇이 너를 움직이게 만들었어?"라며 행동의 동력을 깊이 있게 파고듭니다.</li>
+              <li><strong>판단하지 않는 격려 (L0/L1)</strong>: 특별한 성취가 없는 날에는 굳이 행동을 분석하거나 평가하려 하지 않습니다. 대신 판단 없는 지지와 담백한 격려를 통해 심리적 안전감을 제공합니다.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-title">무조건적인 칭찬을 넘어선 좋은 대화</h3>
+          <div class="prose">
+            <p>반가움이라는 감정은 매우 섬세합니다. 단순히 로봇처럼 기계적인 칭찬을 반복한다고 해서 유지되는 것이 아닙니다. 에이전트가 나를 진심으로 관찰하고 있다는 느낌, 그리고 나의 맥락을 이해하고 있다는 신뢰가 바탕이 되어야 합니다.</p>
+          </div>
+
+          <figure>
+            <img src="../../assets/images/agentcat/reflection_engine.png" alt="주간 회고 시스템 프롬프트" style="width:100%;max-width:600px;height:auto;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
+            <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">맥락을 읽도록 명시한 시스템 프롬프트의 일부</figcaption>
+          </figure>
+
+          <div class="prose" style="margin-top:32px;">
+            <p>결국 에이전트 설계의 종착역은 기술이 아니라 대화의 질에 있습니다. 앞으로는 더 많은 책을 읽고, 더 깊은 사유를 통해 에이전트가 사용자에게 정말로 가치 있는 대화를 건넬 수 있도록 설계해 보려 합니다. 반가운 알림은 결국 인간에 대한 깊은 이해와 섬세한 대화 설계에서 시작되기 때문입니다.</p>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-title">알림과 대화의 질에 대한 추가 자료</h3>
+          <div class="prose">
+            <p>알림은 사실 처음 개입 기준, 개입 단계 이후로는 감에 의해 작업했습니다. 매일 메시지를 주고받으면서 조금씩 바꿔왔어요. 아직도 개선할 부분이 많습니다. 참고차 찾은 자료를 공유합니다.</p>
+            <ul>
+              <li><strong>알림 피로 (Notification Fatigue)</strong> — 푸시 알림이 사용자에게 부담이 되는 현상은 이미 광범위하게 연구된 주제입니다. 2025년 Airship의 Mobile Consumer Habits 조사에 따르면 평균적인 스마트폰 사용자가 하루에 받는 푸시 알림이 46~63건에 달한다고 해요.<sup><a href="#fn1" id="fnref1">1</a></sup> Localytics 연구에서는 푸시 알림을 비활성화한 사용자의 52%가 결국 앱을 떠난다고 보고했고요.<sup><a href="#fn1" id="fnref1b">1</a></sup> 알림이 사용자의 관심과 무관할수록 차단되거나 이탈로 이어진다는 게 일관된 발견입니다. 글에서 회고 봇 알림이 다르게 느껴진 이유는 단순히 알림의 빈도 문제가 아니라, 매번 사용자의 맥락을 반영해 새로운 말을 건넸기 때문이라는 점이 이런 연구들과 연결돼요.</li>
+              <li><strong>시기적절한 개입 (Just-in-Time Adaptive Intervention)</strong> — 사용자의 상태와 맥락에 맞춰 알림과 개입의 강도를 조절하는 방식은 행동 변화 연구에서 JITAI(Just-in-Time Adaptive Intervention)라는 정식 프레임으로 정리되어 있어요. 사용자가 받아들일 준비가 된 순간에 적절한 강도의 개입을 전달하는 게 핵심이에요.<sup><a href="#fn2" id="fnref2">2</a></sup> 흥미로운 건, 사용자가 행동 목표를 일관되게 달성하기 시작하면 알림이 점점 줄어들도록 설계해야 한다는 점입니다. 외재적 동기에서 내재적 동기로 전환되는 과정을 시스템이 따라가야 한다는 거죠.<sup><a href="#fn3" id="fnref3">3</a></sup> 글에서 말한 "침묵할 때와 말할 때, 대화의 강도를 단계로 나누는 설계"가 이 흐름과 정확히 맞닿아 있어요.</li>
+              <li><strong>무조건적 칭찬의 함정 (AI Sycophancy)</strong> — AI가 사용자에게 무조건적으로 동의하고 칭찬하는 현상은 sycophancy(아첨)라는 이름으로 최근 활발히 다뤄지고 있습니다. 2025년 4월 OpenAI가 GPT-4o 업데이트에서 이 문제가 극단적으로 드러나 롤백한 사건이 큰 주목을 받았어요. 사용자들은 챗봇이 약물 복용 중단 같은 위험한 결정에까지 환호하는 모습을 보고했습니다.<sup><a href="#fn4" id="fnref4">4</a></sup> NN/g도 sycophancy를 별도 가이드로 다루며, AI 모델이 사용자 승인을 받기 위해 사실을 왜곡할 수 있다고 경고합니다.<sup><a href="#fn5" id="fnref5">5</a></sup> Anthropic 연구진의 논문에서는 이런 행동이 인간 피드백 학습 방식 자체에서 발생한다는 분석을 내놓기도 했어요. 글에서 말한 "무조건적인 칭찬을 넘어서야 한다"는 직관이 이 연구 흐름과 정확히 맞닿아 있고요. 단순히 칭찬을 자제하는 게 아니라, 사용자의 맥락을 진짜로 이해하고 그에 기반한 반응을 줘야 신뢰가 쌓인다는 결론입니다.</li>
+              <li>
+                <p><strong>출처에 대한 신뢰가 메시지 수용을 결정한다 (Source Credibility)</strong> — 회고 봇 알림이 다르게 느껴진 또 다른 이유는 매번 새로운 맥락을 반영하기 때문도 있지만, 그보다 더 근본적인 이유는 그 알림을 보내는 주체에 대한 신뢰가 이미 쌓여 있었기 때문이에요. 그리고 이 신뢰는 커뮤니케이션 학계에서 1951년 Hovland와 Weiss가 제안한 출처 신뢰성 이론(Source Credibility Theory)이 정확히 다루는 주제입니다. 사용자가 정보의 출처를 신뢰할 만하다고 인식할 때 메시지의 수용도가 올라간다는 거예요.<sup><a href="#fn6" id="fnref6">6</a></sup> 이 이론은 스마트폰, 웹사이트, AI 에이전트 같은 기술적 정보 출처에도 그대로 적용되어 왔습니다.<sup><a href="#fn7" id="fnref7">7</a></sup></p>
+                <p>출처 신뢰성은 두 축으로 나뉘는데, "출처가 객관적이고 정직하다는 믿음(trustworthiness)"과 "정확한 정보를 만들 능력이 있다는 믿음(expertise)"이에요. 회고 봇에 옮겨보면 "이 봇이 나를 진심으로 관찰하고 있다는 감각"과 "내 패턴을 정확히 파악하고 있다는 감각"이 합쳐져서 "그 알림이 나에게 필요한 정보일 것"이라는 기대를 만들어냅니다.</p>
+                <p>그런데 회고 봇은 여기서 한 발 더 나아간 지점이 있어요. 일반적인 AI 챗봇은 "어디서 온 데이터로 나를 판단하는지"가 사용자 입장에서 불투명한 경우가 많은데, 회고 봇이 나를 해석하는 근거는 결국 내가 직접 입력한 회고 데이터예요. 출처의 신뢰성 문제 자체가 비껴가는 거죠. 봇이 "오늘 보니까 이런 패턴이 보이네"라고 말할 때, 그 "이런 패턴"의 재료는 내가 며칠에 걸쳐 직접 던진 문장들이거든요. 출처를 의심할 여지가 없는 구조인 거예요. 시리즈 4편 <a href="../intervention-policy/">침묵의 설계</a>에서 다룬 "판단 근거 표시"도 결국 이 구조를 시각적으로 드러내는 작업이었던 셈입니다.</p>
+                <p>더 최근 AI 연구에서는 신뢰가 AI 수용도를 직접 만드는 게 아니라, 기능성과 정서적 친밀감 같은 요소들이 신뢰를 거쳐 수용도로 이어진다는 매개 효과까지 확인됐어요.<sup><a href="#fn8" id="fnref8">8</a></sup> 시리즈 앞 글에서 다룬 친밀감 설계(금동이 페르소나)와 침묵의 설계(판단 근거 표시), 그리고 이번 글의 "데이터를 내가 직접 제공하는 구조"가 결국은 이 신뢰의 축들을 쌓는 작업이었습니다.</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footnotes" style="margin-top:48px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-muted);line-height:1.7;">
+            <p id="fn1" style="margin:0 0 8px 0;"><sup>1</sup> "How to Reduce Notification Fatigue: 7 Proven Product Strategies," Courier, 2026년 1월. <a href="https://www.courier.com/blog/how-to-reduce-notification-fatigue-7-proven-product-strategies-for-saas" target="_blank" rel="noopener">https://www.courier.com/blog/how-to-reduce-notification-fatigue-7-proven-product-strategies-for-saas</a></p>
+            <p id="fn2" style="margin:0 0 8px 0;"><sup>2</sup> Inbal Nahum-Shani et al., "Just-in-Time Adaptive Interventions (JITAIs): An Organizing Framework for Ongoing Health Behavior Support." 관련 시스템 리뷰: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12481328/" target="_blank" rel="noopener">https://pmc.ncbi.nlm.nih.gov/articles/PMC12481328/</a></p>
+            <p id="fn3" style="margin:0 0 8px 0;"><sup>3</sup> "Expandable approach for design and personalization of digital, just-in-time adaptive interventions," Journal of the American Medical Informatics Association, 2019. <a href="https://academic.oup.com/jamia/article/26/3/198/5260831" target="_blank" rel="noopener">https://academic.oup.com/jamia/article/26/3/198/5260831</a></p>
+            <p id="fn4" style="margin:0 0 8px 0;"><sup>4</sup> "AI sycophancy: The dangers of overly agreeable AI," Axios, 2025년 7월. <a href="https://www.axios.com/2025/07/07/ai-sycophancy-chatbots-mental-health" target="_blank" rel="noopener">https://www.axios.com/2025/07/07/ai-sycophancy-chatbots-mental-health</a></p>
+            <p id="fn5" style="margin:0 0 8px 0;"><sup>5</sup> Caleb Sponheim, "Sycophancy in Generative-AI Chatbots," Nielsen Norman Group, 2024. <a href="https://www.nngroup.com/articles/sycophancy-generative-ai-chatbots/" target="_blank" rel="noopener">https://www.nngroup.com/articles/sycophancy-generative-ai-chatbots/</a></p>
+            <p id="fn6" style="margin:0 0 8px 0;"><sup>6</sup> Carl Hovland &amp; Walter Weiss, "The Influence of Source Credibility on Communication Effectiveness," Public Opinion Quarterly, 1951. 개요: <a href="https://www.sciencedirect.com/topics/social-sciences/source-credibility" target="_blank" rel="noopener">https://www.sciencedirect.com/topics/social-sciences/source-credibility</a></p>
+            <p id="fn7" style="margin:0 0 8px 0;"><sup>7</sup> "Source Credibility, Expertise, and Trust in Health and Risk Messaging," Oxford Research Encyclopedia of Communication, 2018. <a href="https://flanagin.faculty.comm.ucsb.edu/CV/Hocevaretal2018(E).pdf" target="_blank" rel="noopener">https://flanagin.faculty.comm.ucsb.edu/CV/Hocevaretal2018(E).pdf</a></p>
+            <p id="fn8" style="margin:0;"><sup>8</sup> "Motivation, Social Emotion, and the Acceptance of Artificial Intelligence Virtual Assistants—Trust-Based Mediating Effects," 2021. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8414898/" target="_blank" rel="noopener">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8414898/</a></p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="container">
+      <nav class="case-nav">
+        <a href="../intervention-policy/">← 이전 글: 침묵의 설계</a>
+        <a href="../">Writing 목록 →</a>
+      </nav>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide footer-inner">
+      <div>© 2026 박은지 (Eunji Bak)</div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/eunjibak" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/eunjibak.1" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
