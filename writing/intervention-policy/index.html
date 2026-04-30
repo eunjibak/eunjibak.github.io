@@ -7,6 +7,30 @@
   <meta name="description" content="에이전트가 언제 말하고 언제 침묵할지를 정책으로 정의했다. 발화만큼이나 침묵의 설계가 신뢰를 결정한다.">
   <link rel="stylesheet" href="../../assets/css/styles.css">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐾%3C/text%3E%3C/svg%3E">
+  <style>
+    .case-toc { position: fixed; left: 24px; top: 140px; width: 200px; font-size: 13px; line-height: 1.5; z-index: 10; }
+    .case-toc-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-muted); margin-bottom: 12px; }
+    .case-toc ol { list-style: none; padding: 0; margin: 0; border-left: 1px solid var(--line); }
+    .case-toc li { margin: 0; }
+    .case-toc a { display: block; padding: 8px 12px; color: var(--ink-muted); text-decoration: none; border-left: 2px solid transparent; margin-left: -1px; transition: color .15s, border-color .15s; }
+    .case-toc a:hover { color: var(--ink); border-left-color: var(--ink); }
+    .case-toc a.is-active { color: var(--ink); border-left-color: var(--ink); }
+    @media (max-width: 1199px) { .case-toc { display: none; } }
+
+    .case-progress { display: none; }
+    @media (max-width: 1199px) {
+      .case-progress { display: block; position: sticky; top: 70px; z-index: 9; background: var(--bg); border-bottom: 1px solid var(--line); }
+      .case-progress-btn { -webkit-appearance: none; appearance: none; display: flex; align-items: center; justify-content: space-between; width: 100%; height: 48px; min-height: 48px; max-height: 48px; padding: 0 20px; margin: 0; background: transparent; border: 0; border-radius: 0; font-family: inherit; font-size: 13px; line-height: 1; text-align: left; color: var(--ink); cursor: pointer; box-sizing: border-box; flex-shrink: 0; }
+      .case-progress-current { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 500; }
+      .case-progress-current::before { content: "현재  ·  "; color: var(--ink-muted); font-weight: 400; }
+      .case-progress-arrow { color: var(--ink-muted); margin-left: 8px; transition: transform .15s; }
+      .case-progress[data-open="true"] .case-progress-arrow { transform: rotate(180deg); }
+      .case-progress-list { list-style: none; margin: 0; padding: 0; background: var(--bg-elevated); border-top: 1px solid var(--line); max-height: 60vh; overflow-y: auto; }
+      .case-progress-list a { display: block; padding: 12px 20px; color: var(--ink); text-decoration: none; font-size: 14px; border-top: 1px solid var(--line-soft); }
+      .case-progress-list li:first-child a { border-top: 0; }
+      .case-progress-list a.is-active { background: var(--line-soft); color: var(--ink); font-weight: 500; }
+    }
+  </style>
 </head>
 <body>
 
@@ -14,19 +38,43 @@
     <div class="container-wide nav-inner">
       <a href="/" class="nav-brand">eunji bak</a>
       <div class="nav-links">
-        <a href="/work/">Work</a>
-        <a href="/agent/">Agent Lab</a>
+        <a href="/writing/">Writing</a>
+        <a href="/dev-log/">Dev Log</a>
         <a href="/about/">About</a>
-        <a href="https://www.linkedin.com/in/eunjibak" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
   </nav>
 
+  <nav class="case-progress" aria-label="현재 섹션" data-open="false">
+    <button class="case-progress-btn" type="button" aria-expanded="false" aria-controls="case-progress-list">
+      <span class="case-progress-current" id="case-progress-current">시작</span>
+      <span class="case-progress-arrow" aria-hidden="true">▾</span>
+    </button>
+    <ol class="case-progress-list" id="case-progress-list" hidden>
+      <li><a href="#s1">왜 침묵의 설계가 중요한가</a></li>
+      <li><a href="#s2">판단 근거 표시</a></li>
+      <li><a href="#s3">상황과 단계별 룰</a></li>
+      <li><a href="#s4">앞으로의 과제</a></li>
+      <li><a href="#s5">판단과 개입에 대한 자료</a></li>
+    </ol>
+  </nav>
+
   <main>
+
+    <aside class="case-toc" aria-label="목차">
+      <div class="case-toc-label">목차</div>
+      <ol>
+        <li><a href="#s1">왜 침묵의 설계가 중요한가</a></li>
+        <li><a href="#s2">판단 근거 표시</a></li>
+        <li><a href="#s3">상황과 단계별 룰</a></li>
+        <li><a href="#s4">앞으로의 과제</a></li>
+        <li><a href="#s5">판단과 개입에 대한 자료</a></li>
+      </ol>
+    </aside>
 
     <header class="case-header">
       <div class="container">
-        <div class="case-eyebrow">Writing 04 — agentcat</div>
+        <div class="case-eyebrow">Writing 04 · agentcat</div>
         <h1 class="case-page-title">침묵의 설계:<br>과도한 개입 방지</h1>
         <p class="hero-lede" style="max-width:640px;">
           에이전트가 언제 말하고 언제 침묵할지를 정책으로 정의했습니다.
@@ -45,7 +93,7 @@
     <section class="section" style="border-top:none;">
       <div class="container">
 
-        <div class="subsection">
+        <div class="subsection" id="s1">
           <h3 class="subsection-title">왜 침묵의 설계가 중요한가: 의심을 제거하는 기술</h3>
           <div class="prose">
             <p>AI 에이전트를 만들 때 우리는 흔히 "어떻게 자동으로 무엇인가를 해서 나에게 말을 걸게 할까"를 먼저 고민합니다. 그런데 만들면서 점점 분명해진 건, 그에 못지않게 중요한 것이 "말하지 말아야 할 순간"을 정의하는 것이라는 점이었어요.</p>
@@ -57,7 +105,7 @@
           </div>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="s2">
           <h3 class="subsection-title">어떻게 접근했나 1: 판단 근거 표시</h3>
           <div class="prose">
             <p>조언이나 제안하는 문장에서는 반드시 데이터를 함께 제공하도록 했습니다.</p>
@@ -98,7 +146,7 @@
           </figure>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="s3">
           <h3 class="subsection-title">어떻게 접근했나 2: 상황과 단계별 룰</h3>
           <div class="prose">
             <p>이 프로젝트의 룰들을 살펴보면 "무엇을 하라"는 지시보다 "무엇을 하지 말라"는 종류가 더 많습니다. 모든 순간에 시스템이 발화하는 게 아니라, 어떤 상황의 어떤 단계에서 어디까지 관여할지를 미리 정해둔 것입니다.</p>
@@ -133,14 +181,14 @@
           </div>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="s4">
           <h3 class="subsection-title">앞으로 해결해가야 할 과제</h3>
           <div class="prose">
             <p>침묵의 설계는 발화의 설계만큼이나 섬세한 감각이 필요한 작업이에요. 회고 봇에서는 AI를 의심하지 않고 자신의 회고와 성장에 집중할 수 있도록, 어디서 침묵하고 어떤 근거를 가지고 발화할지 그 가이드라인을 다듬어 가는 일은 앞으로도 계속될 것 같습니다.</p>
           </div>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="s5">
           <h3 class="subsection-title">판단과 개입에 대한 추가 자료</h3>
           <div class="prose">
             <p>판단과 개입 정책을 짜면서 참고하면 좋을 만한 연구들을 정리해둡니다. 이 글을 읽고 더 참고할 부분이 떠오르신다면 제안 주세요.</p>
@@ -181,6 +229,63 @@
       </div>
     </div>
   </footer>
+
+  <script>
+  (function () {
+    var sections = [
+      { id: 's1', label: '왜 침묵의 설계가 중요한가' },
+      { id: 's2', label: '판단 근거 표시' },
+      { id: 's3', label: '상황과 단계별 룰' },
+      { id: 's4', label: '앞으로의 과제' },
+      { id: 's5', label: '판단과 개입에 대한 자료' }
+    ];
+    var wrap   = document.querySelector('.case-progress');
+    var btn    = wrap && wrap.querySelector('.case-progress-btn');
+    var list   = document.getElementById('case-progress-list');
+    var label  = document.getElementById('case-progress-current');
+    var dlinks = document.querySelectorAll('.case-toc a');
+
+    if (btn && list && wrap) {
+      btn.addEventListener('click', function () {
+        var open = wrap.getAttribute('data-open') === 'true';
+        wrap.setAttribute('data-open', String(!open));
+        btn.setAttribute('aria-expanded', String(!open));
+        list.hidden = open;
+      });
+      list.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          wrap.setAttribute('data-open', 'false');
+          btn.setAttribute('aria-expanded', 'false');
+          list.hidden = true;
+        });
+      });
+    }
+
+    if (!('IntersectionObserver' in window)) return;
+    var current = null;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) current = entry.target.id;
+      });
+      if (!current) return;
+      var sec = sections.filter(function (s) { return s.id === current; })[0];
+      if (sec && label) label.textContent = sec.label;
+      if (list) {
+        list.querySelectorAll('a').forEach(function (a) {
+          a.classList.toggle('is-active', a.getAttribute('href') === '#' + current);
+        });
+      }
+      dlinks.forEach(function (a) {
+        a.classList.toggle('is-active', a.getAttribute('href') === '#' + current);
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+
+    sections.forEach(function (s) {
+      var el = document.getElementById(s.id);
+      if (el) observer.observe(el);
+    });
+  })();
+  </script>
 
 </body>
 </html>

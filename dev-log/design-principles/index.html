@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>금동이봇 설계 원칙 — 박은지</title>
+  <meta name="description" content="금동이봇의 비전, 네 가지 설계 원칙, 핵심 결정들, 전체 구성. 어떤 기준으로 결정을 내렸는지의 기록.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="금동이봇 설계 원칙 — 박은지">
+  <meta property="og:description" content="금동이봇의 비전, 네 가지 설계 원칙, 핵심 결정들, 전체 구성. 어떤 기준으로 결정을 내렸는지의 기록.">
+  <meta property="og:url" content="https://eunjibak.github.io/dev-log/design-principles/">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:image" content="https://eunjibak.github.io/assets/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="박은지 — 노트북 앞에서 작업 중인 모습과 고양이">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://eunjibak.github.io/assets/images/og.png">
+  <link rel="canonical" href="https://eunjibak.github.io/dev-log/design-principles/">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐾%3C/text%3E%3C/svg%3E">
+  <style>
+    .case-toc { position: fixed; left: 24px; top: 140px; width: 200px; font-size: 13px; line-height: 1.5; z-index: 10; }
+    .case-toc-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-muted); margin-bottom: 12px; }
+    .case-toc ol { list-style: none; padding: 0; margin: 0; border-left: 1px solid var(--line); }
+    .case-toc li { margin: 0; }
+    .case-toc a { display: block; padding: 8px 12px; color: var(--ink-muted); text-decoration: none; border-left: 2px solid transparent; margin-left: -1px; transition: color .15s, border-color .15s; }
+    .case-toc a:hover { color: var(--ink); border-left-color: var(--ink); }
+    .case-toc a.is-active { color: var(--ink); border-left-color: var(--ink); }
+    @media (max-width: 1199px) { .case-toc { display: none; } }
+
+    .case-progress { display: none; }
+    @media (max-width: 1199px) {
+      .case-progress { display: block; position: sticky; top: 70px; z-index: 9; background: var(--bg); border-bottom: 1px solid var(--line); }
+      .case-progress-btn { -webkit-appearance: none; appearance: none; display: flex; align-items: center; justify-content: space-between; width: 100%; height: 48px; min-height: 48px; max-height: 48px; padding: 0 20px; margin: 0; background: transparent; border: 0; border-radius: 0; font-family: inherit; font-size: 13px; line-height: 1; text-align: left; color: var(--ink); cursor: pointer; box-sizing: border-box; flex-shrink: 0; }
+      .case-progress-current { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 500; }
+      .case-progress-current::before { content: "현재  ·  "; color: var(--ink-muted); font-weight: 400; }
+      .case-progress-arrow { color: var(--ink-muted); margin-left: 8px; transition: transform .15s; }
+      .case-progress[data-open="true"] .case-progress-arrow { transform: rotate(180deg); }
+      .case-progress-list { list-style: none; margin: 0; padding: 0; background: var(--bg-elevated); border-top: 1px solid var(--line); max-height: 60vh; overflow-y: auto; }
+      .case-progress-list a { display: block; padding: 12px 20px; color: var(--ink); text-decoration: none; font-size: 14px; border-top: 1px solid var(--line-soft); }
+      .case-progress-list li:first-child a { border-top: 0; }
+      .case-progress-list a.is-active { background: var(--line-soft); color: var(--ink); font-weight: 500; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container-wide nav-inner">
+      <a href="/" class="nav-brand">eunji bak</a>
+      <div class="nav-links">
+        <a href="/writing/">Writing</a>
+        <a href="/dev-log/">Dev Log</a>
+        <a href="/about/">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="case-progress" aria-label="현재 섹션" data-open="false">
+    <button class="case-progress-btn" type="button" aria-expanded="false" aria-controls="case-progress-list">
+      <span class="case-progress-current" id="case-progress-current">시작</span>
+      <span class="case-progress-arrow" aria-hidden="true">▾</span>
+    </button>
+    <ol class="case-progress-list" id="case-progress-list" hidden>
+      <li><a href="#s1">금동이봇이 하는 일</a></li>
+      <li><a href="#s2">출발점에 둔 비전</a></li>
+      <li><a href="#s3">네 가지 설계 원칙</a></li>
+      <li><a href="#s4">핵심이 된 설계 결정들</a></li>
+      <li><a href="#s5">전체 구성</a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <aside class="case-toc" aria-label="목차">
+      <div class="case-toc-label">목차</div>
+      <ol>
+        <li><a href="#s1">금동이봇이 하는 일</a></li>
+        <li><a href="#s2">출발점에 둔 비전</a></li>
+        <li><a href="#s3">네 가지 설계 원칙</a></li>
+        <li><a href="#s4">핵심이 된 설계 결정들</a></li>
+        <li><a href="#s5">전체 구성</a></li>
+      </ol>
+    </aside>
+
+    <header class="case-header">
+      <div class="container">
+        <div class="case-eyebrow">Dev Log 02 · 금동이봇</div>
+        <h1 class="case-page-title">금동이봇<br>설계 원칙</h1>
+        <p class="hero-lede" style="max-width:640px;">
+          만들면서 가장 어려웠던 건 결정의 기준이었어요.
+          새 기능을 떠올리면 일단 넣고 싶고, 결과가 안 나오면 정책을 슬쩍 바꾸고 싶었거든요.
+          그래서 비전 한 단락과 네 가지 원칙을 책상 위에 붙여두고, 흔들릴 때마다 그쪽으로 돌아왔습니다.
+        </p>
+      </div>
+    </header>
+
+    <section class="section" style="border-top:none;">
+      <div class="container">
+
+        <div class="subsection" id="s1">
+          <h3 class="subsection-title">금동이봇이 하는 일</h3>
+          <div class="prose">
+            <p>제가 만든 게 결국 뭐였는지 정리하는 데 시간이 좀 걸렸어요. 처음엔 그냥 "회고를 자동화하는 봇"이라고 생각했는데, 만들면서 보니 그건 절반도 안 되더라구요.</p>
+            <p>금동이봇은 10년 동안 해오던 회고를 바탕으로 만든, 상태 기반 자기조절 시스템이에요. 사용자가 던진 자연어 메시지를 해석해서 상태를 계산하고, 정책에 따라 말할지 침묵할지 판단하고, 그 흐름을 회고와 패턴으로 정리해줍니다. 자동화라기보다 자기 흐름을 매일 비춰주는 거울에 가까웠습니다.</p>
+          </div>
+        </div>
+
+        <div class="subsection" id="s2">
+          <h3 class="subsection-title">출발점에 둔 비전</h3>
+          <div class="prose">
+            <p>처음 일주일은 비전 한 단락을 쓰고 또 고치는 데 다 보냈어요. 기능을 먼저 떠올리면 매번 길을 잃더라구요. 그래서 사용자에게 어떤 태도로 다가갈지부터 적어두고, 모든 결정을 이 안에서 내려야겠다고 정했습니다.</p>
+            <blockquote>금동이봇은 텔레그램에 던지는 모든 메시지의 의도와 감정을 판단해서 기록해줍니다. 내 뇌의 '비서'이자 '외장하드'가 되어, 기록의 부담은 사라지고 자기 이해를 위한 데이터는 남습니다. 데이터의 패턴을 읽어 '성장과 회고'라는 본질에 집중할 수 있도록 합니다.</blockquote>
+            <p>핵심은 기록 자체가 또 하나의 일이 되지 않을 것. 사용자는 평소처럼 말하기만 하면 된다는 거였어요. 이 한 문장이 나중에 '태그리스 입력'이라는 결정의 출발점이 됩니다.</p>
+          </div>
+        </div>
+
+        <div class="subsection" id="s3">
+          <h3 class="subsection-title">네 가지 설계 원칙</h3>
+          <div class="prose">
+            <p>비전을 잡고 나니 진짜 어려운 건 만드는 동안의 흔들림이었어요. 새 기능이 떠오르면 일단 넣고 싶고, 결과가 안 나오면 정책을 슬쩍 바꾸고 싶고. 그래서 네 가지 원칙을 책상 위에 붙여두고, 흔들릴 때마다 이 네 가지로 돌아왔습니다.</p>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>원칙</th><th>의미</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Raw 저장 우선</strong></td><td>판단 전에 먼저 기록. 원문은 절대 변형하지 않는다.</td></tr>
+                  <tr><td><strong>Policy 기반 개입</strong></td><td>규칙 없는 반응 금지. 모든 응답은 정책 레벨에 근거한다.</td></tr>
+                  <tr><td><strong>자동 정책 변경 금지</strong></td><td>시스템이 스스로 규칙을 바꾸지 않는다. 승인 기반으로만 반영한다.</td></tr>
+                  <tr><td><strong>전환 학습</strong></td><td>회피에서 실행으로의 전환 패턴을 본다. 캐묻지 않는다.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>가장 자주 돌아온 건 'Raw 저장 우선'이었어요. LLM이 분류한 값을 그대로 시트에 덮어쓰고 싶은 유혹이 매일 들었거든요. 그래도 원문을 살려두니 나중에 시스템 판단이 어디서 흔들렸는지 추적할 수 있어서, 결국 이 원칙이 가장 든든한 안전망이 됐습니다.</p>
+          </div>
+        </div>
+
+        <div class="subsection" id="s4">
+          <h3 class="subsection-title">핵심이 된 설계 결정들</h3>
+          <div class="prose">
+            <p>실제로 만들면서 처음 떠올린 방식이 답이 아닐 때가 많았어요. 결정 하나하나가 왜 필요한지 다시 정리해야 했고, 그 흔적이 이 표에 남아 있습니다.</p>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>결정</th><th>무엇</th><th>왜</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>태그리스 입력</strong></td><td>사용자가 #태그나 감정 점수를 직접 입력하지 않음. LLM이 맥락으로 자동 분류.</td><td>기록이 노동이 되면 지속 불가능. 사용자는 그냥 말하고, 시스템이 해석한다.</td></tr>
+                  <tr><td><strong>4단계 개입 레벨 (L0~L3)</strong></td><td>Recorder(침묵) / Mirror(반영) / Coach(질문) / Micro Plan(제안)</td><td>언제 말하고 언제 침묵할지를 디자이너가 직접 정책으로 설계해야 한다.</td></tr>
+                  <tr><td><strong>능동형 L4 (아침·저녁·주간)</strong></td><td>시간 기반 자동 발동. 사용자가 부르지 않아도 먼저 말을 건다.</td><td>시스템이 환경이 되려면 수동 도구를 넘어서야 한다. 단, 개입 피로를 막는 룰 병행.</td></tr>
+                  <tr><td><strong>모델 역할 분리</strong></td><td>태깅은 저비용 Kimi, 회고는 Claude Opus, L1 반응은 Haiku</td><td>비용이 곧 UX 제약. 지능의 깊이를 기능별로 설계. 월 운영비 ~$3.66.</td></tr>
+                  <tr><td><strong>근거 병기 원칙</strong></td><td>좋은 흐름이야 (실행 10건 / 회피 0건 / 총 14건) 형식으로 판단과 근거를 함께 출력</td><td>블랙박스 금지. 사용자가 시스템의 판단을 검증할 수 있어야 한다.</td></tr>
+                  <tr><td><strong>소표본 가드레일</strong></td><td>데이터 3건 미만이면 패턴 단정 금지</td><td>거짓 확신은 몰입을 깬다. 모르면 모른다고 한다.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>가장 오래 고민한 건 '능동형 L4'였어요. 시스템이 사용자가 부르지 않아도 먼저 말을 거는 결정. 도구가 환경이 되려면 꼭 필요한데, 동시에 가장 위험한 결정이기도 했어요. 잘못 설계하면 그저 또 하나의 알림 앱이 되거든요. 그래서 능동형은 시간 기반 세 번(아침·저녁·주간)으로만 제한하고, 나머지는 사용자가 말을 건넬 때만 반응하도록 묶었습니다.</p>
+          </div>
+        </div>
+
+        <div class="subsection" id="s5">
+          <h3 class="subsection-title">전체 구성</h3>
+          <div class="prose">
+            <p>이 결정들을 다 통과시키고 나니, 구성은 결국 이런 모양으로 자리 잡았어요.</p>
+            <ul>
+              <li>구성: 텔레그램 봇 + Google Sheets(데이터) + patterns.md + Google Calendar(컨텍스트)</li>
+              <li>인프라: Mac Mini 서버에서 launchctl로 상시 구동, MacBook Pro에서 개발, GitHub로 동기화</li>
+              <li>파이프라인: Capture → Structuring(Kimi) → State → Drift → Policy → Response → Reflection(Claude) → Memory</li>
+              <li>LLM 스택: Kimi(moonshot-v1-8k), Claude Opus 4.6, Sonnet 4.6, Haiku 4.5</li>
+              <li>버전 이력: v1.0 → v2.3 → v3.6 (2026년 2~4월 사이 11번 업데이트)</li>
+            </ul>
+          </div>
+
+          <figure>
+            <img src="../../assets/images/agentcat/agentcat_system_architecture_v36.svg" alt="시스템 아키텍처 다이어그램" style="max-width:100%;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
+            <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">전체 파이프라인 흐름도</figcaption>
+          </figure>
+
+          <div class="prose" style="margin-top:32px;">
+            <p>겉으로 보기엔 그냥 텔레그램 봇 하나지만, 그 뒤에서는 여러 모델과 시트, 노트가 동시에 살아 움직이고 있어요. 이걸 사용자에게 어떻게 안 보이게 만들지가 다음 과제였습니다.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="container">
+      <nav class="case-nav">
+        <a href="/dev-log/100-days/">← 이전: 100일간의 에이전트 탐구</a>
+        <a href="/dev-log/daily-loop/">다음: 금동이봇과 대화하기 →</a>
+      </nav>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide footer-inner">
+      <div>© 2026 박은지 (Eunji Bak)</div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/eunjibak" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/eunjibak.1/reels/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var sections = [
+      { id: 's1', label: '금동이봇이 하는 일' },
+      { id: 's2', label: '출발점에 둔 비전' },
+      { id: 's3', label: '네 가지 설계 원칙' },
+      { id: 's4', label: '핵심이 된 설계 결정들' },
+      { id: 's5', label: '전체 구성' }
+    ];
+    var wrap   = document.querySelector('.case-progress');
+    var btn    = wrap && wrap.querySelector('.case-progress-btn');
+    var list   = document.getElementById('case-progress-list');
+    var label  = document.getElementById('case-progress-current');
+    var dlinks = document.querySelectorAll('.case-toc a');
+
+    if (btn && list && wrap) {
+      btn.addEventListener('click', function () {
+        var open = wrap.getAttribute('data-open') === 'true';
+        wrap.setAttribute('data-open', String(!open));
+        btn.setAttribute('aria-expanded', String(!open));
+        list.hidden = open;
+      });
+      list.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          wrap.setAttribute('data-open', 'false');
+          btn.setAttribute('aria-expanded', 'false');
+          list.hidden = true;
+        });
+      });
+    }
+
+    if (!('IntersectionObserver' in window)) return;
+    var current = null;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) current = entry.target.id;
+      });
+      if (!current) return;
+      var sec = sections.filter(function (s) { return s.id === current; })[0];
+      if (sec && label) label.textContent = sec.label;
+      if (list) {
+        list.querySelectorAll('a').forEach(function (a) {
+          a.classList.toggle('is-active', a.getAttribute('href') === '#' + current);
+        });
+      }
+      dlinks.forEach(function (a) {
+        a.classList.toggle('is-active', a.getAttribute('href') === '#' + current);
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+
+    sections.forEach(function (s) {
+      var el = document.getElementById(s.id);
+      if (el) observer.observe(el);
+    });
+  })();
+  </script>
+
+</body>
+</html>

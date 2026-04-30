@@ -7,6 +7,30 @@
   <meta name="description" content="인간이 분류해서 시스템에 넣는 방식에서, 인간이 raw로 던지고 시스템이 분류하는 방식으로. 에이전트 UX 설계 노트.">
   <link rel="stylesheet" href="../../assets/css/styles.css">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐾%3C/text%3E%3C/svg%3E">
+  <style>
+    .case-toc { position: fixed; left: 24px; top: 140px; width: 200px; font-size: 13px; line-height: 1.5; z-index: 10; }
+    .case-toc-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-muted); margin-bottom: 12px; }
+    .case-toc ol { list-style: none; padding: 0; margin: 0; border-left: 1px solid var(--line); }
+    .case-toc li { margin: 0; }
+    .case-toc a { display: block; padding: 8px 12px; color: var(--ink-muted); text-decoration: none; border-left: 2px solid transparent; margin-left: -1px; transition: color .15s, border-color .15s; }
+    .case-toc a:hover { color: var(--ink); border-left-color: var(--ink); }
+    .case-toc a.is-active { color: var(--ink); border-left-color: var(--ink); }
+    @media (max-width: 1199px) { .case-toc { display: none; } }
+
+    .case-progress { display: none; }
+    @media (max-width: 1199px) {
+      .case-progress { display: block; position: sticky; top: 70px; z-index: 9; background: var(--bg); border-bottom: 1px solid var(--line); }
+      .case-progress-btn { -webkit-appearance: none; appearance: none; display: flex; align-items: center; justify-content: space-between; width: 100%; height: 48px; min-height: 48px; max-height: 48px; padding: 0 20px; margin: 0; background: transparent; border: 0; border-radius: 0; font-family: inherit; font-size: 13px; line-height: 1; text-align: left; color: var(--ink); cursor: pointer; box-sizing: border-box; flex-shrink: 0; }
+      .case-progress-current { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 500; }
+      .case-progress-current::before { content: "현재  ·  "; color: var(--ink-muted); font-weight: 400; }
+      .case-progress-arrow { color: var(--ink-muted); margin-left: 8px; transition: transform .15s; }
+      .case-progress[data-open="true"] .case-progress-arrow { transform: rotate(180deg); }
+      .case-progress-list { list-style: none; margin: 0; padding: 0; background: var(--bg-elevated); border-top: 1px solid var(--line); max-height: 60vh; overflow-y: auto; }
+      .case-progress-list a { display: block; padding: 12px 20px; color: var(--ink); text-decoration: none; font-size: 14px; border-top: 1px solid var(--line-soft); }
+      .case-progress-list li:first-child a { border-top: 0; }
+      .case-progress-list a.is-active { background: var(--line-soft); color: var(--ink); font-weight: 500; }
+    }
+  </style>
 </head>
 <body>
 
@@ -14,19 +38,43 @@
     <div class="container-wide nav-inner">
       <a href="/" class="nav-brand">eunji bak</a>
       <div class="nav-links">
-        <a href="/work/">Work</a>
-        <a href="/agent/">Agent Lab</a>
+        <a href="/writing/">Writing</a>
+        <a href="/dev-log/">Dev Log</a>
         <a href="/about/">About</a>
-        <a href="https://www.linkedin.com/in/eunjibak" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
   </nav>
 
+  <nav class="case-progress" aria-label="현재 섹션" data-open="false">
+    <button class="case-progress-btn" type="button" aria-expanded="false" aria-controls="case-progress-list">
+      <span class="case-progress-current" id="case-progress-current">시작</span>
+      <span class="case-progress-arrow" aria-hidden="true">▾</span>
+    </button>
+    <ol class="case-progress-list" id="case-progress-list" hidden>
+      <li><a href="#s1">100일 중 60일, 그리고 처음 시도</a></li>
+      <li><a href="#s2">디자이너의 관성이 발목을 잡았다</a></li>
+      <li><a href="#s3">무엇을, 어떻게 바꿨나</a></li>
+      <li><a href="#s4">디자이너의 일은 어떻게 바뀌나</a></li>
+      <li><a href="#s5">Raw 기반 UX란 결국 무엇인가</a></li>
+    </ol>
+  </nav>
+
   <main>
+
+    <aside class="case-toc" aria-label="목차">
+      <div class="case-toc-label">목차</div>
+      <ol>
+        <li><a href="#s1">100일 중 60일, 그리고 처음 시도</a></li>
+        <li><a href="#s2">디자이너의 관성이 발목을 잡았다</a></li>
+        <li><a href="#s3">무엇을, 어떻게 바꿨나</a></li>
+        <li><a href="#s4">디자이너의 일은 어떻게 바뀌나</a></li>
+        <li><a href="#s5">Raw 기반 UX란 결국 무엇인가</a></li>
+      </ol>
+    </aside>
 
     <header class="case-header">
       <div class="container">
-        <div class="case-eyebrow">Writing 01 — agentcat</div>
+        <div class="case-eyebrow">Writing 01 · agentcat</div>
         <h1 class="case-page-title">태그 입력에서<br>Raw 입력으로</h1>
         <p class="hero-lede" style="max-width:640px;">
           처음엔 사용자가 #태그와 감정 점수를 직접 입력하도록 만들었습니다.
@@ -45,7 +93,7 @@
     <section class="section" style="border-top:none;">
       <div class="container">
 
-        <div class="subsection">
+        <div class="subsection" id="s1">
           <h3 class="subsection-title">100일 중 60일, 그리고 처음 시도</h3>
           <div class="prose">
             <p>100일의 탐구 시간 중 60일을 에이전트 만드는 데 썼습니다. AI를 하나라도 쓰고 있거나, 챗봇 형태의 UX를 설계하고 있는 분들이라면 이 과정을 꼭 한 번 해보셨으면 해요.</p>
@@ -74,7 +122,7 @@
           </div>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="s2">
           <h3 class="subsection-title">디자이너의 관성이 발목을 잡았다</h3>
           <div class="prose">
             <p>돌아보니 제가 디자이너라서 이 전환이 유독 힘들었습니다. 웹과 앱, 그 화면의 세계에서 너무 오래 지낸 거죠. 거의 20, 30년 가까운 관성 아닐까요?</p>
@@ -98,7 +146,7 @@
           </div>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="s3">
           <h3 class="subsection-title">무엇을, 어떻게 바꿨나</h3>
           <div class="prose">
             <p>중요한 변화는 단순한 입력의 간소화가 아닙니다. 인간이 분류해서 시스템에 넣어주는 방식에서, 인간은 Raw한 상태로 던지고 시스템이 분류하는 것으로 책임의 주체가 바뀐 것입니다.</p>
@@ -120,7 +168,7 @@
           </div>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="s4">
           <h3 class="subsection-title">디자이너의 일은 어떻게 바뀌나</h3>
           <div class="prose">
             <p>이 전환을 받아들이면 디자이너의 일은 근본적으로 달라집니다. 입력을 제한해서 에러를 줄이는 방식에서, 의도를 해석해서 맥락을 맞추는 방식으로 무게중심이 이동합니다.</p>
@@ -138,7 +186,7 @@
           </div>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="s5">
           <h3 class="subsection-title">Raw 기반 UX란 결국 무엇인가</h3>
           <div class="prose">
             <p>모든 필드를 채워야 답을 얻고, 정해진 단계를 거쳐야 하는 서비스의 워크플로우는 이미 사용자에게 무겁게 느껴지기 시작했습니다. 사용자는 맥락이 빠진 자연어로 말해도 숨겨진 의도까지 추론해서 제안받는 경험에 익숙해지고 있습니다.</p>
@@ -176,6 +224,63 @@
       </div>
     </div>
   </footer>
+
+  <script>
+  (function () {
+    var sections = [
+      { id: 's1', label: '100일 중 60일, 그리고 처음 시도' },
+      { id: 's2', label: '디자이너의 관성이 발목을 잡았다' },
+      { id: 's3', label: '무엇을, 어떻게 바꿨나' },
+      { id: 's4', label: '디자이너의 일은 어떻게 바뀌나' },
+      { id: 's5', label: 'Raw 기반 UX란 결국 무엇인가' }
+    ];
+    var wrap   = document.querySelector('.case-progress');
+    var btn    = wrap && wrap.querySelector('.case-progress-btn');
+    var list   = document.getElementById('case-progress-list');
+    var label  = document.getElementById('case-progress-current');
+    var dlinks = document.querySelectorAll('.case-toc a');
+
+    if (btn && list && wrap) {
+      btn.addEventListener('click', function () {
+        var open = wrap.getAttribute('data-open') === 'true';
+        wrap.setAttribute('data-open', String(!open));
+        btn.setAttribute('aria-expanded', String(!open));
+        list.hidden = open;
+      });
+      list.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          wrap.setAttribute('data-open', 'false');
+          btn.setAttribute('aria-expanded', 'false');
+          list.hidden = true;
+        });
+      });
+    }
+
+    if (!('IntersectionObserver' in window)) return;
+    var current = null;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) current = entry.target.id;
+      });
+      if (!current) return;
+      var sec = sections.filter(function (s) { return s.id === current; })[0];
+      if (sec && label) label.textContent = sec.label;
+      if (list) {
+        list.querySelectorAll('a').forEach(function (a) {
+          a.classList.toggle('is-active', a.getAttribute('href') === '#' + current);
+        });
+      }
+      dlinks.forEach(function (a) {
+        a.classList.toggle('is-active', a.getAttribute('href') === '#' + current);
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+
+    sections.forEach(function (s) {
+      var el = document.getElementById(s.id);
+      if (el) observer.observe(el);
+    });
+  })();
+  </script>
 
 </body>
 </html>

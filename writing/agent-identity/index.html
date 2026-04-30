@@ -7,6 +7,30 @@
   <meta name="description" content="에이전트에 금동이라는 고양이 정체성을 부여했다. 거리감, 포지션, 성격 세 원칙으로 설계한 개인 회고 에이전트의 아이덴티티 노트.">
   <link rel="stylesheet" href="../../assets/css/styles.css">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐾%3C/text%3E%3C/svg%3E">
+  <style>
+    .case-toc { position: fixed; left: 24px; top: 140px; width: 200px; font-size: 13px; line-height: 1.5; z-index: 10; }
+    .case-toc-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-muted); margin-bottom: 12px; }
+    .case-toc ol { list-style: none; padding: 0; margin: 0; border-left: 1px solid var(--line); }
+    .case-toc li { margin: 0; }
+    .case-toc a { display: block; padding: 8px 12px; color: var(--ink-muted); text-decoration: none; border-left: 2px solid transparent; margin-left: -1px; transition: color .15s, border-color .15s; }
+    .case-toc a:hover { color: var(--ink); border-left-color: var(--ink); }
+    .case-toc a.is-active { color: var(--ink); border-left-color: var(--ink); }
+    @media (max-width: 1199px) { .case-toc { display: none; } }
+
+    .case-progress { display: none; }
+    @media (max-width: 1199px) {
+      .case-progress { display: block; position: sticky; top: 70px; z-index: 9; background: var(--bg); border-bottom: 1px solid var(--line); }
+      .case-progress-btn { -webkit-appearance: none; appearance: none; display: flex; align-items: center; justify-content: space-between; width: 100%; height: 48px; min-height: 48px; max-height: 48px; padding: 0 20px; margin: 0; background: transparent; border: 0; border-radius: 0; font-family: inherit; font-size: 13px; line-height: 1; text-align: left; color: var(--ink); cursor: pointer; box-sizing: border-box; flex-shrink: 0; }
+      .case-progress-current { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 500; }
+      .case-progress-current::before { content: "현재  ·  "; color: var(--ink-muted); font-weight: 400; }
+      .case-progress-arrow { color: var(--ink-muted); margin-left: 8px; transition: transform .15s; }
+      .case-progress[data-open="true"] .case-progress-arrow { transform: rotate(180deg); }
+      .case-progress-list { list-style: none; margin: 0; padding: 0; background: var(--bg-elevated); border-top: 1px solid var(--line); max-height: 60vh; overflow-y: auto; }
+      .case-progress-list a { display: block; padding: 12px 20px; color: var(--ink); text-decoration: none; font-size: 14px; border-top: 1px solid var(--line-soft); }
+      .case-progress-list li:first-child a { border-top: 0; }
+      .case-progress-list a.is-active { background: var(--line-soft); color: var(--ink); font-weight: 500; }
+    }
+  </style>
 </head>
 <body>
 
@@ -14,19 +38,43 @@
     <div class="container-wide nav-inner">
       <a href="/" class="nav-brand">eunji bak</a>
       <div class="nav-links">
-        <a href="/work/">Work</a>
-        <a href="/agent/">Agent Lab</a>
+        <a href="/writing/">Writing</a>
+        <a href="/dev-log/">Dev Log</a>
         <a href="/about/">About</a>
-        <a href="https://www.linkedin.com/in/eunjibak" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
   </nav>
 
+  <nav class="case-progress" aria-label="현재 섹션" data-open="false">
+    <button class="case-progress-btn" type="button" aria-expanded="false" aria-controls="case-progress-list">
+      <span class="case-progress-current" id="case-progress-current">시작</span>
+      <span class="case-progress-arrow" aria-hidden="true">▾</span>
+    </button>
+    <ol class="case-progress-list" id="case-progress-list" hidden>
+      <li><a href="#s1">AI에게 존재를 느끼는 순간</a></li>
+      <li><a href="#s2">아이덴티티 3가지 설계 원칙</a></li>
+      <li><a href="#s3">재미 포인트: 상태를 정의하는 소리</a></li>
+      <li><a href="#s4">디자이너의 일로 남는 것</a></li>
+      <li><a href="#s5">추가로 찾아본 자료</a></li>
+    </ol>
+  </nav>
+
   <main>
+
+    <aside class="case-toc" aria-label="목차">
+      <div class="case-toc-label">목차</div>
+      <ol>
+        <li><a href="#s1">AI에게 존재를 느끼는 순간</a></li>
+        <li><a href="#s2">아이덴티티 3가지 설계 원칙</a></li>
+        <li><a href="#s3">재미 포인트: 상태를 정의하는 소리</a></li>
+        <li><a href="#s4">디자이너의 일로 남는 것</a></li>
+        <li><a href="#s5">추가로 찾아본 자료</a></li>
+      </ol>
+    </aside>
 
     <header class="case-header">
       <div class="container">
-        <div class="case-eyebrow">Writing 03 — agentcat</div>
+        <div class="case-eyebrow">Writing 03 · agentcat</div>
         <h1 class="case-page-title">친밀감을 부여하는 작업:<br>아이덴티티와 거리감</h1>
         <p class="hero-lede" style="max-width:640px;">
           에이전트에게 반려동물 금동이의 정체성을 부여했습니다.
@@ -45,7 +93,7 @@
     <section class="section" style="border-top:none;">
       <div class="container">
 
-        <div class="subsection">
+        <div class="subsection" id="s1">
           <h3 class="subsection-title">AI에게 존재를 느끼는 순간</h3>
           <div class="prose">
             <p>사람은 돌멩이에 눈알만 붙여도 정감을 느끼는 존재입니다. 하물며 나에게 말을 거는 AI라면 어떨까요? 범용적인 이름 대신, 나에게 가장 소중한 존재의 페르소나를 입히는 순간 AI는 단순한 도구를 넘어 관계를 맺는 대상으로 변화합니다.</p>
@@ -63,7 +111,7 @@
           </figure>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="s2">
           <h3 class="subsection-title">에이전트 아이덴티티를 위한 3가지 설계 원칙</h3>
           <div class="prose">
             <p>에이전트가 피드백을 줄 때, 사용자가 방어기제를 세우지 않고 받아들이게 하기 위해 다음 세 가지 원칙을 중심으로 시스템을 설계했습니다.</p>
@@ -85,7 +133,7 @@
           </figure>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="s3">
           <h3 class="subsection-title">재미 포인트: 상태를 정의하는 소리</h3>
           <div class="prose">
             <p>금동이 봇의 정체성을 가장 직관적으로 드러내는 장치는 상황에 따라 출력되는 소리입니다. 단순한 효과음이 아니라, 사용자의 행동 맥락에 따라 에이전트의 반응을 기대하게 만드는 장치예요.</p>
@@ -113,7 +161,7 @@
           </div>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="s4">
           <h3 class="subsection-title">무엇이 디자이너의 일로 남는가</h3>
           <div class="prose">
             <p>개인 에이전트의 시대에는 개인의 기호가 그 어느 때보다 강력하게 작용합니다. 어떤 상황에서 건조한 톤이 필요한지, 혹은 어디에서 정체성 부여가 시너지를 낼지 결정하는 것은 결국 디자이너의 몫입니다.</p>
@@ -121,7 +169,7 @@
           </div>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="s5">
           <h3 class="subsection-title">추가로 찾아본 자료</h3>
           <div class="prose">
             <p>이 글을 쓰고 나서 관련 연구를 찾아봤습니다. 개인 회고 봇이라는 특성과 아이덴티티 설정에 맞는 연구 자료를 첨부합니다.</p>
@@ -162,6 +210,63 @@
       </div>
     </div>
   </footer>
+
+  <script>
+  (function () {
+    var sections = [
+      { id: 's1', label: 'AI에게 존재를 느끼는 순간' },
+      { id: 's2', label: '아이덴티티 3가지 설계 원칙' },
+      { id: 's3', label: '재미 포인트: 상태를 정의하는 소리' },
+      { id: 's4', label: '디자이너의 일로 남는 것' },
+      { id: 's5', label: '추가로 찾아본 자료' }
+    ];
+    var wrap   = document.querySelector('.case-progress');
+    var btn    = wrap && wrap.querySelector('.case-progress-btn');
+    var list   = document.getElementById('case-progress-list');
+    var label  = document.getElementById('case-progress-current');
+    var dlinks = document.querySelectorAll('.case-toc a');
+
+    if (btn && list && wrap) {
+      btn.addEventListener('click', function () {
+        var open = wrap.getAttribute('data-open') === 'true';
+        wrap.setAttribute('data-open', String(!open));
+        btn.setAttribute('aria-expanded', String(!open));
+        list.hidden = open;
+      });
+      list.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          wrap.setAttribute('data-open', 'false');
+          btn.setAttribute('aria-expanded', 'false');
+          list.hidden = true;
+        });
+      });
+    }
+
+    if (!('IntersectionObserver' in window)) return;
+    var current = null;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) current = entry.target.id;
+      });
+      if (!current) return;
+      var sec = sections.filter(function (s) { return s.id === current; })[0];
+      if (sec && label) label.textContent = sec.label;
+      if (list) {
+        list.querySelectorAll('a').forEach(function (a) {
+          a.classList.toggle('is-active', a.getAttribute('href') === '#' + current);
+        });
+      }
+      dlinks.forEach(function (a) {
+        a.classList.toggle('is-active', a.getAttribute('href') === '#' + current);
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+
+    sections.forEach(function (s) {
+      var el = document.getElementById(s.id);
+      if (el) observer.observe(el);
+    });
+  })();
+  </script>
 
 </body>
 </html>

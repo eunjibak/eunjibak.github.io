@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About — 박은지</title>
-  <meta name="description" content="13년차 프로덕트 디자이너 박은지의 커리어 여정.">
+  <meta name="description" content="13년차 디자이너이자 Agent Builder 박은지. 지금 하는 일, 일하는 방식, 경력.">
   <meta property="og:type" content="profile">
   <meta property="og:title" content="About — 박은지">
-  <meta property="og:description" content="13년차 프로덕트 디자이너 박은지의 커리어 여정.">
+  <meta property="og:description" content="13년차 디자이너이자 Agent Builder 박은지. 지금 하는 일, 일하는 방식, 경력.">
   <meta property="og:url" content="https://eunjibak.github.io/about/">
   <meta property="og:locale" content="ko_KR">
   <meta property="og:image" content="https://eunjibak.github.io/assets/images/og.png">
@@ -19,6 +19,164 @@
   <link rel="canonical" href="https://eunjibak.github.io/about/">
   <link rel="stylesheet" href="../assets/css/styles.css">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐾%3C/text%3E%3C/svg%3E">
+  <style>
+    /* Desktop left TOC */
+    .case-toc {
+      position: fixed;
+      left: 24px;
+      top: 140px;
+      width: 200px;
+      font-size: 13px;
+      line-height: 1.5;
+      z-index: 10;
+    }
+    .case-toc-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
+      margin-bottom: 12px;
+    }
+    .case-toc ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-left: 1px solid var(--line);
+    }
+    .case-toc li { margin: 0; }
+    .case-toc a {
+      display: block;
+      padding: 8px 12px;
+      color: var(--ink-muted);
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      margin-left: -1px;
+      transition: color .15s, border-color .15s;
+    }
+    .case-toc a:hover {
+      color: var(--ink);
+      border-left-color: var(--ink);
+    }
+    .case-toc a.is-active {
+      color: var(--ink);
+      border-left-color: var(--ink);
+    }
+    @media (max-width: 1199px) {
+      .case-toc { display: none; }
+    }
+
+    /* Mobile sticky progress bar */
+    .case-progress { display: none; }
+    @media (max-width: 1199px) {
+      .case-progress {
+        display: block;
+        position: sticky;
+        top: 70px;
+        z-index: 9;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+      }
+      .case-progress-btn {
+        -webkit-appearance: none;
+        appearance: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 48px;
+        min-height: 48px;
+        max-height: 48px;
+        padding: 0 20px;
+        margin: 0;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        font-family: inherit;
+        font-size: 13px;
+        line-height: 1;
+        text-align: left;
+        color: var(--ink);
+        cursor: pointer;
+        box-sizing: border-box;
+        flex-shrink: 0;
+      }
+      .case-progress-current {
+        flex: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: 500;
+      }
+      .case-progress-current::before {
+        content: "현재  ·  ";
+        color: var(--ink-muted);
+        font-weight: 400;
+      }
+      .case-progress-arrow {
+        color: var(--ink-muted);
+        margin-left: 8px;
+        transition: transform .15s;
+      }
+      .case-progress[data-open="true"] .case-progress-arrow {
+        transform: rotate(180deg);
+      }
+      .case-progress-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        background: var(--bg-elevated);
+        border-top: 1px solid var(--line);
+        max-height: 60vh;
+        overflow-y: auto;
+      }
+      .case-progress-list a {
+        display: block;
+        padding: 12px 20px;
+        color: var(--ink);
+        text-decoration: none;
+        font-size: 14px;
+        border-top: 1px solid var(--line-soft);
+      }
+      .case-progress-list li:first-child a { border-top: 0; }
+      .case-progress-list a.is-active {
+        background: var(--line-soft);
+        color: var(--ink);
+        font-weight: 500;
+      }
+    }
+
+    /* About-specific spacing & visibility */
+    main .section { border-top: none; }
+    .about-list {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0 0;
+    }
+    .about-list > li {
+      padding: 20px 0;
+      border-top: 1px solid var(--line-soft);
+      line-height: 1.7;
+    }
+    .about-list > li:first-child {
+      border-top: 0;
+      padding-top: 8px;
+    }
+    .about-list > li > strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 16px;
+      color: var(--ink);
+    }
+    .about-list--no-divider > li,
+    .about-list--no-divider > li:first-child {
+      border-top: 0;
+      padding: 6px 0;
+    }
+    .about-intro-p {
+      margin: 0 0 8px;
+      color: var(--ink-soft);
+    }
+  </style>
 </head>
 <body>
 
@@ -26,80 +184,194 @@
     <div class="container-wide nav-inner">
       <a href="/" class="nav-brand">eunji bak</a>
       <div class="nav-links">
-        <a href="/work/">Work</a>
-        <a href="/agent/">Agent Lab</a>
+        <a href="/writing/">Writing</a>
+        <a href="/dev-log/">Dev Log</a>
         <a href="/about/">About</a>
         <a href="https://www.linkedin.com/in/eunjibak" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
   </nav>
 
+  <!-- Mobile sticky progress bar -->
+  <nav class="case-progress" aria-label="현재 섹션" data-open="false">
+    <button class="case-progress-btn" type="button" aria-expanded="false" aria-controls="case-progress-list">
+      <span class="case-progress-current" id="case-progress-current">소개</span>
+      <span class="case-progress-arrow" aria-hidden="true">▾</span>
+    </button>
+    <ol class="case-progress-list" id="case-progress-list" hidden>
+      <li><a href="#intro">소개</a></li>
+      <li><a href="#now">지금 하고 있는 것</a></li>
+      <li><a href="#how">일하는 방식</a></li>
+      <li><a href="#skills">다룰 수 있는 것</a></li>
+      <li><a href="#career">경력</a></li>
+    </ol>
+  </nav>
+
   <main>
 
-    <header class="case-header">
+    <!-- Desktop left TOC -->
+    <aside class="case-toc" aria-label="목차">
+      <div class="case-toc-label">목차</div>
+      <ol>
+        <li><a href="#intro">소개</a></li>
+        <li><a href="#now">지금 하고 있는 것</a></li>
+        <li><a href="#how">일하는 방식</a></li>
+        <li><a href="#skills">다룰 수 있는 것</a></li>
+        <li><a href="#career">경력</a></li>
+      </ol>
+    </aside>
+
+    <!-- INTRO -->
+    <header class="case-header" id="intro">
       <div class="container">
         <div class="case-eyebrow">About</div>
         <h1 class="case-page-title">박은지<br>Eunji Bak</h1>
-        <p class="hero-lede" style="max-width:640px;">
-          13년간 브랜드, 그래픽, 웹 에이전시 PM, B2B SaaS 프로덕트 디자이너를 거쳤습니다.
-          분야가 바뀌어도 변하지 않는 본질, 보이지 않는 것을 보이게 하는 일에 관심이 있어요.
-          2026년부터는 AI 에이전트를 직접 설계하면서 디자이너의 역할이 어떻게 변하는지 탐구하고 있습니다.
+        <p class="hero-lede" style="max-width:720px;">
+          13년간 브랜드 디자이너, 웹 에이전시 PM, 프리랜서, B2B SaaS 프로덕트 디자이너를 거쳤습니다. 변화하는 환경에 빠르게 적응하고, 직간접적으로 경험한 문제의 핵심을 파악하고, 구조를 짜고, 솔루션을 만들어 전달하는 일을 합니다.
         </p>
       </div>
     </header>
 
-    <section class="section" style="border-top:none;">
+    <!-- NOW -->
+    <section class="section" id="now">
       <div class="container">
+        <h2 class="section-title">지금 하고 있는 것</h2>
+        <ul class="about-list">
+          <li>
+            <strong>고양이 회고 AI Agent</strong>
+            개인 행동 데이터를 분석해 감정과 행동을 인지하고 목표로 정렬을 돕는, 개인 회고 에이전트를 직접 설계해 사용해보고 있어요. 메시지 캡처 → 태깅 → 상태 계산 → 회고 생성으로 이어지는 파이프라인을 Mac Mini 서버에서 돌리고, Kimi / Claude API와 Google Calendar를 붙여 매일, 주간, command 방식의 분석 리포트를 받아봅니다.
+          </li>
+          <li>
+            <strong>디자이너의 역할 재정의</strong>
+            직무의 틀을 벗어나 기획부터 UX 설계, 데이터 구조, 개발까지 Claude Code로 진행했습니다. 이 과정에서 얻은 경험을 영상과 글로 정리해 빌더와 AI에 관심 있는 사용자와 나누고 있습니다. 프로젝트의 첫 시작부터 마무리까지 100일간 1.6만 명의 팔로워를 얻고 지식을 공유 중입니다.
+          </li>
+        </ul>
+      </div>
+    </section>
 
-        <div class="subsection">
-          <h3 class="subsection-title">Journey</h3>
-          <div class="prose">
-            <div class="table-wrap">
-              <table>
-                <thead><tr><th>시기</th><th>역할</th><th>분야</th></tr></thead>
-                <tbody>
-                  <tr><td>2026 — present</td><td>Independent · Agent Builder</td><td>AI 에이전트 설계, 개인 회고 시스템</td></tr>
-                  <tr><td>2023 — 2025</td><td>Product Designer</td><td>B2B SaaS, 사내 교육 LMS, 뉴스 플랫폼</td></tr>
-                  <tr><td>2021 — 2023</td><td>Product / Marketing Designer</td><td>마케팅 페이지, 사전가입 캠페인</td></tr>
-                  <tr><td>2017 — 2021</td><td>웹 에이전시 PM · Designer</td><td>브랜드 사이트, 캠페인 페이지</td></tr>
-                  <tr><td>2013 — 2017</td><td>Brand · Graphic Designer</td><td>브랜드 아이덴티티, 인쇄물, 패키지</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <p style="color:var(--ink-muted);font-size:14px;margin-top:16px;">
-              본문은 보강 예정입니다. 더 자세한 내용은 <a href="https://www.linkedin.com/in/eunjibak" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line);">LinkedIn</a>을 참고해주세요.
-            </p>
+    <!-- HOW -->
+    <section class="section" id="how">
+      <div class="container">
+        <h2 class="section-title">일하는 방식</h2>
+        <p class="about-intro-p">브랜드에서 프로덕트로, 다시 에이전트로. 직무가 바뀐 게 아니라, 각 단계의 지식이 다음 단계에서 연결되며 깊어졌어요.</p>
+        <ul class="about-list">
+          <li>
+            <strong>문제를 직접 듣기</strong>
+            에이전시 PM 시절에도, 프리랜서로 일할 때도, 사내 디자이너일 때도, 해결할 문제를 그저 해결하기보다 클라이언트나 사용자와 직접 이야기해서 진짜 문제가 뭔지부터 다시 정리했어요.
+          </li>
+          <li>
+            <strong>구조로 풀기</strong>
+            보이는 화면이나 결과물보다, 그 뒤에 있는 흐름과 구조를 먼저 그렸어요. 자동화와 AI로 변화되는 지금, 작은 디테일보다 더 중요해지는 역량이라 생각합니다.
+          </li>
+          <li>
+            <strong>반응하며 개선하기</strong>
+            직무의 경계가 해제되고 빠른 반영이 가능해진 지금, 기획·개발·개선을 빠른 속도로 회전하며 반영하고 있습니다.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="container">
+        <h2 class="section-title">다룰 수 있는 것</h2>
+        <ul class="about-list">
+          <li>
+            <strong>AI / 자동화</strong>
+            Claude API, Claude Code, OpenClaw, APScheduler 기반 워크플로우, Google Calendar OAuth 연동, SSH·launchctl 기반 서버 운영
+          </li>
+          <li>
+            <strong>디자인 / 프로덕트</strong>
+            Figma, B2B SaaS UX, LMS·뉴스 플랫폼 경험, 문제 파악, 사용자 인터뷰 진행, 목적과 스콥에 맞는 기획과 디자인, 반영 후 개선 루프. 현재는 클로드코드로 자연어로 직접 수정하거나 자동화 워크플로우를 실험 중입니다.
+          </li>
+          <li>
+            <strong>데이터 / 분석</strong>
+            행동 데이터 태깅 설계, 정책 엔진 설계, 사용자 데이터 분석 (Classum MCP 활용해 직접 데이터 확인)
+          </li>
+          <li>
+            <strong>커뮤니케이션</strong>
+            비전문가에게 기술을 통역하기, 기획·개발·고객 사이에서 합의점 만들기, 팀과 현재 수준과 목표를 맞추기
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CAREER -->
+    <section class="section" id="career">
+      <div class="container">
+        <h2 class="section-title">경력</h2>
+        <div class="prose">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>시기</th><th>회사 / 역할</th><th>분야</th></tr></thead>
+              <tbody>
+                <tr><td>2026.1 — present</td><td>Independent · Agent Builder</td><td>AI 에이전트 설계, 개인 회고 시스템, 인사이트 공유 미디어 운영</td></tr>
+                <tr><td>2024.1 — 2026.1</td><td>Classum · Product Designer</td><td>대학 LMS, 사내 교육 LMS, B2B SaaS</td></tr>
+                <tr><td>2021.8 — 2023.5</td><td>Alookso · Product Designer</td><td>News / Opinion Platform</td></tr>
+                <tr><td>2020.4 — 2020.7</td><td>개념원리 · Product Designer</td><td>문제은행, 채점 서비스</td></tr>
+                <tr><td>2016.2 — 2018.8</td><td>빠띠 · UX/UI Designer, Brand Designer</td><td>공공을 위한 소셜 커뮤니티, 캠페인 제작</td></tr>
+                <tr><td>2015.5 — 2016.2</td><td>UFOfactory (slowalk) · Product Manager</td><td>웹/앱 개발 에이전시</td></tr>
+                <tr><td>2013.1 — 2014.8</td><td>모티브하우스 · Brand Designer</td><td>청소년·성인 동기부여 콘텐츠 개발, 마케팅</td></tr>
+              </tbody>
+            </table>
           </div>
+          <p style="color:var(--ink-muted);font-size:14px;margin-top:16px;">
+            그 외 회사 밖에서 프리랜서 디자이너로 활동했습니다. 더 자세한 내용은 <a href="https://www.linkedin.com/in/eunjibak" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line);">LinkedIn</a>을 참고해주세요.
+          </p>
         </div>
+      </div>
+    </section>
 
-        <div class="subsection">
-          <h3 class="subsection-title">Earlier graphic &amp; brand work</h3>
-          <div class="prose">
-            <p>2013–2020년 사이의 브랜드와 그래픽 디자인 작업은 별도 아카이브로 정리해두었어요.</p>
-            <ul>
-              <li><a href="https://eunjibak.myportfolio.com/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line);">Portfolio archive (myportfolio)</a> — 그래픽·브랜드 작업 모음</li>
-              <li><a href="https://www.instagram.com/eunjibak.1/reels/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line);">Instagram (@eunjibak.1)</a> — 작업 단편과 짧은 영상</li>
-            </ul>
-          </div>
-        </div>
+    <!-- MEDIA -->
+    <section class="section" id="media">
+      <div class="container">
+        <h2 class="section-title">Media</h2>
+        <ul class="about-list about-list--no-divider">
+          <li>
+            <strong><a href="https://www.instagram.com/eunjibak.1/reels/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line);">Instagram (@eunjibak.1)</a></strong>
+            AI 에이전트 개발 및 지난 경험에서 얻은 인사이트를 공유하고 있습니다. 2026년 1월부터 agent 작업 과정을 공유하고 100일 동안 1.6만 명의 팔로워를 얻었습니다.
+          </li>
+          <li>
+            <strong><a href="https://www.youtube.com/@eunjibak-1" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line);">YouTube (@eunjibak-1)</a></strong>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-        <div class="subsection">
-          <h3 class="subsection-title">Contact</h3>
-          <div class="prose">
-            <ul>
-              <li>Email — <a href="mailto:bakeunji.design@gmail.com" style="border-bottom:1px solid var(--line);">bakeunji.design@gmail.com</a></li>
-              <li>LinkedIn — <a href="https://www.linkedin.com/in/eunjibak" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line);">linkedin.com/in/eunjibak</a></li>
-            </ul>
-          </div>
-        </div>
+    <!-- EARLIER WORK -->
+    <section class="section" id="earlier">
+      <div class="container">
+        <h2 class="section-title">Earlier graphic &amp; brand work</h2>
+        <ul class="about-list about-list--no-divider">
+          <li>
+            <strong><a href="https://eunjibak.myportfolio.com/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line);">Portfolio archive</a></strong>
+            브랜드와 그래픽 디자인 작업은 별도 아카이브로 정리해두었어요.
+          </li>
+        </ul>
+      </div>
+    </section>
 
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <ul class="about-list about-list--no-divider">
+          <li>
+            <strong>Email</strong>
+            <a href="mailto:bakeunji.design@gmail.com" style="border-bottom:1px solid var(--line);">bakeunji.design@gmail.com</a>
+          </li>
+          <li>
+            <strong>LinkedIn</strong>
+            <a href="https://www.linkedin.com/in/eunjibak" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line);">linkedin.com/in/eunjibak</a>
+          </li>
+        </ul>
       </div>
     </section>
 
     <div class="container">
       <nav class="case-nav">
-        <a href="/agent/">← Agent Lab</a>
-        <a href="/">홈으로 →</a>
+        <a href="/">← Home</a>
+        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">맨 위로 ↑</a>
       </nav>
     </div>
 
@@ -114,6 +386,63 @@
       </div>
     </div>
   </footer>
+
+  <script>
+  (function () {
+    var sections = [
+      { id: 'intro',  label: '소개' },
+      { id: 'now',    label: '지금 하고 있는 것' },
+      { id: 'how',    label: '일하는 방식' },
+      { id: 'skills', label: '다룰 수 있는 것' },
+      { id: 'career', label: '경력' }
+    ];
+    var wrap   = document.querySelector('.case-progress');
+    var btn    = wrap && wrap.querySelector('.case-progress-btn');
+    var list   = document.getElementById('case-progress-list');
+    var label  = document.getElementById('case-progress-current');
+    var dlinks = document.querySelectorAll('.case-toc a');
+
+    if (btn && list && wrap) {
+      btn.addEventListener('click', function () {
+        var open = wrap.getAttribute('data-open') === 'true';
+        wrap.setAttribute('data-open', String(!open));
+        btn.setAttribute('aria-expanded', String(!open));
+        list.hidden = open;
+      });
+      list.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          wrap.setAttribute('data-open', 'false');
+          btn.setAttribute('aria-expanded', 'false');
+          list.hidden = true;
+        });
+      });
+    }
+
+    if (!('IntersectionObserver' in window)) return;
+    var current = null;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) current = entry.target.id;
+      });
+      if (!current) return;
+      var sec = sections.filter(function (s) { return s.id === current; })[0];
+      if (sec && label) label.textContent = sec.label;
+      if (list) {
+        list.querySelectorAll('a').forEach(function (a) {
+          a.classList.toggle('is-active', a.getAttribute('href') === '#' + current);
+        });
+      }
+      dlinks.forEach(function (a) {
+        a.classList.toggle('is-active', a.getAttribute('href') === '#' + current);
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+
+    sections.forEach(function (s) {
+      var el = document.getElementById(s.id);
+      if (el) observer.observe(el);
+    });
+  })();
+  </script>
 
 </body>
 </html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>금동이봇 5주 사용 후기 — 박은지</title>
+  <meta name="description" content="5주의 측정 기간 동안 모은 데이터로 네 가지 영역(판단 정확도 / 행동 변화 / 인지부하 / 회고 의미성)을 평가한 결과.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="금동이봇 5주 사용 후기 — 박은지">
+  <meta property="og:description" content="5주의 측정 기간 동안 모은 데이터로 네 가지 영역(판단 정확도 / 행동 변화 / 인지부하 / 회고 의미성)을 평가한 결과.">
+  <meta property="og:url" content="https://eunjibak.github.io/dev-log/review-1/">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:image" content="https://eunjibak.github.io/assets/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="박은지 — 노트북 앞에서 작업 중인 모습과 고양이">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://eunjibak.github.io/assets/images/og.png">
+  <link rel="canonical" href="https://eunjibak.github.io/dev-log/review-1/">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐾%3C/text%3E%3C/svg%3E">
+  <style>
+    .case-toc { position: fixed; left: 24px; top: 140px; width: 200px; font-size: 13px; line-height: 1.5; z-index: 10; }
+    .case-toc-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-muted); margin-bottom: 12px; }
+    .case-toc ol { list-style: none; padding: 0; margin: 0; border-left: 1px solid var(--line); }
+    .case-toc li { margin: 0; }
+    .case-toc a { display: block; padding: 8px 12px; color: var(--ink-muted); text-decoration: none; border-left: 2px solid transparent; margin-left: -1px; transition: color .15s, border-color .15s; }
+    .case-toc a:hover { color: var(--ink); border-left-color: var(--ink); }
+    .case-toc a.is-active { color: var(--ink); border-left-color: var(--ink); }
+    @media (max-width: 1199px) { .case-toc { display: none; } }
+
+    .case-progress { display: none; }
+    @media (max-width: 1199px) {
+      .case-progress { display: block; position: sticky; top: 70px; z-index: 9; background: var(--bg); border-bottom: 1px solid var(--line); }
+      .case-progress-btn { -webkit-appearance: none; appearance: none; display: flex; align-items: center; justify-content: space-between; width: 100%; height: 48px; min-height: 48px; max-height: 48px; padding: 0 20px; margin: 0; background: transparent; border: 0; border-radius: 0; font-family: inherit; font-size: 13px; line-height: 1; text-align: left; color: var(--ink); cursor: pointer; box-sizing: border-box; flex-shrink: 0; }
+      .case-progress-current { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 500; }
+      .case-progress-current::before { content: "현재  ·  "; color: var(--ink-muted); font-weight: 400; }
+      .case-progress-arrow { color: var(--ink-muted); margin-left: 8px; transition: transform .15s; }
+      .case-progress[data-open="true"] .case-progress-arrow { transform: rotate(180deg); }
+      .case-progress-list { list-style: none; margin: 0; padding: 0; background: var(--bg-elevated); border-top: 1px solid var(--line); max-height: 60vh; overflow-y: auto; }
+      .case-progress-list a { display: block; padding: 12px 20px; color: var(--ink); text-decoration: none; font-size: 14px; border-top: 1px solid var(--line-soft); }
+      .case-progress-list li:first-child a { border-top: 0; }
+      .case-progress-list a.is-active { background: var(--line-soft); color: var(--ink); font-weight: 500; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container-wide nav-inner">
+      <a href="/" class="nav-brand">eunji bak</a>
+      <div class="nav-links">
+        <a href="/writing/">Writing</a>
+        <a href="/dev-log/">Dev Log</a>
+        <a href="/about/">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="case-progress" aria-label="현재 섹션" data-open="false">
+    <button class="case-progress-btn" type="button" aria-expanded="false" aria-controls="case-progress-list">
+      <span class="case-progress-current" id="case-progress-current">시작</span>
+      <span class="case-progress-arrow" aria-hidden="true">▾</span>
+    </button>
+    <ol class="case-progress-list" id="case-progress-list" hidden>
+      <li><a href="#s1">5주의 측정 기간</a></li>
+      <li><a href="#s2">기능보다 측정 기준이 먼저였어요</a></li>
+      <li><a href="#s3">먼저, 용어 몇 가지</a></li>
+      <li><a href="#s4">네 가지 영역으로 나눠 본 이유</a></li>
+      <li><a href="#s5">5주 후의 결과</a></li>
+      <li><a href="#s6">영역별 발견과 개선</a></li>
+      <li><a href="#s7">감정부하 감소</a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <aside class="case-toc" aria-label="목차">
+      <div class="case-toc-label">목차</div>
+      <ol>
+        <li><a href="#s1">5주의 측정 기간</a></li>
+        <li><a href="#s2">기능보다 측정 기준이 먼저였어요</a></li>
+        <li><a href="#s3">먼저, 용어 몇 가지</a></li>
+        <li><a href="#s4">네 가지 영역으로 나눠 본 이유</a></li>
+        <li><a href="#s5">5주 후의 결과</a></li>
+        <li><a href="#s6">영역별 발견과 개선</a></li>
+        <li><a href="#s7">감정부하 감소</a></li>
+      </ol>
+    </aside>
+
+    <header class="case-header">
+      <div class="container">
+        <div class="case-eyebrow">Dev Log 04 · 금동이봇</div>
+        <h1 class="case-page-title">금동이봇<br>5주 사용 후기</h1>
+        <p class="hero-lede" style="max-width:640px;">
+          5주의 측정 기간 동안 매일 사용하면서 데이터를 모았어요.
+          네 가지 영역(판단 정확도 / 행동 변화 / 인지부하 / 회고 의미성)을 평가한 결과를 정리합니다.
+          영역마다 처음 가설이 맞았던 부분과 빗나갔던 부분이 따로 있었어요.
+        </p>
+      </div>
+    </header>
+
+    <section class="section" style="border-top:none;">
+      <div class="container">
+
+        <div class="subsection" id="s1">
+          <h3 class="subsection-title">5주의 측정 기간</h3>
+          <div class="prose">
+            <p>5주 동안 매일 사용하면서 데이터를 모았어요. 구조화 메시지 306건, 저녁 회고 39건, 주간 회고 1건. 작은 표본이지만 한 명의 사용자(저)가 매일 진심으로 던진 데이터라 행동 변화를 측정하기에는 충분했어요.</p>
+          </div>
+        </div>
+
+        <div class="subsection" id="s2">
+          <h3 class="subsection-title">기능보다 측정 기준이 먼저였어요</h3>
+          <div class="prose">
+            <p>처음에 가장 헷갈렸던 건 '에이전트 UX의 성공'을 어떻게 측정하느냐였어요. 클릭률이나 DAU 같은 익숙한 지표로는 잘 안 잡히더라구요. 결국 시스템 개입이 실제로 행동을 바꿨는가가 더 중요한 질문이었거든요.</p>
+            <p>그래서 기능을 추가하기 전에 평가 프레임부터 만들어두기로 했어요. 정량 지표만으로도, 정성 체감만으로도 부족했고, 둘 다 보면서 판정하고 개선까지 이어지는 흐름이 필요했습니다.</p>
+          </div>
+        </div>
+
+        <div class="subsection" id="s3">
+          <h3 class="subsection-title">먼저, 용어 몇 가지</h3>
+          <div class="prose">
+            <p>이후 본문에서 자주 등장하는 용어들이라 짧게 정리해뒀어요.</p>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>용어</th><th>의미</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Drift</strong></td><td>사용자가 목표와 어긋나게 흘러가는 상태. 시스템이 '지금 흔들리고 있어'라고 판단하는 기준.</td></tr>
+                  <tr><td><strong>Execution (실행)</strong></td><td>사용자의 메시지가 실제 행동/진전을 담고 있는지. 회피/인풋과 대비되는 분류.</td></tr>
+                  <tr><td><strong>L0~L4</strong></td><td>시스템 개입 강도. L0=침묵, L1=반영, L2=질문, L3=제안, L4=능동적 말 걸기(아침·저녁·주간)</td></tr>
+                  <tr><td><strong>저녁 회고 3단계 대화</strong></td><td>좋았던 것에서 아쉬운 것, 내일 해볼 것으로 한 번에 묻지 않고 순차로 주고받는 구조</td></tr>
+                  <tr><td><strong>주간 회고 AAR 4단계</strong></td><td>After Action Review 기반. 지난주 시도, 결과, 차이, 다음주 실험으로 실험 루프를 돌리는 구조</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="s4">
+          <h3 class="subsection-title">네 가지 영역으로 나눠 본 이유</h3>
+          <div class="prose">
+            <p>측정 영역을 네 개로 나눈 건, 어느 하나만 봐도 위험하다고 느꼈기 때문이에요. 판단이 정확해도 행동이 안 바뀌면 의미가 없고, 행동이 바뀌어도 부담이 크면 지속이 안 되거든요. 회고 자체가 의미 없으면 그냥 일기장이 되어버리고요.</p>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>영역</th><th>무엇을 보는가</th><th>왜 중요한가</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>A. 판단 정확도 (Drift)</strong></td><td>시스템의 '지금 흔들리고 있어' 판단이 실제 체감과 일치하는가</td><td>결과가 의심되면 어떤 개입도 의미 없다</td></tr>
+                  <tr><td><strong>B. 행동 변화 (Execution)</strong></td><td>에이전트 쓰기 전/후로 실제 행동이 바뀌었는가</td><td>기록 툴이 아니라 자기조절 시스템이 되려면 필수</td></tr>
+                  <tr><td><strong>C. 인지부하 감소</strong></td><td>기록과 실행 관리가 머릿속 짐이 되지 않는가</td><td>부담이 있으면 지속 불가능</td></tr>
+                  <tr><td><strong>D. 회고 의미성</strong></td><td>회고가 요약을 넘어 전략 판단에 도움을 줬는가</td><td>패턴이 안 보이면 일기장 기록만으로 충분하다</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="s5">
+          <h3 class="subsection-title">5주 후의 결과</h3>
+          <div class="prose">
+            <p>5주가 지나고 보니, 사전에 정의해둔 'Case 3: 모든 영역 안정 + 체감 강함' 기준에는 도달했어요. 다만 영역마다 처음 가설이 맞았던 부분과 빗나갔던 부분이 따로 있었습니다.</p>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>영역</th><th>판정</th><th>핵심 발견</th></tr></thead>
+                <tbody>
+                  <tr><td>A. 판단 정확도</td><td>✅ 충족</td><td>4일 기준 + 판단 근거 병기 전환이 결정적</td></tr>
+                  <tr><td>B. 행동 변화</td><td>✅ 충족</td><td>2달 공백이었던 회고가 5주간 306건 지속</td></tr>
+                  <tr><td>C. 인지부하 감소</td><td>✅ 충족</td><td>남은 저항은 인지부하가 아니라 감정부하. 자책 대신 수용으로 전환 중</td></tr>
+                  <tr><td>D. 회고 의미성</td><td>✅ 충족</td><td>데이터 나열에서 편지 형식으로의 전환이 결정적</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="s6">
+          <h3 class="subsection-title">영역별 발견과 개선</h3>
+
+          <h4 class="sub-subsection-title">A. 판단 정확도: '너 지금 흔들리고 있어'가 맞았나</h4>
+          <div class="prose">
+            <p>처음엔 시스템이 "흔들리고 있어"라고 말해줘도 그게 정말 맞는 판단인지 잘 몰랐어요. 데이터 7일치를 평균 내서 보여주니까 너무 흐리멍덩한 판정이 나왔거든요.</p>
+            <p>두 가지를 바꿨습니다. 하나는 데이터 범위를 7일에서 4일로 줄인 것. 다른 하나는 '방향 점수 93점' 같은 숫자만 던지던 출력을 "좋은 흐름이야 (실행 10건 / 회피 0건 / 총 14건)" 식으로 판정과 근거를 함께 제시하는 형식으로 바꾼 것.</p>
+            <blockquote>초반에는 근거를 모르겠어서 흔들리고 있다는 판단을 잘 몰랐는데, 아침마다 최근 4일을 기준으로 판단하다보니 정확도가 올라간 느낌이었어. 근거도 말해주고.</blockquote>
+            <p>근거를 함께 보여주는 게 블랙박스에 대한 공포를 풀어줬어요. 디자이너가 해야 할 일은 AI의 판단을 감추는 게 아니라, 어떻게 보여줄지 설계하는 거였어요. 정량적으로는 부정 감정 비율 14%, 회피 비율은 21→22→31→31→27%로 4월 초 한 번 상승한 뒤 회복하는 흐름이 잡혔습니다.</p>
+          </div>
+
+          <h4 class="sub-subsection-title">B. 행동 변화: 진짜로 다르게 움직였나</h4>
+          <div class="prose">
+            <p>실행 비율은 43%로 시작해 61, 41, 41, 52%로 V자 회복했어요. 5주간 306건이 끊기지 않고 이어졌습니다. 두 달 비어있던 회고가 매일 이어지는 게, 데이터 위에서 직접 보이는 변화였어요.</p>
+            <blockquote>회고를 까먹는 일이 많았어. 바빴던 시기는 2달도 통째로 비어있었어.</blockquote>
+            <blockquote>일정에 대한 알림도, 상태에 대한 알림도 줘서 그런지 내가 할 일, 내 방향을 계속 인지하게 됐어.</blockquote>
+            <blockquote>습관화 됐을 때에는 불안하거나 회피하고 싶을 때에도 솔직한 감정 메시지를 남기고, 현재 상태를 자책만 하지 않고 수용할 수 있게 점점 변한 거 같아.</blockquote>
+            <p>만들면서 발견한 패턴은, 회피할 때는 기록이 줄어든다는 거였어요. 실행할 때만 성실히 기록하더라구요. 그래서 처음엔 회피하는 순간 실시간 넛지를 보내봤는데, 부담스러운 감정에 반작용으로 오히려 사용을 멈추게 됐어요. 결국 그 기능은 제거하고, 일정 횟수 이상 미루다 실행한 경우에만 간단한 질문(L2 Coach)으로 전환 유발 행동을 수집하도록 바꿨습니다.</p>
+            <p>이 영역에서 가장 인상적이었던 건 능동형 L4(아침·저녁·주간 자동 말 걸기)가 가져온 효과예요. 시스템이 부르지 않아도 먼저 말을 거는 게, 도구가 환경으로 넘어가는 결정적 순간이었어요. 방향 인지를 매일 유지시켰고, 그 결과 '감정 수용'이라는 2차 효과까지 만들었거든요.</p>
+          </div>
+
+          <figure>
+            <img src="../../assets/images/agentcat/weekly_graph.png" alt="5주간 실행/회피 비율 추이" style="max-width:100%;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
+            <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">주차별 행동 변화 시각화</figcaption>
+          </figure>
+
+          <h4 class="sub-subsection-title">C. 인지부하 감소: 진짜 요인은 따로 있었어요</h4>
+          <div class="prose">
+            <p>이 영역에서 가장 놀란 건, 처음에 세웠던 가설이 진짜 원인이 아니었다는 점이에요.</p>
+            <p>처음엔 태그리스 입력(자연어로 그냥 말하기)이 인지부하를 줄였다고 생각했어요. 인지부하의 진짜 감소 요인은, 기록 방식이 쉬워진 게 아니라 무엇을 기억하고 판단해야 하는지를 시스템이 가져간 데 있었어요.</p>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>기능</th><th>외주화한 인지부하</th></tr></thead>
+                <tbody>
+                  <tr><td>저녁 회고 편지 (22:30 자동 발송)</td><td>"오늘 돌아봐야 하는데"라는 기억 부담</td></tr>
+                  <tr><td>일정 10분 전 알림</td><td>"10시 미팅 있지"를 붙잡고 있는 부담</td></tr>
+                  <tr><td>아침 브리핑</td><td>"오늘 뭐부터 해야 하지"의 판단 부담</td></tr>
+                  <tr><td>주간 편지</td><td>"이번 주 어땠더라"의 정리 부담</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>기록의 부담을 줄인 게 아니라, '뭘 해야 할지 기억하고 판단하는 부담'을 시스템이 가져간 게 핵심이었어요.</p>
+            <p>정량적으로는 주간 메시지 수가 67→76→51→64→48건으로 감소 추세는 아니었고, 저녁 회고 응답률은 79%였어요. 다만 기록이 어려워지는 진짜 이유는 인지부하가 아니라 다른 곳에 있었는데, 그 발견은 다음 섹션에 따로 정리했습니다.</p>
+          </div>
+
+          <h4 class="sub-subsection-title">D. 회고 의미성: 요약을 넘어 판단에 도달했나</h4>
+          <div class="prose">
+            <p>저녁 회고 39건 중 31건이 응답으로 이어졌어요(79%). 핵심은 응답률 자체보다, 그 응답의 질이 어떻게 바뀌었는지였습니다.</p>
+            <blockquote>처음에 어떻게 이렇게 마음을 읽을 수 있지? 싶은 순간이 있었어.</blockquote>
+            <blockquote>처음에는 데이터 위주로 말하다가, 데이터를 바탕으로 편지 형식, 금동이 말투로 주기 시작했을 때 정말 깊게 공감하고 다음 시도를 고민하고 오늘 하루를 감사히 마무리할 수 있었어.</blockquote>
+            <p>세 가지를 바꿨어요.</p>
+            <ol>
+              <li><strong>저녁 회고</strong>. 3개 질문을 한 번에 보내던 방식에서 3단계 순차 대화로 바꿨어요. 한 번에 다 묻으면 답변이 형식적이 됐는데, "좋았던 것"을 묻고 답을 받고, "아쉬운 것"을 묻고 답을 받고, "내일 해볼 것"을 묻고 답을 받는 식으로 나누니 답변이 깊어졌습니다.</li>
+              <li><strong>주간 회고</strong>. 관찰 중심에서 실험 루프(AAR 4단계)로. 지난주 시도 → 실제 결과 → 차이 원인 → 다음주 실험. 관찰에 그치지 않고 다음 행동으로 연결되도록 만들었어요.</li>
+              <li><strong>주간 메시지</strong>. 데이터 리포트에서 감정 편지로. 같은 데이터도 전달 형식이 체감을 결정한다는 걸 가장 분명하게 본 부분이었어요.</li>
+            </ol>
+            <p>같은 분석 결과라도 전달 방법에 따라 사용자가 행동 전환까지 이뤄낼지, 그저 요약에 그칠지 달라져요. 디자이너의 일이 정확히 여기에 있다는 걸 5주 동안 매일 확인했습니다.</p>
+          </div>
+        </div>
+
+        <div class="subsection" id="s7" style="margin:60px 0;">
+          <div style="background:var(--line-soft); border-radius:12px; padding:clamp(36px,5vw,52px);">
+            <h3 class="subsection-title" style="margin-top:0; margin-bottom:32px;">예상 밖의 가장 큰 변화: 감정부하 감소</h3>
+            <p style="font-size:19px; line-height:1.7; font-weight:500; color:var(--ink); margin:0 0 36px 0; padding-left:28px; position:relative;">
+              <span aria-hidden="true" style="position:absolute; left:0; top:-6px; font-size:44px; line-height:1; color:var(--ink-muted); font-family:Georgia,'Noto Serif KR',serif;">&ldquo;</span>
+              기록 방식이 쉬워진 것보다 내가 뭘 확인해야하는지 덜 기억해도 돼서 좋았어. 다만 기분이 저조해서 행동이 잘 나가지 않을 때는 메시지 보내는 게 어려웠어. 나 자신의 잘못을 인정해야하니까.
+            </p>
+            <p>네 가지 영역을 측정하면서 가장 크게 변한 건, 사실 처음 가설에 없던 부분이었어요. 일상에서 어떤 일을 하고 있는지, 어떤 감정인지를 자연어 그대로 기입하다 보면 금동이봇이 그 기록을 바탕으로 제 패턴을 만들고 해석해줍니다. 그러다 보니 실행과 관계없이 회피하고 있는 순간도, 그게 어떤 감정 때문인지가 함께 보여요.</p>
+            <p>자책으로만 넘어가던 회피 순간이 "아, 지금 이런 감정이라 이렇게 흐르고 있구나"로 바뀌면서, 그 자체를 수용하게 됐습니다. 행동을 바꾸려고 애쓰는 게 아니라, 지금 상태를 인정하고 다시 흐름을 잡아갈 수 있게 된 거죠.</p>
+            <p>결과적으로 하루를 살아가는 데 부담이 낮아졌고, 감정부하도 함께 줄었어요. 처음에는 회고 도구를 만든다고 생각했는데, 실제로 만든 건 감정을 수용하게 해주는 거울에 가까웠습니다. 정량 지표로는 잘 안 잡히는 영역인데, 5주 후 가장 분명하게 느낀 변화이기도 합니다.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="container">
+      <nav class="case-nav">
+        <a href="/dev-log/daily-loop/">← 이전: 금동이봇과 대화하기</a>
+        <a href="/dev-log/workflow-structure/">다음: 이 워크플로우의 구조 →</a>
+      </nav>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide footer-inner">
+      <div>© 2026 박은지 (Eunji Bak)</div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/eunjibak" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/eunjibak.1/reels/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var sections = [
+      { id: 's1', label: '5주의 측정 기간' },
+      { id: 's2', label: '기능보다 측정 기준이 먼저였어요' },
+      { id: 's3', label: '먼저, 용어 몇 가지' },
+      { id: 's4', label: '네 가지 영역으로 나눠 본 이유' },
+      { id: 's5', label: '5주 후의 결과' },
+      { id: 's6', label: '영역별 발견과 개선' },
+      { id: 's7', label: '감정부하 감소' }
+    ];
+    var wrap   = document.querySelector('.case-progress');
+    var btn    = wrap && wrap.querySelector('.case-progress-btn');
+    var list   = document.getElementById('case-progress-list');
+    var label  = document.getElementById('case-progress-current');
+    var dlinks = document.querySelectorAll('.case-toc a');
+
+    if (btn && list && wrap) {
+      btn.addEventListener('click', function () {
+        var open = wrap.getAttribute('data-open') === 'true';
+        wrap.setAttribute('data-open', String(!open));
+        btn.setAttribute('aria-expanded', String(!open));
+        list.hidden = open;
+      });
+      list.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          wrap.setAttribute('data-open', 'false');
+          btn.setAttribute('aria-expanded', 'false');
+          list.hidden = true;
+        });
+      });
+    }
+
+    if (!('IntersectionObserver' in window)) return;
+    var current = null;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) current = entry.target.id;
+      });
+      if (!current) return;
+      var sec = sections.filter(function (s) { return s.id === current; })[0];
+      if (sec && label) label.textContent = sec.label;
+      if (list) {
+        list.querySelectorAll('a').forEach(function (a) {
+          a.classList.toggle('is-active', a.getAttribute('href') === '#' + current);
+        });
+      }
+      dlinks.forEach(function (a) {
+        a.classList.toggle('is-active', a.getAttribute('href') === '#' + current);
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+
+    sections.forEach(function (s) {
+      var el = document.getElementById(s.id);
+      if (el) observer.observe(el);
+    });
+  })();
+  </script>
+
+</body>
+</html>

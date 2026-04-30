@@ -7,6 +7,30 @@
   <meta name="description" content="대시보드를 만들지 않기로 했다. 질문이 있어야 응답이 있고, 질문에 따라 응답이 달라지는 구조에 대하여.">
   <link rel="stylesheet" href="../../assets/css/styles.css">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐾%3C/text%3E%3C/svg%3E">
+  <style>
+    .case-toc { position: fixed; left: 24px; top: 140px; width: 200px; font-size: 13px; line-height: 1.5; z-index: 10; }
+    .case-toc-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-muted); margin-bottom: 12px; }
+    .case-toc ol { list-style: none; padding: 0; margin: 0; border-left: 1px solid var(--line); }
+    .case-toc li { margin: 0; }
+    .case-toc a { display: block; padding: 8px 12px; color: var(--ink-muted); text-decoration: none; border-left: 2px solid transparent; margin-left: -1px; transition: color .15s, border-color .15s; }
+    .case-toc a:hover { color: var(--ink); border-left-color: var(--ink); }
+    .case-toc a.is-active { color: var(--ink); border-left-color: var(--ink); }
+    @media (max-width: 1199px) { .case-toc { display: none; } }
+
+    .case-progress { display: none; }
+    @media (max-width: 1199px) {
+      .case-progress { display: block; position: sticky; top: 70px; z-index: 9; background: var(--bg); border-bottom: 1px solid var(--line); }
+      .case-progress-btn { -webkit-appearance: none; appearance: none; display: flex; align-items: center; justify-content: space-between; width: 100%; height: 48px; min-height: 48px; max-height: 48px; padding: 0 20px; margin: 0; background: transparent; border: 0; border-radius: 0; font-family: inherit; font-size: 13px; line-height: 1; text-align: left; color: var(--ink); cursor: pointer; box-sizing: border-box; flex-shrink: 0; }
+      .case-progress-current { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 500; }
+      .case-progress-current::before { content: "현재  ·  "; color: var(--ink-muted); font-weight: 400; }
+      .case-progress-arrow { color: var(--ink-muted); margin-left: 8px; transition: transform .15s; }
+      .case-progress[data-open="true"] .case-progress-arrow { transform: rotate(180deg); }
+      .case-progress-list { list-style: none; margin: 0; padding: 0; background: var(--bg-elevated); border-top: 1px solid var(--line); max-height: 60vh; overflow-y: auto; }
+      .case-progress-list a { display: block; padding: 12px 20px; color: var(--ink); text-decoration: none; font-size: 14px; border-top: 1px solid var(--line-soft); }
+      .case-progress-list li:first-child a { border-top: 0; }
+      .case-progress-list a.is-active { background: var(--line-soft); color: var(--ink); font-weight: 500; }
+    }
+  </style>
 </head>
 <body>
 
@@ -14,19 +38,43 @@
     <div class="container-wide nav-inner">
       <a href="/" class="nav-brand">eunji bak</a>
       <div class="nav-links">
-        <a href="/work/">Work</a>
-        <a href="/agent/">Agent Lab</a>
+        <a href="/writing/">Writing</a>
+        <a href="/dev-log/">Dev Log</a>
         <a href="/about/">About</a>
-        <a href="https://www.linkedin.com/in/eunjibak" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
   </nav>
 
+  <nav class="case-progress" aria-label="현재 섹션" data-open="false">
+    <button class="case-progress-btn" type="button" aria-expanded="false" aria-controls="case-progress-list">
+      <span class="case-progress-current" id="case-progress-current">시작</span>
+      <span class="case-progress-arrow" aria-hidden="true">▾</span>
+    </button>
+    <ol class="case-progress-list" id="case-progress-list" hidden>
+      <li><a href="#s1">대시보드의 폐기</a></li>
+      <li><a href="#s2">고정된 화면이 답답해진 이유</a></li>
+      <li><a href="#s3">patterns.md로 행동 패턴 갱신</a></li>
+      <li><a href="#s4">/ask로 재구성되는 응답</a></li>
+      <li><a href="#s5">디자이너의 일로 남는 것</a></li>
+    </ol>
+  </nav>
+
   <main>
+
+    <aside class="case-toc" aria-label="목차">
+      <div class="case-toc-label">목차</div>
+      <ol>
+        <li><a href="#s1">대시보드의 폐기</a></li>
+        <li><a href="#s2">고정된 화면이 답답해진 이유</a></li>
+        <li><a href="#s3">patterns.md로 행동 패턴 갱신</a></li>
+        <li><a href="#s4">/ask로 재구성되는 응답</a></li>
+        <li><a href="#s5">디자이너의 일로 남는 것</a></li>
+      </ol>
+    </aside>
 
     <header class="case-header">
       <div class="container">
-        <div class="case-eyebrow">Writing 02 — agentcat</div>
+        <div class="case-eyebrow">Writing 02 · agentcat</div>
         <h1 class="case-page-title">확정적 화면에서<br>가변적 정보로</h1>
         <p class="hero-lede" style="max-width:640px;">
           머물러 있는 정보를 고정 화면으로 보여주는 방식에서,
@@ -45,7 +93,7 @@
     <section class="section" style="border-top:none;">
       <div class="container">
 
-        <div class="subsection">
+        <div class="subsection" id="s1">
           <h3 class="subsection-title">대시보드의 폐기</h3>
           <div class="prose">
             <p>에이전트를 만들면서 가장 큰 고민은 한눈에 확인이 안 된다는 점이었습니다. 텔레그램 챗으로만 대화를 하다 보니, 내가 지금 뭘 하고 있는지 전체적인 흐름을 파악하기가 어려웠거든요.</p>
@@ -58,7 +106,7 @@
           </figure>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="s2">
           <h3 class="subsection-title">고정된 화면이 답답해진 이유</h3>
           <div class="prose">
             <p>약 두 달간 에이전트와 대화하며 "너는 이럴 때 힘들어하는 것 같아", "요즘은 이런 게 부족하니 이걸 해봐"처럼 매일 다르게 해석되는 정보를 얻다 보니 대시보드가 답답하게 느껴지기 시작했습니다.</p>
@@ -86,7 +134,7 @@
           </div>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="s3">
           <h3 class="subsection-title">patterns.md 로 행동 패턴을 갱신하기</h3>
           <div class="prose">
             <p><code>patterns.md</code>는 매일의 회고를 그대로 쌓아두는 로그가 아니라, 누적된 회고를 LLM이 읽고 해석해서 갱신해두는 관찰 노트입니다. 반복되는 회피 패턴, 자주 보이는 감정, 잘 되는 날의 공통점, 시간대별 에너지 같은 항목으로 정리되어 있고, 새 회고가 들어오면 기존 패턴이 강해졌는지 약해졌는지를 다시 판단해서 문서를 업데이트해요.</p>
@@ -112,7 +160,7 @@
           </figure>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="s4">
           <h3 class="subsection-title">/ask 로 물으면 재구성되는 응답</h3>
           <div class="prose">
             <p>핵심은 항상 똑같은 형태로 보여지는 정보를 만들지 않는 것입니다. 질문이 있어야 응답이 있고, 질문의 맥락에 따라 응답의 형태도 그때그때 달라집니다.</p>
@@ -130,7 +178,7 @@
           </figure>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="s5">
           <h3 class="subsection-title">무엇이 디자이너의 일로 남는가</h3>
           <div class="prose">
             <p>자연어 인터페이스가 GUI를 대체한다고 해서 디자이너의 일이 없어지는 게 아닙니다. 오히려 훨씬 더 복잡하고 어려운 설계들이 남아요.</p>
@@ -177,6 +225,63 @@
       </div>
     </div>
   </footer>
+
+  <script>
+  (function () {
+    var sections = [
+      { id: 's1', label: '대시보드의 폐기' },
+      { id: 's2', label: '고정된 화면이 답답해진 이유' },
+      { id: 's3', label: 'patterns.md로 행동 패턴 갱신' },
+      { id: 's4', label: '/ask로 재구성되는 응답' },
+      { id: 's5', label: '디자이너의 일로 남는 것' }
+    ];
+    var wrap   = document.querySelector('.case-progress');
+    var btn    = wrap && wrap.querySelector('.case-progress-btn');
+    var list   = document.getElementById('case-progress-list');
+    var label  = document.getElementById('case-progress-current');
+    var dlinks = document.querySelectorAll('.case-toc a');
+
+    if (btn && list && wrap) {
+      btn.addEventListener('click', function () {
+        var open = wrap.getAttribute('data-open') === 'true';
+        wrap.setAttribute('data-open', String(!open));
+        btn.setAttribute('aria-expanded', String(!open));
+        list.hidden = open;
+      });
+      list.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          wrap.setAttribute('data-open', 'false');
+          btn.setAttribute('aria-expanded', 'false');
+          list.hidden = true;
+        });
+      });
+    }
+
+    if (!('IntersectionObserver' in window)) return;
+    var current = null;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) current = entry.target.id;
+      });
+      if (!current) return;
+      var sec = sections.filter(function (s) { return s.id === current; })[0];
+      if (sec && label) label.textContent = sec.label;
+      if (list) {
+        list.querySelectorAll('a').forEach(function (a) {
+          a.classList.toggle('is-active', a.getAttribute('href') === '#' + current);
+        });
+      }
+      dlinks.forEach(function (a) {
+        a.classList.toggle('is-active', a.getAttribute('href') === '#' + current);
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+
+    sections.forEach(function (s) {
+      var el = document.getElementById(s.id);
+      if (el) observer.observe(el);
+    });
+  })();
+  </script>
 
 </body>
 </html>

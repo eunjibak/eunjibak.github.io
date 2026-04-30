@@ -406,10 +406,11 @@ em { font-style: normal; }
   line-height: 1.6;
 }
 .tldr-list li::before {
-  content: '—';
+  content: '·';
   position: absolute;
-  left: 0;
+  left: 4px;
   color: var(--ink-muted);
+  font-weight: 700;
 }
 
 /* --- Section --- */

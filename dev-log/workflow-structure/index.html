@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이 워크플로우의 구조 — 박은지</title>
+  <meta name="description" content="금동이봇이 따르는 5단계 틀과, 이 구조를 다른 개인 영역으로 옮겨가려는 다음 계획.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="이 워크플로우의 구조 — 박은지">
+  <meta property="og:description" content="금동이봇이 따르는 5단계 틀과, 이 구조를 다른 개인 영역으로 옮겨가려는 다음 계획.">
+  <meta property="og:url" content="https://eunjibak.github.io/dev-log/workflow-structure/">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:image" content="https://eunjibak.github.io/assets/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="박은지 — 노트북 앞에서 작업 중인 모습과 고양이">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://eunjibak.github.io/assets/images/og.png">
+  <link rel="canonical" href="https://eunjibak.github.io/dev-log/workflow-structure/">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐾%3C/text%3E%3C/svg%3E">
+  <style>
+    .case-toc { position: fixed; left: 24px; top: 140px; width: 200px; font-size: 13px; line-height: 1.5; z-index: 10; }
+    .case-toc-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-muted); margin-bottom: 12px; }
+    .case-toc ol { list-style: none; padding: 0; margin: 0; border-left: 1px solid var(--line); }
+    .case-toc li { margin: 0; }
+    .case-toc a { display: block; padding: 8px 12px; color: var(--ink-muted); text-decoration: none; border-left: 2px solid transparent; margin-left: -1px; transition: color .15s, border-color .15s; }
+    .case-toc a:hover { color: var(--ink); border-left-color: var(--ink); }
+    .case-toc a.is-active { color: var(--ink); border-left-color: var(--ink); }
+    @media (max-width: 1199px) { .case-toc { display: none; } }
+
+    .case-progress { display: none; }
+    @media (max-width: 1199px) {
+      .case-progress { display: block; position: sticky; top: 70px; z-index: 9; background: var(--bg); border-bottom: 1px solid var(--line); }
+      .case-progress-btn { -webkit-appearance: none; appearance: none; display: flex; align-items: center; justify-content: space-between; width: 100%; height: 48px; min-height: 48px; max-height: 48px; padding: 0 20px; margin: 0; background: transparent; border: 0; border-radius: 0; font-family: inherit; font-size: 13px; line-height: 1; text-align: left; color: var(--ink); cursor: pointer; box-sizing: border-box; flex-shrink: 0; }
+      .case-progress-current { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 500; }
+      .case-progress-current::before { content: "현재  ·  "; color: var(--ink-muted); font-weight: 400; }
+      .case-progress-arrow { color: var(--ink-muted); margin-left: 8px; transition: transform .15s; }
+      .case-progress[data-open="true"] .case-progress-arrow { transform: rotate(180deg); }
+      .case-progress-list { list-style: none; margin: 0; padding: 0; background: var(--bg-elevated); border-top: 1px solid var(--line); max-height: 60vh; overflow-y: auto; }
+      .case-progress-list a { display: block; padding: 12px 20px; color: var(--ink); text-decoration: none; font-size: 14px; border-top: 1px solid var(--line-soft); }
+      .case-progress-list li:first-child a { border-top: 0; }
+      .case-progress-list a.is-active { background: var(--line-soft); color: var(--ink); font-weight: 500; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container-wide nav-inner">
+      <a href="/" class="nav-brand">eunji bak</a>
+      <div class="nav-links">
+        <a href="/writing/">Writing</a>
+        <a href="/dev-log/">Dev Log</a>
+        <a href="/about/">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="case-progress" aria-label="현재 섹션" data-open="false">
+    <button class="case-progress-btn" type="button" aria-expanded="false" aria-controls="case-progress-list">
+      <span class="case-progress-current" id="case-progress-current">시작</span>
+      <span class="case-progress-arrow" aria-hidden="true">▾</span>
+    </button>
+    <ol class="case-progress-list" id="case-progress-list" hidden>
+      <li><a href="#s1">5단계 틀로 정리되는 구조</a></li>
+      <li><a href="#s2">다음 도메인의 워크플로우 실험</a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <aside class="case-toc" aria-label="목차">
+      <div class="case-toc-label">목차</div>
+      <ol>
+        <li><a href="#s1">5단계 틀로 정리되는 구조</a></li>
+        <li><a href="#s2">다음 도메인의 워크플로우 실험</a></li>
+      </ol>
+    </aside>
+
+    <header class="case-header">
+      <div class="container">
+        <div class="case-eyebrow">Dev Log 05 · 금동이봇</div>
+        <h1 class="case-page-title">이 워크플로우의<br>구조</h1>
+        <p class="hero-lede" style="max-width:640px;">
+          이 프로젝트에서 만든 건 회고 에이전트 하나지만, 만들고 보니 그 안에 회고에만 한정되지 않는 골격이 있더라구요.
+          입력에서 학습까지 다섯 단계로 정리되는 구조인데, 도메인을 바꿔서도 옮겨갈 수 있을 것 같았어요.
+        </p>
+      </div>
+    </header>
+
+    <section class="section" style="border-top:none;">
+      <div class="container">
+
+        <div class="subsection" id="s1">
+          <h3 class="subsection-title">5단계 틀로 정리되는 구조</h3>
+          <div class="prose">
+            <p>이 프로젝트에서 만든 건 개인 회고 에이전트지만, 만들고 보니 그 안에 회고에만 한정되지 않는 골격이 있다는 걸 알게 됐어요. 5단계로 정리하면 이렇게 돼요.</p>
+            <pre><code>1. 입력 (Input)     : 사용자가 자연어로 던진 raw 데이터
+2. 상태 (State)     : 최근 N일 데이터로 현재 상황 계산
+3. 정책 (Policy)    : 언제 말하고 언제 침묵할지 룰
+4. 실행 (Execution) : 상태 + 정책 조합으로 개입 수행
+5. 학습 (Learning)  : 주기적 패턴 분석 후 정책 조정</code></pre>
+            <p>이 다섯 단계가 한 사이클을 이루면서 매일 반복돼요. 사용자의 행동 데이터가 쌓이고, 그 데이터를 기반으로 판단이 필요한 영역이라면 회고가 아닌 다른 도메인에서도 같은 골격이 작동할 수 있다고 느꼈습니다.</p>
+          </div>
+        </div>
+
+        <div class="subsection" id="s2">
+          <h3 class="subsection-title">다음 도메인의 워크플로우 실험</h3>
+          <div class="prose">
+            <p>회고 다음에는 같은 5단계 틀을 다른 개인 영역에 적용해보려고 해요. 도메인만 갈아 끼우면 다른 데이터·다른 정책이 들어오고, 그래도 입력 → 상태 → 정책 → 실행 → 학습이라는 사이클은 그대로 유지될 거라고 보고 있어요.</p>
+            <p>지금 머릿속에서 굴리고 있는 후보는 두 가지예요. 하나는 소비 데이터를 감정과 연결해서 읽어주는 가계부 에이전트, 다른 하나는 학습과 시도 사이의 간극을 추적하는 성장 기록 에이전트. 둘 다 매일 상태가 바뀌고, 그 상태를 스스로 감지하기 어려운 영역이라는 공통점이 있어요. 숫자로만 보면 안 보이고, 직관만으로는 놓치는 영역이라는 점에서 회고와 닮았습니다.</p>
+            <p>앞으로의 계획은 이 5단계 틀을 뼈대 삼아 다른 도메인의 워크플로우 실험을 하나씩 이어가는 거예요. 회고 에이전트에서 검증한 구조가 다른 영역에서도 작동하는지를 직접 만들어보면서 확인해보려고 합니다.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="container">
+      <nav class="case-nav">
+        <a href="/dev-log/review-1/">← 이전: 금동이봇 5주 사용 후기</a>
+        <a href="/dev-log/">Dev Log 목록 →</a>
+      </nav>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide footer-inner">
+      <div>© 2026 박은지 (Eunji Bak)</div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/eunjibak" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/eunjibak.1/reels/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var sections = [
+      { id: 's1', label: '5단계 틀로 정리되는 구조' },
+      { id: 's2', label: '다음 도메인의 워크플로우 실험' }
+    ];
+    var wrap   = document.querySelector('.case-progress');
+    var btn    = wrap && wrap.querySelector('.case-progress-btn');
+    var list   = document.getElementById('case-progress-list');
+    var label  = document.getElementById('case-progress-current');
+    var dlinks = document.querySelectorAll('.case-toc a');
+
+    if (btn && list && wrap) {
+      btn.addEventListener('click', function () {
+        var open = wrap.getAttribute('data-open') === 'true';
+        wrap.setAttribute('data-open', String(!open));
+        btn.setAttribute('aria-expanded', String(!open));
+        list.hidden = open;
+      });
+      list.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          wrap.setAttribute('data-open', 'false');
+          btn.setAttribute('aria-expanded', 'false');
+          list.hidden = true;
+        });
+      });
+    }
+
+    if (!('IntersectionObserver' in window)) return;
+    var current = null;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) current = entry.target.id;
+      });
+      if (!current) return;
+      var sec = sections.filter(function (s) { return s.id === current; })[0];
+      if (sec && label) label.textContent = sec.label;
+      if (list) {
+        list.querySelectorAll('a').forEach(function (a) {
+          a.classList.toggle('is-active', a.getAttribute('href') === '#' + current);
+        });
+      }
+      dlinks.forEach(function (a) {
+        a.classList.toggle('is-active', a.getAttribute('href') === '#' + current);
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+
+    sections.forEach(function (s) {
+      var el = document.getElementById(s.id);
+      if (el) observer.observe(el);
+    });
+  })();
+  </script>
+
+</body>
+</html>
