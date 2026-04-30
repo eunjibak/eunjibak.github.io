@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>이 워크플로우의 구조 — 박은지</title>
-  <meta name="description" content="금동이봇이 따르는 5단계 틀과, 이 구조를 다른 개인 영역으로 옮겨가려는 다음 계획.">
+  <title>사람마다 튜닝되는 워크플로우 — 박은지</title>
+  <meta name="description" content="같은 5단계 골격 위에서 아이덴티티, 개입 강도, 정책을 사람마다 다르게 튜닝할 수 있는 가능성에 대한 메모.">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="이 워크플로우의 구조 — 박은지">
-  <meta property="og:description" content="금동이봇이 따르는 5단계 틀과, 이 구조를 다른 개인 영역으로 옮겨가려는 다음 계획.">
-  <meta property="og:url" content="https://eunjibak.github.io/dev-log/workflow-structure/">
+  <meta property="og:title" content="사람마다 튜닝되는 워크플로우 — 박은지">
+  <meta property="og:description" content="같은 5단계 골격 위에서 아이덴티티, 개입 강도, 정책을 사람마다 다르게 튜닝할 수 있는 가능성에 대한 메모.">
+  <meta property="og:url" content="https://eunjibak.github.io/dev-log/personal-tuning/">
   <meta property="og:locale" content="ko_KR">
   <meta property="og:image" content="https://eunjibak.github.io/assets/images/og.png">
   <meta property="og:image:width" content="1200">
@@ -16,7 +16,7 @@
   <meta property="og:image:alt" content="박은지 — 노트북 앞에서 작업 중인 모습과 고양이">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://eunjibak.github.io/assets/images/og.png">
-  <link rel="canonical" href="https://eunjibak.github.io/dev-log/workflow-structure/">
+  <link rel="canonical" href="https://eunjibak.github.io/dev-log/personal-tuning/">
   <link rel="stylesheet" href="../../assets/css/styles.css">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐾%3C/text%3E%3C/svg%3E">
   <style>
@@ -53,6 +53,7 @@
         <a href="/writing/">Writing</a>
         <a href="/dev-log/">Dev Log</a>
         <a href="/about/">About</a>
+        <a href="https://www.linkedin.com/in/eunjibak" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
   </nav>
@@ -63,8 +64,10 @@
       <span class="case-progress-arrow" aria-hidden="true">▾</span>
     </button>
     <ol class="case-progress-list" id="case-progress-list" hidden>
-      <li><a href="#s1">5단계 틀로 정리되는 구조</a></li>
-      <li><a href="#s2">다음 도메인의 워크플로우 실험</a></li>
+      <li><a href="#s1">5단계 틀은 그대로</a></li>
+      <li><a href="#s2">사람마다 다른 가까운 존재</a></li>
+      <li><a href="#s3">기호에 따른 개입 강도</a></li>
+      <li><a href="#s4">정책의 개인별 커스텀</a></li>
     </ol>
   </nav>
 
@@ -73,18 +76,20 @@
     <aside class="case-toc" aria-label="목차">
       <div class="case-toc-label">목차</div>
       <ol>
-        <li><a href="#s1">5단계 틀로 정리되는 구조</a></li>
-        <li><a href="#s2">다음 도메인의 워크플로우 실험</a></li>
+        <li><a href="#s1">5단계 틀은 그대로</a></li>
+        <li><a href="#s2">사람마다 다른 가까운 존재</a></li>
+        <li><a href="#s3">기호에 따른 개입 강도</a></li>
+        <li><a href="#s4">정책의 개인별 커스텀</a></li>
       </ol>
     </aside>
 
     <header class="case-header">
       <div class="container">
         <div class="case-eyebrow">Dev Log 05 · 금동이봇</div>
-        <h1 class="case-page-title">이 워크플로우의<br>구조</h1>
+        <h1 class="case-page-title">사람마다 튜닝되는<br>워크플로우</h1>
         <p class="hero-lede" style="max-width:640px;">
-          이 프로젝트에서 만든 건 회고 에이전트 하나지만, 만들고 보니 그 안에 회고에만 한정되지 않는 골격이 있더라구요.
-          입력에서 학습까지 다섯 단계로 정리되는 구조인데, 도메인을 바꿔서도 옮겨갈 수 있을 것 같았어요.
+          이 5단계 틀(입력 → 상태 → 정책 → 실행 → 학습)은 한 사람을 위해 만들었지만, 같은 구조 위에서 사람마다 다르게 튜닝될 수 있어요.
+          가까운 존재가 누구인지, 어느 정도 개입을 받아들일 수 있는지, 어떤 순간에 시스템이 개입해야 하는지가 사람마다 다르거든요.
         </p>
       </div>
     </header>
@@ -93,24 +98,43 @@
       <div class="container">
 
         <div class="subsection" id="s1">
-          <h3 class="subsection-title">5단계 틀로 정리되는 구조</h3>
+          <h3 class="subsection-title">5단계 틀은 그대로</h3>
           <div class="prose">
-            <p>이 프로젝트에서 만든 건 개인 회고 에이전트지만, 만들고 보니 그 안에 회고에만 한정되지 않는 골격이 있다는 걸 알게 됐어요. 5단계로 정리하면 이렇게 돼요.</p>
+            <p>금동이봇이 따르는 5단계 틀은 사람이 바뀌어도 그대로 유지될 수 있어요. 자연어로 던진 raw 데이터가 들어오고, 상태가 계산되고, 정책에 따라 응답하거나 침묵하고, 패턴이 누적된다는 골격은 변하지 않거든요. 다만 그 안에서 어떤 결정을 내리느냐는 사람마다 달라집니다.</p>
             <pre><code>1. 입력 (Input)     : 사용자가 자연어로 던진 raw 데이터
 2. 상태 (State)     : 최근 N일 데이터로 현재 상황 계산
 3. 정책 (Policy)    : 언제 말하고 언제 침묵할지 룰
 4. 실행 (Execution) : 상태 + 정책 조합으로 개입 수행
 5. 학습 (Learning)  : 주기적 패턴 분석 후 정책 조정</code></pre>
-            <p>이 다섯 단계가 한 사이클을 이루면서 매일 반복돼요. 사용자의 행동 데이터가 쌓이고, 그 데이터를 기반으로 판단이 필요한 영역이라면 회고가 아닌 다른 도메인에서도 같은 골격이 작동할 수 있다고 느꼈습니다.</p>
+            <p>구조는 같고 결정만 달라진다는 게 핵심이에요. 다음 세 가지 층위가 사람마다 가장 크게 튜닝되는 부분입니다. 어떤 정체성으로 다가갈지, 어느 정도 강도로 개입할지, 어떤 룰로 판단할지.</p>
           </div>
         </div>
 
         <div class="subsection" id="s2">
-          <h3 class="subsection-title">다음 도메인의 워크플로우 실험</h3>
+          <h3 class="subsection-title">사람마다 다른 가까운 존재</h3>
           <div class="prose">
-            <p>회고 다음에는 같은 5단계 틀을 다른 개인 영역에 적용해보려고 해요. 도메인만 갈아 끼우면 다른 데이터·다른 정책이 들어오고, 그래도 입력 → 상태 → 정책 → 실행 → 학습이라는 사이클은 그대로 유지될 거라고 보고 있어요.</p>
-            <p>지금 머릿속에서 굴리고 있는 후보는 두 가지예요. 하나는 소비 데이터를 감정과 연결해서 읽어주는 가계부 에이전트, 다른 하나는 학습과 시도 사이의 간극을 추적하는 성장 기록 에이전트. 둘 다 매일 상태가 바뀌고, 그 상태를 스스로 감지하기 어려운 영역이라는 공통점이 있어요. 숫자로만 보면 안 보이고, 직관만으로는 놓치는 영역이라는 점에서 회고와 닮았습니다.</p>
-            <p>앞으로의 계획은 이 5단계 틀을 뼈대 삼아 다른 도메인의 워크플로우 실험을 하나씩 이어가는 거예요. 회고 에이전트에서 검증한 구조가 다른 영역에서도 작동하는지를 직접 만들어보면서 확인해보려고 합니다.</p>
+            <p>금동이봇은 제 반려묘 금동이의 정체성을 빌려 만들었어요. 가까운 존재가 건네는 말은 방어기제를 낮추고, 사용자가 시스템을 도구가 아니라 환경으로 받아들이게 합니다. 같은 데이터라도 누가, 어떤 자격으로 전달하는가가 몰입의 질을 결정하거든요.</p>
+            <p>다른 사람에게 적용한다면 출발점은 그 사람에게 가장 가까운 존재의 정체성을 빌리는 데 있어요. 누군가에게는 또 다른 반려동물일 수 있고, 누군가에게는 어린 시절 친구, 돌아가신 가족, 자기만의 캐릭터일 수도 있어요. 정체성 자체는 사람마다 완전히 다르지만, '가깝고 익숙한 대상'이라는 원칙은 같습니다.</p>
+            <p>가설은 단순해요. 가까운 존재가 누구인지에 따라, 같은 메시지의 해석도 그 메시지를 받아들이는 태도도 달라질 거라는 것. 다음 실험에서 직접 다른 사람의 가까운 존재를 정체성 레이어로 얹어 보면서 이 가설을 검증해 보려고 합니다.</p>
+          </div>
+        </div>
+
+        <div class="subsection" id="s3">
+          <h3 class="subsection-title">기호에 따른 개입 강도</h3>
+          <div class="prose">
+            <p>금동이봇은 네 단계 개입 레벨을 갖고 있어요. L0 침묵, L1 반영, L2 질문, L3 제안. 저는 사용해보니 L1과 L2 사이가 편했고, L3 제안은 부담스러워서 자주 약하게 줄였어요. 능동형 L4(아침·저녁·주간 자동 말 걸기)도 처음엔 강하게 두었다가 점점 가볍게 다듬었습니다.</p>
+            <p>다른 사람에게 적용한다면 이 균형은 사람마다 완전히 다를 수 있어요. 어떤 사람은 L0 침묵이 가장 편안할 수 있고, 어떤 사람은 L3 제안을 적극적으로 받고 싶을 수도 있어요. 시스템이 매번 말을 거는 빈도도 사람에 따라 너무 적거나, 너무 많거나 둘 중 한쪽으로 쉽게 기울거든요.</p>
+            <p>그래서 사용 초기에는 사용자의 기호를 직접 묻고 천천히 조절해가는 단계가 필요할 거예요. 처음엔 가장 약한 강도(L0~L1 위주)에서 시작해, 사용자가 받아들이는 속도에 맞춰 능동 발화나 제안 빈도를 조심스럽게 올려가는 식으로요. 개입 강도 자체가 또 하나의 사용자 입력이 되는 셈입니다.</p>
+          </div>
+        </div>
+
+        <div class="subsection" id="s4">
+          <h3 class="subsection-title">정책의 개인별 커스텀</h3>
+          <div class="prose">
+            <p>정책은 시스템이 언제 말하고 언제 침묵할지 정해둔 룰이에요. 금동이봇에는 "회피와 실행이 동시에 있을 때만 질문한다", "같은 회피가 반복될 때만 제안한다", "실행만 있는 메시지에는 칭찬만 한다" 같은 정책이 들어 있어요. 모두 제 회피 패턴과 받아들이는 톤에 맞춰 다듬은 룰이고요.</p>
+            <p>사람마다 회피의 모습도, 그것을 마주하는 방식도 다르니 정책도 개인별로 맞춰가야 해요. 어떤 사람은 회피 자체를 더 부드럽게 인정받고 싶을 수 있고, 어떤 사람은 빠른 전환 신호를 원할 수도 있어요. 누군가에게는 "오늘 잘했어"가 부담이고, 누군가에게는 가장 필요한 한 마디일 수 있거든요.</p>
+            <p>그래서 정책을 사용자가 직접 조정 가능한 룰셋처럼 두고, 시간이 지나면서 함께 다듬어가는 게 다음 단계의 실험이에요. 시스템이 자동으로 정책을 바꾸지는 않지만(자동 정책 변경 금지), 사용자가 "이 부분은 더 부드럽게 / 더 자주 / 더 적게"라고 신호를 주면 함께 조절해가는 구조. 정책이 한 번 정해지면 끝이 아니라, 사용 중에 같이 자라는 룰이 되는 거죠.</p>
+            <p>같은 5단계 골격 위에서 사람마다 다른 아이덴티티, 다른 개입 강도, 다른 정책이 얹힐 수 있어요. 도구를 환경으로 받아들이게 하는 건 결국 그 사람의 맥락과 기호에 얼마나 가까이 갔는가에 달려 있습니다. 앞으로 다른 사람에게 적용해보면서 이 가설을 직접 확인해 가려고 해요.</p>
           </div>
         </div>
 
@@ -139,8 +163,10 @@
   <script>
   (function () {
     var sections = [
-      { id: 's1', label: '5단계 틀로 정리되는 구조' },
-      { id: 's2', label: '다음 도메인의 워크플로우 실험' }
+      { id: 's1', label: '5단계 틀은 그대로' },
+      { id: 's2', label: '사람마다 다른 가까운 존재' },
+      { id: 's3', label: '기호에 따른 개입 강도' },
+      { id: 's4', label: '정책의 개인별 커스텀' }
     ];
     var wrap   = document.querySelector('.case-progress');
     var btn    = wrap && wrap.querySelector('.case-progress-btn');
