@@ -143,6 +143,13 @@ em { font-style: normal; }
 }
 .nav-links a:hover { color: var(--accent); }
 
+/* Mobile nav labels — compact text on narrow screens */
+.nav-label-mobile { display: none; }
+@media (max-width: 600px) {
+  .nav-label-full { display: none; }
+  .nav-label-mobile { display: inline; }
+}
+
 /* ==========================================================================
    Home — Hero
    ========================================================================== */
