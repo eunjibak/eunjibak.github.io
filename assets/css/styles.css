@@ -299,6 +299,17 @@ em { font-style: normal; }
 /* Draft / placeholder cards (Selected Work) */
 .case-card.is-draft { cursor: default; }
 .case-card.is-draft:hover { opacity: 1; }
+
+/* Locked cards (release-scheduled posts before unlock time) */
+.case-card.is-locked { cursor: default; opacity: 0.55; }
+.case-card.is-locked:hover { opacity: 0.55; }
+.case-card.is-locked:hover .case-arrow { transform: none; color: var(--ink-muted); }
+.case-arrow.case-countdown {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
 .case-status {
   font-size: 11px;
   color: var(--ink-muted);
